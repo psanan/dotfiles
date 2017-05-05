@@ -2,13 +2,13 @@
 # 
 # WARNING: this is not tested
 # WARNING: this is not portable; the settings below are for my OS X machine
-# WARNING: this uses ln -s -f, which will clobber things!
+# WARNING: this uses ln -sf, which will clobber things!
 
 PDSRCROOT=$HOME/pdsrc
-LINK="ln -s -f"
+LINK="ln -sf"
 
 $LINK $PDSRCROOT/bash_profile.sh $HOME/.bash_profile
-$LINK $PDSRCROOT/bashrc_osx.sh $HOME/.bashrc
-$LINK $PDSRCROOT/vimrc $HOME/.vimrc
-$LINK $PDSRCROOT/latexmkrc $HOME/.latexmkrc
-$LINK $PDSRCROOT/gdbinit $HOME/.gdbinit
+$LINK $PDSRCROOT/bashrc_osx.sh   $HOME/.bashrc
+$LINK $PDSRCROOT/vimrc           $HOME/.vimrc
+$LINK $PDSRCROOT/latexmkrc       $HOME/.latexmkrc
+$LINK $PDSRCROOT/gdbinit         $HOME/.gdbinit
