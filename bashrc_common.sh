@@ -38,17 +38,20 @@ PS1='\[\e[1;31m\][\[\e[0;33m\]\H: \[\e[1;31m\]\W\[\e[0;36m\]$(__git_ps1 " (%s)")
 
 ### PETSc #####################################################################
 
-# Quickly jump to PETSC_DIR and various commonly-used subdirectories
 alias cdp='cd $PETSC_DIR'
 alias cdk='cd $PETSC_DIR/src/ksp/ksp/examples/tutorials'
 alias cdt='cd $PETSC_DIR/src/ts/examples/tutorials'
 alias cdm='cd $PETSC_DIR/src/docs/tex/manual'
 
-#Alias to print out current values of PETSC_DIR and PETSC_ARCH (note single quotes to prevent immediate expansion)
-alias whichp='echo PETSC_ARCH = $PETSC_ARCH; echo PETSC_DIR = $PETSC_DIR; echo PMPI = $PMPI'
+whichp () {
+  echo -n 'PETSC_ARCH = '; echo $PETSC_ARCH
+  echo -n 'PETSC_DIR  = '; echo $PETSC_DIR
+  echo -n 'PMPI       = '; echo $PMPI
+}
+
 alias unsetp='unset PETSC_ARCH; unset PETSC_DIR; unset PMPI;'
 
-#Alias to print out the configure options for the current PETSC_ARCH and PETSC_DIR (won't work for PETSc <3.6)
+# Print out the configure options for the current PETSC_ARCH and PETSC_DIR (won't work for PETSc <3.6)
 alias confp='grep CONFIGURE_OPTIONS $PETSC_DIR/$PETSC_ARCH/lib/petsc/conf/petscvariables'
 
 #Aliases to set common PETSc configurations
