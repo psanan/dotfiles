@@ -22,6 +22,9 @@ nnoremap Q <nop>
 " Turn on mouse scrolling/selecting (works in iTerm2)
 :set mouse=a
 
+" Mouse double left click to toggle folds
+noremap <2-LeftMouse> za
+
 " line numbers and ruler
 set number
 set ruler
@@ -69,6 +72,9 @@ map <c-\>ff :set fdm=syntax<CR>
 imap <c-\>pc PETSC_COMM_WORLD
 imap <c-\>ch CHKERRQ(ierr);
 map  <c-\>pt :set tags=$PETSC_DIR/CTAGS<CR>
+
+" jump to tag, in new window
+map <c-\>tt :vsp<CR><c-w><c-l><c-]>
 
 " Shortcuts for common templates making beamer slides
 imap <c-\>fr \begin{frame}[fragile]<CR>\frametitle{}<CR><CR>\end{frame}<CR>
