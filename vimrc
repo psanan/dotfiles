@@ -9,6 +9,8 @@
 call plug#begin('~/.vim/plugged')
 Plug 'lervag/vimtex'                                                      
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
+Plug 'altercation/vim-colors-solarized'
+Plug 'scrooloose/nerdtree'
 call plug#end()
 
 "YouCompleteMe (YCM)
@@ -39,7 +41,8 @@ set shiftwidth=2
 
 " syntax highlighting and color scheme
 syntax on
-colorscheme slate
+"set background=dark
+colorscheme solarized
 let fortran_free_source=1
 
 " use C syntax highlighting for .cl files
