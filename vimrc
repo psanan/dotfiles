@@ -69,8 +69,9 @@ set wildmode=longest,list
 "Unset the "last search pattern" register by hitting return
 nnoremap <CR> :noh<CR><CR>
 
-" Shortcut to enable folding
-map <c-\>ff :set fdm=syntax<CR>
+" Folding
+set fdm=syntax
+set foldlevelstart=99 " this seems like a hack
 
 " Shortcuts for working with PETSc
 imap <c-\>pc PETSC_COMM_WORLD
