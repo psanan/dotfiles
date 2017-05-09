@@ -41,9 +41,10 @@ set shiftwidth=2
 
 " syntax highlighting and color scheme
 syntax on
-"set background=dark
 colorscheme solarized
+set background=dark
 let fortran_free_source=1
+set colorcolumn=80
 
 " use C syntax highlighting for .cl files
 autocmd BufNewFile,BufRead *.cl set syntax=c
