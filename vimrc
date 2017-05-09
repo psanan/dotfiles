@@ -38,8 +38,8 @@ set shiftwidth=2
 
 " syntax highlighting and color scheme
 syntax on
-"set background=dark
 colorscheme solarized
+set background=dark
 let fortran_free_source=1
 
 " use C syntax highlighting for .cl files
