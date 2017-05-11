@@ -1,16 +1,16 @@
 ################################################################################
-# Common .bashrc
-#
-# You must define PDSRC_ROOT before sourcing this
+# Common .bashrc                                                               #
+#                                                                              #
+# You must define PDSRC_ROOT before sourcing this                              #
 ################################################################################
 
-export HISTIGNORE="&:ls:pwd"        # Ignore duplicates and others in history
 export CLICOLOR=1;                  # colorize the terminal
 
-alias ll="ls -l"
-alias sb="source ~/.bashrc"
+alias   ll="ls -l"
+alias   sb="source ~/.bashrc"
 alias grep="grep --color='always'"
-alias vimr="vim -R"                 # Read-only with vim
+alias vimr="vim -R"                 # read-only with vim
+alias   mj="make -j"
 
 export PYTHONPATH=$PYTHONPATH:$HOME/pythontestharness/lib
 
@@ -62,8 +62,8 @@ alias confp='grep CONFIGURE_OPTIONS $PETSC_DIR/$PETSC_ARCH/lib/petsc/conf/petscv
 export PDS_PETSC_ARCHNAME="unknown"
 alias              setp='setpmaster'
 alias        setpmaster='export PETSC_DIR=$HOME/petsc-master;     export PETSC_ARCH=arch-$PDS_PETSC_ARCHNAME-master-double-debug;      export PMPI=$HOME/petsc-master/arch-$PDS_PETSC_ARCHNAME-master-double-debug/bin/mpiexec;         whichp'
-alias          setpopt='setpmasteropt'
-alias    setpmasteropt='export PETSC_DIR=$HOME/petsc-master;      export PETSC_ARCH=arch-$PDS_PETSC_ARCHNAME-master-double-opt;        export PMPI=$HOME/petsc-master/arch-$PDS_PETSC_ARCHNAME-master-double-opt/bin/mpiexec;           whichp'
+alias           setpopt='setpmasteropt'
+alias     setpmasteropt='export PETSC_DIR=$HOME/petsc-master;     export PETSC_ARCH=arch-$PDS_PETSC_ARCHNAME-master-double-opt;        export PMPI=$HOME/petsc-master/arch-$PDS_PETSC_ARCHNAME-master-double-opt/bin/mpiexec;           whichp'
 alias         setpmaint='export PETSC_DIR=$HOME/petsc-maint;      export PETSC_ARCH=arch-$PDS_PETSC_ARCHNAME-maint-double-debug;       export PMPI=$HOME/petsc-maint/arch-$PDS_PETSC_ARCHNAME-maint-double-debug/bin/mpiexec;           whichp'
 alias      setpmaintopt='export PETSC_DIR=$HOME/petsc-maint;      export PETSC_ARCH=arch-$PDS_PETSC_ARCHNAME-maint-double-opt;         export PMPI=$HOME/petsc-maint/arch-$PDS_PETSC_ARCHNAME-maint-double-opt/bin/mpiexec;             whichp'
 alias    setpmaintextra='export PETSC_DIR=$HOME/petsc-maint;      export PETSC_ARCH=arch-$PDS_PETSC_ARCHNAME-maint-double-extra-debug; export PMPI=$HOME/petsc-maint/arch-$PDS_PETSC_ARCHNAME-maint-double-extra-debug/bin/mpiexec;     whichp'
