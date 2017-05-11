@@ -9,15 +9,14 @@ flags = [
 '-x','c',                  # Change if not using C
 ]
 
-PETSC_ARCH=os.getenv('PETSC_ARCH',None)
-PETSC_DIR=os.getenv('PETSC_DIR',None)
+PETSC_DIR=os.getenv('PETSC_DIR')
+PETSC_ARCH=os.getenv('PETSC_ARCH')
+if PETSC_DIR :
+    flags.extend(['-I',PETSC_DIR+'/include',])
 if PETSC_ARCH and PETSC_DIR :
-    flags.extend([
-    '-I',PETSC_DIR+'/include',
-    '-I',PETSC_DIR+'/'+PETSC_ARCH+'/include',
-    ])
+    flags.extend(['-I',PETSC_DIR+'/'+PETSC_ARCH+'/include',])
 
-PTATIN_DIR=os.getenv('PTATIN_DIR',None)
+PTATIN_DIR=os.getenv('PTATIN_DIR')
 if PTATIN_DIR :
     flags.extend([
     '-I',PTATIN_DIR+'/include',
