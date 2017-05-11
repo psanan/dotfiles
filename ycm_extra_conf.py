@@ -4,7 +4,7 @@ import ycm_core
 flags = [
 '-Wall',
 '-Wextra',
-'-I','/opt/local/include',
+'-I','/opt/local/include', 
 '-std=c99',                # Change if not using C
 '-x','c',                  # Change if not using C
 ]
@@ -24,11 +24,9 @@ if PTATIN_DIR :
     '-I',PTATIN_DIR+'/src',
     ])
 
-################################################################################
 def DirectoryOfThisScript():
   return os.path.dirname( os.path.abspath( __file__ ) )
 
-################################################################################
 def MakeRelativePathsInFlagsAbsolute( flags, working_directory ):
   if not working_directory:
     return list( flags )
@@ -57,7 +55,6 @@ def MakeRelativePathsInFlagsAbsolute( flags, working_directory ):
       new_flags.append( new_flag )
   return new_flags
 
-################################################################################
 def FlagsForFile( filename, **kwargs ):
   relative_to = DirectoryOfThisScript()
   final_flags = MakeRelativePathsInFlagsAbsolute( flags, relative_to )
