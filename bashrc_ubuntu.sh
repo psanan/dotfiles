@@ -122,5 +122,3 @@ source $PDSRC_ROOT/bashrc_common.sh
 
 # PETSc
 export PDS_PETSC_ARCHNAME=ubuntu
-
-alias cdm="cd ~/magma-ocean/code/evolution/c/src_mpi"
