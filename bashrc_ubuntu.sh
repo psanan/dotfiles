@@ -117,7 +117,7 @@ fi
 ### The above all came with Ubuntu ############################################
 ### The below is custom ######################################################
 #Common
-PDSRC_ROOT=/home/patrick/pdsrc
+PDSRC_ROOT=$HOME/pdsrc
 source $PDSRC_ROOT/bashrc_common.sh
 
 # PETSc
