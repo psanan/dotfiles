@@ -43,7 +43,7 @@ alias cdk='cd $PETSC_DIR/src/ksp/ksp/examples/tutorials'
 alias cdt='cd $PETSC_DIR/src/ts/examples/tutorials'
 alias cdm='cd $PETSC_DIR/src/docs/tex/manual'
 
-whichp () {
+function whichp {
   echo -n 'PETSC_ARCH = '; echo $PETSC_ARCH
   echo -n 'PETSC_DIR  = '; echo $PETSC_DIR
   echo -n 'PMPI       = '; echo $PMPI
