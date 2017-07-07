@@ -26,13 +26,14 @@ alias cds="cd $SCRATCH"
 # color ls always
 alias ls="ls --color='always'"
 
-# For the new daint, load this (since this is the only part I even have an allocation on)
-# should add a check for if we are actually on daint...
-module load daint-gpu
-
 # A default PTATIN_DIR
 export PTATIN_DIR=$SCRATCH/ptatin3d
+export PTATIN_DIR_OLD=$SCRATCH/ptatin3d-oldavx
 
-# Load stuff we're using (not the best practice, but whatever)
-module load cudatoolkit
-#setpmaintopt
+# Hints on things we often do
+printf "You may want to doit\n"
+doit () {
+  module load daint-gpu cudatoolkit
+  setpmaintopt
+}
+type doit

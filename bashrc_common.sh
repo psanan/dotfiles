@@ -5,6 +5,7 @@
 ################################################################################
 
 export CLICOLOR=1;                  # colorize the terminal
+export HISTCONTROL=ignoredups       # do not ignore commands starting with space
 
 alias   ll="ls -l"
 alias   sb="source ~/.bashrc"
@@ -44,9 +45,11 @@ alias cdt='cd $PETSC_DIR/src/ts/examples/tutorials'
 alias cdm='cd $PETSC_DIR/src/docs/tex/manual'
 
 whichp () {
-  echo -n 'PETSC_ARCH = '; echo $PETSC_ARCH
-  echo -n 'PETSC_DIR  = '; echo $PETSC_DIR
-  echo -n 'PMPI       = '; echo $PMPI
+                                echo -n 'PETSC_ARCH = '; echo $PETSC_ARCH
+                                echo -n 'PETSC_DIR  = '; echo $PETSC_DIR
+                                echo -n 'PMPI       = '; echo $PMPI
+  if [ -n "$SLEPC_DIR" ];  then echo -n 'SLEPC_DIR  = '; echo $SLEPC_DIR;  fi
+  if [ -n "$PTATIN_DIR" ]; then echo -n 'PTATIN_DIR = '; echo $PTATIN_DIR; fi
 }
 
 alias unsetp='unset PETSC_ARCH; unset PETSC_DIR; unset PMPI;'
