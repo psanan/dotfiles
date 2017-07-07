@@ -5,17 +5,17 @@
 ################################################################################
 
 export CLICOLOR=1;                  # colorize the terminal
-export HISTCONTROL=ignoredups       # do not ignore commands starting with space
+export HISTCONTROL=ignoredups       # include commands starting with a space
 
 alias   ll="ls -l"
-alias   sb="source ~/.bashrc"
+alias   sb="source $HOME/.bashrc"
 alias grep="grep --color='always'"
 alias vimr="vim -R"                 # read-only with vim
 alias   mj="make -j"
 
 export PYTHONPATH=$PYTHONPATH:$HOME/pythontestharness/lib
 
-### Git #######################################################################
+### Git ########################################################################
 
 git config --global user.name "Patrick Sanan"
 git config --global user.email "patrick.sanan@gmail.com"
@@ -37,18 +37,18 @@ GIT_PS1_SHOWSTASHSTATE=true
 PS1='\[\e[1;31m\][\[\e[0;33m\]\H: \[\e[1;31m\]\W\[\e[0;36m\]$(__git_ps1 " (%s)")\[\e[1;31m\]]\$\[\e[0m\] '
 # Note: Don't forget the \[ \], or you'll have line-wrapping issues
 
-### PETSc #####################################################################
+### PETSc ######################################################################
 
 alias cdp='cd $PETSC_DIR'
 alias cdk='cd $PETSC_DIR/src/ksp/ksp/examples/tutorials'
 alias cdt='cd $PETSC_DIR/src/ts/examples/tutorials'
 alias cdm='cd $PETSC_DIR/src/docs/tex/manual'
 
-whichp () {
+function whichp {
                                 echo -n 'PETSC_ARCH = '; echo $PETSC_ARCH
                                 echo -n 'PETSC_DIR  = '; echo $PETSC_DIR
                                 echo -n 'PMPI       = '; echo $PMPI
-  if [ -n "$SLEPC_DIR" ];  then echo -n 'SLEPC_DIR  = '; echo $SLEPC_DIR;  fi
+  if [ -n "$SLEPC_DIR"  ]; then echo -n 'SLEPC_DIR  = '; echo $SLEPC_DIR;  fi
   if [ -n "$PTATIN_DIR" ]; then echo -n 'PTATIN_DIR = '; echo $PTATIN_DIR; fi
 }
 

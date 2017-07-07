@@ -12,3 +12,4 @@ $LINK $PDSRCROOT/bashrc_osx.sh   $HOME/.bashrc
 $LINK $PDSRCROOT/vimrc           $HOME/.vimrc
 $LINK $PDSRCROOT/latexmkrc       $HOME/.latexmkrc
 $LINK $PDSRCROOT/gdbinit         $HOME/.gdbinit
+$LINK $PDSRCROOT/octaverc        $HOME/.octaverc

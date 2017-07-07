@@ -42,9 +42,17 @@ set shiftwidth=2
 " syntax highlighting and color scheme
 syntax on
 colorscheme solarized
+if has("gui_macvim")
+set background=light
+else
 set background=dark
+endif
 let fortran_free_source=1
-set colorcolumn=80
+set colorcolumn=81
+
+" Highlight trailing whitespace
+highlight ExtraWhitespace ctermbg=grey guibg=red
+match ExtraWhitespace /\s\+$/
 
 " use C syntax highlighting for .cl files
 autocmd BufNewFile,BufRead *.cl set syntax=c
@@ -85,3 +93,6 @@ map <c-\>tt :vsp<CR><c-w><c-l><c-]>
 imap <c-\>fr \begin{frame}[fragile]<CR>\frametitle{}<CR><CR>\end{frame}<CR>
 imap <c-\>ir \begin{itemize}<CR>\item<CR>\end{itemize}<CR>
 imap <c-\>ls \begin{lstlisting}<CR><CR>\end{lstlisting}<CR>
+
+" For MacVim
+set gfn=Menlo:h14
