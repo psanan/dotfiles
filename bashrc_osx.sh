@@ -10,6 +10,7 @@ export PYTHONPATH=$PYTHONPATH:/Users/patrick/pythontestharness/lib
 
 # PETSc
 export PDS_PETSC_ARCHNAME=darwin
+export PTATIN_DIR=$HOME/ptatin3d
 
 # Prompt, without hostname
 # ( Don't forget the \[ \], or you'll have line-wrapping issues )
@@ -38,8 +39,8 @@ function title {
 }
 
 # Ideatron
-alias iii="cd ~/Ideatron;python3 runme.py;cd -"
+alias iii="cd $HOME/Ideatron;python3 runme.py;cd -"
 export IDEATRON_DATA_DIR=/Users/patrick/Google\ Drive/Ideatron_data
 
-source ~/.helpers.sh
-
+source $HOME/.helpers.sh
+source $HOME/pdsnotes/helpers.sh
