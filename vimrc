@@ -42,11 +42,7 @@ set shiftwidth=2
 " syntax highlighting and color scheme
 syntax on
 colorscheme solarized
-if has("gui_macvim")
 set background=light
-else
-set background=dark
-endif
 let fortran_free_source=1
 set colorcolumn=81
 
