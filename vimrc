@@ -7,16 +7,16 @@
 "   :PlugInstall
 "
 call plug#begin('~/.vim/plugged')
-Plug 'lervag/vimtex'                                                      
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
 Plug 'altercation/vim-colors-solarized'
 Plug 'scrooloose/nerdtree'
 call plug#end()
 
-"YouCompleteMe (YCM)
+"YouCompleteMe
 let g:ycm_confirm_extra_conf = 0 " unsafe!
 let g:ycm_global_ycm_extra_conf = "~/pdsrc/ycm_extra_conf.py"
 let g:ycm_always_populate_location_list = 1 " use with :lne :lp
+let g:ycm_autoclose_preview_window_after_completion = 1
 
 " Disable ex mode
 nnoremap Q <nop>
@@ -37,6 +37,7 @@ set backspace=indent,eol,start
 " tabs instead of spaces, PETSc spacing [2 chars for tabs]
 set expandtab
 set tabstop=2
+set softtabstop=2
 set shiftwidth=2
 
 " syntax highlighting and color scheme
@@ -77,6 +78,9 @@ nnoremap <CR> :noh<CR><CR>
 set fdm=syntax
 set foldlevelstart=99 " this seems like a hack
 
+" Kill all trailing whitespace with F3 (careful)
+map <F3> :%s/\s\+$//<CR>
+
 " Shortcuts for working with PETSc
 imap <c-\>pc PETSC_COMM_WORLD
 imap <c-\>ch CHKERRQ(ierr);
@@ -90,5 +94,5 @@ imap <c-\>fr \begin{frame}[fragile]<CR>\frametitle{}<CR><CR>\end{frame}<CR>
 imap <c-\>ir \begin{itemize}<CR>\item<CR>\end{itemize}<CR>
 imap <c-\>ls \begin{lstlisting}<CR><CR>\end{lstlisting}<CR>
 
-" For MacVim
+" Larger text for MacVim
 set gfn=Menlo:h14
