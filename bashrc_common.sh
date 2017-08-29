@@ -11,7 +11,7 @@ alias   ll="ls -l"
 alias   sb="source $HOME/.bashrc"
 alias grep="grep --color='always'"
 alias vimr="vim -R"                 # read-only with vim
-alias   mj="make -j"
+alias   mj="make -j8"               # -j causes forking problems sometimes
 
 export PYTHONPATH=$PYTHONPATH:$HOME/pythontestharness/lib
 
@@ -20,11 +20,11 @@ export PYTHONPATH=$PYTHONPATH:$HOME/pythontestharness/lib
 git config --global user.name "Patrick Sanan"
 git config --global user.email "patrick.sanan@gmail.com"
 git config --global color.status auto
-git config --global color.branch auto 
+git config --global color.branch auto
 git config --global push.default tracking
 git config --global core.editor vim
 
-source $PDSRC_ROOT/git-completion.bash 
+source $PDSRC_ROOT/git-completion.bash
 
 alias gitlog="git log --graph --pretty=format:\"%h - %an, %ar : %s %d\""
 alias   gits="git status --short"
@@ -62,9 +62,10 @@ alias confp='grep CONFIGURE_OPTIONS $PETSC_DIR/$PETSC_ARCH/lib/petsc/conf/petscv
 #  a given directory, and to allow the arch alone to identify the build
 # (see petsc_configure*.sh in the petsc_configure_helpers repo)
 # These require PDS_PETSC_ARCHNAME to be set
+# TODO: wrap this up in a function to reduce duplication
 export PDS_PETSC_ARCHNAME="unknown"
-alias              setp='setpmaster'
 alias        setpmaster='export PETSC_DIR=$HOME/petsc-master;     export PETSC_ARCH=arch-$PDS_PETSC_ARCHNAME-master-double-debug;      export PMPI=$HOME/petsc-master/arch-$PDS_PETSC_ARCHNAME-master-double-debug/bin/mpiexec;         whichp'
+alias     setpmaster128='export PETSC_DIR=$HOME/petsc-master;     export PETSC_ARCH=arch-$PDS_PETSC_ARCHNAME-master-float128-debug;    export PMPI=$HOME/petsc-master/arch-$PDS_PETSC_ARCHNAME-master-float128-debug/bin/mpiexec;       whichp'
 alias           setpopt='setpmasteropt'
 alias     setpmasteropt='export PETSC_DIR=$HOME/petsc-master;     export PETSC_ARCH=arch-$PDS_PETSC_ARCHNAME-master-double-opt;        export PMPI=$HOME/petsc-master/arch-$PDS_PETSC_ARCHNAME-master-double-opt/bin/mpiexec;           whichp'
 alias         setpmaint='export PETSC_DIR=$HOME/petsc-maint;      export PETSC_ARCH=arch-$PDS_PETSC_ARCHNAME-maint-double-debug;       export PMPI=$HOME/petsc-maint/arch-$PDS_PETSC_ARCHNAME-maint-double-debug/bin/mpiexec;           whichp'
@@ -73,8 +74,8 @@ alias    setpmaintextra='export PETSC_DIR=$HOME/petsc-maint;      export PETSC_A
 alias setpmaintextraopt='export PETSC_DIR=$HOME/petsc-maint;      export PETSC_ARCH=arch-$PDS_PETSC_ARCHNAME-maint-double-extra-opt;   export PMPI=$HOME/petsc-maint/arch-$PDS_PETSC_ARCHNAME-maint-double-extra-opt/bin/mpiexec;       whichp'
 alias setpmaintoptextra='setpmaintextraopt'
 alias           setpdoc='export PETSC_DIR=$HOME/petsc-docproject; export PETSC_ARCH=arch-$PDS_PETSC_ARCHNAME-docproject-double-debug;  export PMPI=$HOME/petsc-docproject/arch-$PDS_PETSC_ARCHNAME-docproject-double-debug/bin/mpiexec; whichp'
-alias      setpmaint128='export PETSC_DIR=$HOME/petsc-maint;      export PETSC_ARCH=arch-$PDS_PETSC_ARCHNAME-float128-debug;           export PMPI=$HOME/petsc-maint/arch-$PDS_PETSC_ARCHNAME-float128-debug/bin/mpiexec;               whichp'
-alias   setpmaintopt128='export PETSC_DIR=$HOME/petsc-maint;      export PETSC_ARCH=arch-$PDS_PETSC_ARCHNAME-float128-opt;             export PMPI=$HOME/petsc-maint/arch-$PDS_PETSC_ARCHNAME-float128-opt/bin/mpiexec;                 whichp'
+alias      setpmaint128='export PETSC_DIR=$HOME/petsc-maint;      export PETSC_ARCH=arch-$PDS_PETSC_ARCHNAME-maint-float128-debug;     export PMPI=$HOME/petsc-maint/arch-$PDS_PETSC_ARCHNAME-maint-float128-debug/bin/mpiexec;         whichp'
+alias   setpmaintopt128='export PETSC_DIR=$HOME/petsc-maint;      export PETSC_ARCH=arch-$PDS_PETSC_ARCHNAME-maint-float128-opt;       export PMPI=$HOME/petsc-maint/arch-$PDS_PETSC_ARCHNAME-maint-float128-opt/bin/mpiexec;           whichp'
 alias   setpmaint128opt='setpmaintopt128'
 
 # A default PTATIN_DIR
