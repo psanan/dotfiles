@@ -73,8 +73,8 @@ alias    setpmaintextra='export PETSC_DIR=$HOME/petsc-maint;      export PETSC_A
 alias setpmaintextraopt='export PETSC_DIR=$HOME/petsc-maint;      export PETSC_ARCH=arch-$PDS_PETSC_ARCHNAME-maint-double-extra-opt;   export PMPI=$HOME/petsc-maint/arch-$PDS_PETSC_ARCHNAME-maint-double-extra-opt/bin/mpiexec;       whichp'
 alias setpmaintoptextra='setpmaintextraopt'
 alias           setpdoc='export PETSC_DIR=$HOME/petsc-docproject; export PETSC_ARCH=arch-$PDS_PETSC_ARCHNAME-docproject-double-debug;  export PMPI=$HOME/petsc-docproject/arch-$PDS_PETSC_ARCHNAME-docproject-double-debug/bin/mpiexec; whichp'
-alias      setpmaint128='export PETSC_DIR=$HOME/petsc-maint;      export PETSC_ARCH=arch-$PDS_PETSC_ARCHNAME-float128-debug;           export PMPI=$HOME/petsc-maint/arch-$PDS_PETSC_ARCHNAME-float128-debug/bin/mpiexec;               whichp'
-alias   setpmaintopt128='export PETSC_DIR=$HOME/petsc-maint;      export PETSC_ARCH=arch-$PDS_PETSC_ARCHNAME-float128-opt;             export PMPI=$HOME/petsc-maint/arch-$PDS_PETSC_ARCHNAME-float128-opt/bin/mpiexec;                 whichp'
+alias      setpmaint128='export PETSC_DIR=$HOME/petsc-maint;      export PETSC_ARCH=arch-$PDS_PETSC_ARCHNAME-maint-float128-debug;     export PMPI=$HOME/petsc-maint/arch-$PDS_PETSC_ARCHNAME-float128-debug/bin/mpiexec;         whichp'
+alias   setpmaintopt128='export PETSC_DIR=$HOME/petsc-maint;      export PETSC_ARCH=arch-$PDS_PETSC_ARCHNAME-maint-float128-opt;       export PMPI=$HOME/petsc-maint/arch-$PDS_PETSC_ARCHNAME-float128-opt/bin/mpiexec;           whichp'
 alias   setpmaint128opt='setpmaintopt128'
 
 # A default PTATIN_DIR
