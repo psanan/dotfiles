@@ -62,26 +62,45 @@ alias confp='grep CONFIGURE_OPTIONS $PETSC_DIR/$PETSC_ARCH/lib/petsc/conf/petscv
 #  a given directory, and to allow the arch alone to identify the build
 # (see petsc_configure*.sh in the petsc_configure_helpers repo)
 # These require PDS_PETSC_ARCHNAME to be set
-# TODO: wrap this up in a function to reduce duplication
 export PDS_PETSC_ARCHNAME="unknown"
-alias        setpmaster='export PETSC_DIR=$HOME/petsc-master;     export PETSC_ARCH=arch-$PDS_PETSC_ARCHNAME-master-double-debug;      export PMPI=$HOME/petsc-master/arch-$PDS_PETSC_ARCHNAME-master-double-debug/bin/mpiexec;         whichp'
-alias     setpmaster128='export PETSC_DIR=$HOME/petsc-master;     export PETSC_ARCH=arch-$PDS_PETSC_ARCHNAME-master-float128-debug;    export PMPI=$HOME/petsc-master/arch-$PDS_PETSC_ARCHNAME-master-float128-debug/bin/mpiexec;       whichp'
-alias           setpopt='setpmasteropt'
-alias     setpmasteropt='export PETSC_DIR=$HOME/petsc-master;     export PETSC_ARCH=arch-$PDS_PETSC_ARCHNAME-master-double-opt;        export PMPI=$HOME/petsc-master/arch-$PDS_PETSC_ARCHNAME-master-double-opt/bin/mpiexec;           whichp'
-alias         setpmaint='export PETSC_DIR=$HOME/petsc-maint;      export PETSC_ARCH=arch-$PDS_PETSC_ARCHNAME-maint-double-debug;       export PMPI=$HOME/petsc-maint/arch-$PDS_PETSC_ARCHNAME-maint-double-debug/bin/mpiexec;           whichp'
-alias      setpmaintopt='export PETSC_DIR=$HOME/petsc-maint;      export PETSC_ARCH=arch-$PDS_PETSC_ARCHNAME-maint-double-opt;         export PMPI=$HOME/petsc-maint/arch-$PDS_PETSC_ARCHNAME-maint-double-opt/bin/mpiexec;             whichp'
-alias    setpmaintextra='export PETSC_DIR=$HOME/petsc-maint;      export PETSC_ARCH=arch-$PDS_PETSC_ARCHNAME-maint-double-extra-debug; export PMPI=$HOME/petsc-maint/arch-$PDS_PETSC_ARCHNAME-maint-double-extra-debug/bin/mpiexec;     whichp'
-alias setpmaintextraopt='export PETSC_DIR=$HOME/petsc-maint;      export PETSC_ARCH=arch-$PDS_PETSC_ARCHNAME-maint-double-extra-opt;   export PMPI=$HOME/petsc-maint/arch-$PDS_PETSC_ARCHNAME-maint-double-extra-opt/bin/mpiexec;       whichp'
-alias setpmaintoptextra='setpmaintextraopt'
-alias         setp3.7='export PETSC_DIR=$HOME/petsc-3.7;      export PETSC_ARCH=arch-$PDS_PETSC_ARCHNAME-3.7-double-debug;       export PMPI=$HOME/petsc-3.7/arch-$PDS_PETSC_ARCHNAME-3.7-double-debug/bin/mpiexec;           whichp'
-alias      setp3.7opt='export PETSC_DIR=$HOME/petsc-3.7;      export PETSC_ARCH=arch-$PDS_PETSC_ARCHNAME-3.7-double-opt;         export PMPI=$HOME/petsc-3.7/arch-$PDS_PETSC_ARCHNAME-3.7-double-opt/bin/mpiexec;             whichp'
-alias    setp3.7extra='export PETSC_DIR=$HOME/petsc-3.7;      export PETSC_ARCH=arch-$PDS_PETSC_ARCHNAME-3.7-double-extra-debug; export PMPI=$HOME/petsc-3.7/arch-$PDS_PETSC_ARCHNAME-3.7-double-extra-debug/bin/mpiexec;     whichp'
-alias setp3.7extraopt='export PETSC_DIR=$HOME/petsc-3.7;      export PETSC_ARCH=arch-$PDS_PETSC_ARCHNAME-3.7-double-extra-opt;   export PMPI=$HOME/petsc-3.7/arch-$PDS_PETSC_ARCHNAME-3.7-double-extra-opt/bin/mpiexec;       whichp'
-alias setp3.7optextra='setp3.7extraopt'
-alias           setpdoc='export PETSC_DIR=$HOME/petsc-docproject; export PETSC_ARCH=arch-$PDS_PETSC_ARCHNAME-docproject-double-debug;  export PMPI=$HOME/petsc-docproject/arch-$PDS_PETSC_ARCHNAME-docproject-double-debug/bin/mpiexec; whichp'
-alias      setpmaint128='export PETSC_DIR=$HOME/petsc-maint;      export PETSC_ARCH=arch-$PDS_PETSC_ARCHNAME-maint-float128-debug;     export PMPI=$HOME/petsc-maint/arch-$PDS_PETSC_ARCHNAME-maint-float128-debug/bin/mpiexec;         whichp'
-alias   setpmaintopt128='export PETSC_DIR=$HOME/petsc-maint;      export PETSC_ARCH=arch-$PDS_PETSC_ARCHNAME-maint-float128-opt;       export PMPI=$HOME/petsc-maint/arch-$PDS_PETSC_ARCHNAME-maint-float128-opt/bin/mpiexec;           whichp'
-alias   setpmaint128opt='setpmaintopt128'
+# Usage: setp <archmod> <precision-extra-opt-etc>
+function setp {
+  local ARCHMOD=$1
+  local MOREMODS=$2
+  export PETSC_DIR=$HOME/petsc-$ARCHMOD
+  export PETSC_ARCH=arch-$PDS_PETSC_ARCHNAME-$MOREMODS
+  export PMPI=$PETSC_DIR/$PETSC_ARCH/bin/mpiexec
+  whichp
+}
+alias setpmaster="setp master double-debug"
+alias setpmasteropt="setp master double-opt"
+alias setpmaster128="setp master float128-debug"
+alias setpmaster128opt="setp master float128-opt"
+alias setpmasteropt128="setpmaster128opt"
+alias setpmasterextra="setp master double-extra-debug"
+alias setpmasterextraopt="setp master double-extra-opt"
+alias setpmasteroptextra="setpmasterextraopt"
+alias setpmaint="setp maint double-debug"
+alias setpmaintopt="setp maint double-opt"
+alias setpmaint128="setp maint float128-debug"
+alias setpmaint128opt="setp maint float128-opt"
+alias setpmaintopt128="setpmaint128opt"
+alias setpmaintextra="setp maint double-extra-debug"
+alias setpmaintsingleextra="setp maint single-extra-debug"
+alias setpmaintextrasingle="setpmaintsingleextra"
+alias setpmaintsingleextraopt="setp maint single-extra-opt"
+alias setpmaintsingleoptextra="setpmaintsingleextraopt"
+alias setpmaintextraopt="setp maint double-extra-opt"
+alias setpmaintoptextra="setpmaintextraopt"
+alias setp3.7="setp 3.7 double-debug"
+alias setp3.7opt="setp 3.7 double-opt"
+alias setp3.7128="setp 3.7 float128-debug"
+alias setp3.7128opt="setp 3.7 float128-opt"
+alias setp3.7opt128="setp3.7128opt"
+alias setp3.7extra="setp 3.7 double-extra-debug"
+alias setp3.7extraopt="setp 3.7 double-extra-opt"
+alias setp3.7optextra="setp3.7extraopt"
+alias setpdoc="setp docproject double-debug"
 
 # A default PTATIN_DIR
 export PTATIN_DIR=$HOME/ptatin3d
