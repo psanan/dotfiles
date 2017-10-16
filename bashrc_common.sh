@@ -68,7 +68,7 @@ function setp {
   local ARCHMOD=$1
   local MOREMODS=$2
   export PETSC_DIR=$HOME/petsc-$ARCHMOD
-  export PETSC_ARCH=arch-$PDS_PETSC_ARCHNAME-$MOREMODS
+  export PETSC_ARCH=arch-$PDS_PETSC_ARCHNAME-$ARCHMOD-$MOREMODS
   export PMPI=$PETSC_DIR/$PETSC_ARCH/bin/mpiexec
   whichp
 }
