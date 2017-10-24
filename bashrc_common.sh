@@ -68,7 +68,7 @@ function setp {
   local ARCHMOD=$1
   local MOREMODS=$2
   export PETSC_DIR=$HOME/petsc-$ARCHMOD
-  export PETSC_ARCH=arch-$PDS_PETSC_ARCHNAME-$MOREMODS
+  export PETSC_ARCH=arch-$PDS_PETSC_ARCHNAME-$ARCHMOD-$MOREMODS
   export PMPI=$PETSC_DIR/$PETSC_ARCH/bin/mpiexec
   whichp
 }
@@ -90,6 +90,8 @@ alias setpmaintsingleextra="setp maint single-extra-debug"
 alias setpmaintextrasingle="setpmaintsingleextra"
 alias setpmaintsingleextraopt="setp maint single-extra-opt"
 alias setpmaintsingleoptextra="setpmaintsingleextraopt"
+alias setpmaintextrasingleopt="setpmaintsingleextraopt"
+alias setpmaintoptextrasingle="setpmaintsingleextraopt"
 alias setpmaintextraopt="setp maint double-extra-opt"
 alias setpmaintoptextra="setpmaintextraopt"
 alias setp3.7="setp 3.7 double-debug"
