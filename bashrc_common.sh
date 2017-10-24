@@ -42,7 +42,6 @@ PS1='\[\e[1;31m\][\[\e[0;33m\]\H: \[\e[1;31m\]\W\[\e[0;36m\]$(__git_ps1 " (%s)")
 alias cdp='cd $PETSC_DIR'
 alias cdk='cd $PETSC_DIR/src/ksp/ksp/examples/tutorials'
 alias cdt='cd $PETSC_DIR/src/ts/examples/tutorials'
-alias cdm='cd $PETSC_DIR/src/docs/tex/manual'
 
 function whichp {
                                 echo -n 'PETSC_ARCH = '; echo $PETSC_ARCH
