@@ -42,8 +42,10 @@ set shiftwidth=2
 
 " syntax highlighting and color scheme
 syntax on
+let g:solarized_termcolors=256
 colorscheme solarized
 set background=light
+set t_Co=256
 let fortran_free_source=1
 set colorcolumn=81
 
