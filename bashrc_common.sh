@@ -61,7 +61,7 @@ alias confp='grep CONFIGURE_OPTIONS $PETSC_DIR/$PETSC_ARCH/lib/petsc/conf/petscv
 #  a given directory, and to allow the arch alone to identify the build
 # (see petsc_configure*.sh in the petsc_configure_helpers repo)
 # These require PDS_PETSC_ARCHNAME to be set
-export PDS_PETSC_ARCHNAME="unknown"
+export PDS_PETSC_ARCHNAME=${PDS_PETSC_ARCHNAME:-unknown}
 # Usage: setp <archmod> <precision-extra-opt-etc>
 function setp {
   local ARCHMOD=$1
