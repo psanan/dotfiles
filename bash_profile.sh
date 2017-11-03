@@ -1,3 +1,6 @@
+export PATH=$HOME/meshio/tools:$PATH
+export PYTHONPATH=$HOME/meshio:$PYTHONPATH
+
 source ~/.profile
 source ~/.bashrc
 
