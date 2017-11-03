@@ -83,13 +83,15 @@ set foldlevelstart=99 " this seems like a hack
 " Kill all trailing whitespace with F3 (careful)
 map <F3> :%s/\s\+$//<CR>
 
+" Default tags to PETSc ctags
+set tags=$PETSC_DIR/CTAGS
+
+" Shortcut to jump to tag, in new window
+map <c-\>tt :vsp<CR><c-w><c-l><c-]>
+
 " Shortcuts for working with PETSc
 imap <c-\>pc PETSC_COMM_WORLD
 imap <c-\>ch CHKERRQ(ierr);
-map  <c-\>pt :set tags=$PETSC_DIR/CTAGS<CR>
-
-" jump to tag, in new window
-map <c-\>tt :vsp<CR><c-w><c-l><c-]>
 
 " Shortcuts for common templates making beamer slides
 imap <c-\>fr \begin{frame}[fragile]<CR>\frametitle{}<CR><CR>\end{frame}<CR>
