@@ -50,8 +50,8 @@ let fortran_free_source=1
 set colorcolumn=81
 
 " Highlight trailing whitespace
-highlight ExtraWhitespace ctermbg=grey guibg=red
-match ExtraWhitespace /\s\+$/
+"highlight ExtraWhitespace ctermbg=grey guibg=red
+"match ExtraWhitespace /\s\+$/
 
 " use C syntax highlighting for .cl files
 autocmd BufNewFile,BufRead *.cl set syntax=c
