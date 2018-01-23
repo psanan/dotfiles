@@ -10,12 +10,14 @@ call plug#begin('~/.vim/plugged')
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
 Plug 'altercation/vim-colors-solarized'
 Plug 'scrooloose/nerdtree'
+Plug 'tpope/vim-fugitive'
 call plug#end()
 
 "YouCompleteMe
+" Note: we don't set anything here to do otherwise, so if you want to
+"       search header files for completions, you must type <c-Space>
 let g:ycm_confirm_extra_conf = 0 " unsafe!
 let g:ycm_global_ycm_extra_conf = "~/pdsrc/ycm_extra_conf.py"
-let g:ycm_always_populate_location_list = 1 " use with :lne :lp
 let g:ycm_autoclose_preview_window_after_completion = 1
 
 " Disable ex mode
@@ -41,11 +43,12 @@ set softtabstop=2
 set shiftwidth=2
 
 " syntax highlighting and color scheme
+" (the two commented-out ones change the color on OS X, but may be required elsewhere)
 syntax on
-let g:solarized_termcolors=256
+"let g:solarized_termcolors=256
 colorscheme solarized
 set background=light
-set t_Co=256
+"set t_Co=256
 let fortran_free_source=1
 set colorcolumn=81
 
@@ -92,6 +95,9 @@ map <c-\>tt :vsp<CR><c-w><c-l><c-]>
 " Shortcuts for working with PETSc
 imap <c-\>pc PETSC_COMM_WORLD
 imap <c-\>ch CHKERRQ(ierr);
+imap <c-\>pf PetscErrorCode func()<CR>{<CR>  PetscErrorCode ierr;<CR><CR>PetscFunctionBeginUser;<CR><CR>PetscFunctionReturn(0);<CR><BS>}<CR>
+imap <c-\>ff for (i=0; i<XXX; ++i)
+imap <c-\>pp ierr = PetscPrintf(PETSC_COMM_WORLD,"---\n");CHKERRQ(ierr);
 
 " Shortcuts for common templates making beamer slides
 imap <c-\>fr \begin{frame}[fragile]<CR>\frametitle{}<CR><CR>\end{frame}<CR>
