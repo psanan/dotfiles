@@ -102,6 +102,8 @@ alias setp3.7extra="setp 3.7 double-extra-debug"
 alias setp3.7extraopt="setp 3.7 double-extra-opt"
 alias setp3.7optextra="setp3.7extraopt"
 alias setpdoc="setp docproject double-debug"
+alias setpstagblextra="setp stagbl double-extra-debug"
+alias setpstagblextraopt="setp stagbl double-extra-opt"
 
 # A default PTATIN_DIR
 export PTATIN_DIR=$HOME/ptatin3d
