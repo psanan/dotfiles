@@ -8,7 +8,7 @@ export CLICOLOR=1;                  # colorize the terminal
 export HISTCONTROL=ignoredups       # include commands starting with a space
 
 alias   ll="ls -l"
-alias   sb="source $HOME/.bashrc"
+alias   sb="source $HOME/.bash_profile"
 alias grep="grep --color='always'"
 alias vimr="vim -R"                 # read-only with vim
 alias   mj="make -j8"               # -j causes forking problems sometimes
