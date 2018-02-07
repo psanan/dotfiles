@@ -13,7 +13,6 @@ source $PDSRC_ROOT/bashrc_common.sh
 alias setpmaintopt="export PETSC_DIR=/users/psanan/petsc-maint; export PETSC_ARCH=arch-cray-xc50-daint;  whichp; module load PrgEnv-cray; echo Note: modules changed!"
 alias setpmaintoptgnu="export PETSC_DIR=/users/psanan/petsc-maint; export PETSC_ARCH=arch-gnu-xc50-daint; whichp; module unload PrgEnv-cray; module load PrgEnv-gnu; module load cudatoolkit; echo \"Note: modules changed!\""
 alias setp3.7opt="export PETSC_DIR=/users/psanan/petsc-3.7; export PETSC_ARCH=arch-cray-xc50-daint;  whichp; module load PrgEnv-cray; echo Note: modules changed!"
-alias setpsalvus="export PETSC_DIR=/users/psanan/petsc-maint; export PETSC_ARCH=arch-gnu-xc50-daint-double-extra; whichp; module unload PrgEnv-cray; module load PrgEnv-gnu cray-trilinos cray-netcdf-hdf5parallel cray-hdf5-parallel; echo \"Note: modules changed!\""
 
 # Shortcut to watch my jobs
 alias ww="watch -n 0.5 squeue -u psanan"

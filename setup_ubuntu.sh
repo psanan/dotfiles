@@ -8,6 +8,7 @@
 PDSRCROOT=$HOME/pdsrc
 LINK="ln -sf"
 
+$LINK $PDSRCROOT/profile_linux.sh $HOME/.profile
 $LINK $PDSRCROOT/bash_profile.sh  $HOME/.bash_profile
 $LINK $PDSRCROOT/bashrc_ubuntu.sh $HOME/.bashrc
 $LINK $PDSRCROOT/vimrc            $HOME/.vimrc
