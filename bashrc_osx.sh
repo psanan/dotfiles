@@ -51,6 +51,3 @@ export IDEATRON_DATA_DIR=/Users/patrick/Google\ Drive/Ideatron_data
 
 source $HOME/.helpers.sh
 source $HOME/pdsnotes/helpers.sh
-
-# Magma ocean shorcut
-alias cdm="cd $HOME/magma-ocean/code/evolution/c/src_mpi"
