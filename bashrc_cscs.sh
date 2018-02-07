@@ -21,9 +21,6 @@ alias wwi="watch -n 0.5 squeue -u psanan --sort=i" #order by job id
 # cd to scratch dir
 alias cds="cd $SCRATCH"
 
-# color ls always
-alias ls="ls --color='always'"
-
 # A default PTATIN_DIR
 export PTATIN_DIR=$SCRATCH/ptatin3d
 export PTATIN_DIR_PERF=$SCRATCH/ptatin3d-perf
