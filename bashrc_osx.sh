@@ -5,9 +5,6 @@ source $PDSRC_ROOT/bashrc_common.sh
 # To use MacVim. This is a kludge
 export VIMRUNTIME=/Applications/MacVim.app/Contents/Resources/vim/runtime
 
-# For python test harness
-export PYTHONPATH=$PYTHONPATH:/Users/patrick/pythontestharness/lib
-
 # PETSc
 export PDS_PETSC_ARCHNAME=darwin
 export PTATIN_DIR=$HOME/ptatin3d
