@@ -10,7 +10,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
 Plug 'altercation/vim-colors-solarized'
 Plug 'scrooloose/nerdtree'
-Plug 'tpope/vim-fugitive'
 call plug#end()
 
 "YouCompleteMe
