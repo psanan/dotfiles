@@ -9,7 +9,6 @@ export HISTCONTROL=ignoredups       # include commands starting with a space
 
 alias   ll="ls -l"
 alias   sb="source $HOME/.bash_profile"
-alias grep="grep --color='always'"
 alias vimr="vim -R"                 # read-only with vim
 alias   mj="make -j8"               # -j causes forking problems sometimes
 
@@ -56,14 +55,13 @@ alias unsetp='unset PETSC_ARCH; unset PETSC_DIR; unset PMPI;'
 # Print out the configure options for the current PETSC_ARCH and PETSC_DIR (won't work for PETSc <3.6)
 alias confp='grep CONFIGURE_OPTIONS $PETSC_DIR/$PETSC_ARCH/lib/petsc/conf/petscvariables'
 
-#Aliases to set common PETSc configurations
-# We always include the branch name, to allow for auxiliary branches in
-#  a given directory, and to allow the arch alone to identify the build
-# (see petsc_configure*.sh in the petsc_configure_helpers repo)
-# These require PDS_PETSC_ARCHNAME to be set
+# Aliases to set common PETSc configurations. We always include the branch name,
+# to allow for auxiliary branches in a given directory, and to allow the arch
+# alone to identify the build (see petsc_configure*.sh in the
+# petsc_configure_helpers repo). These require PDS_PETSC_ARCHNAME to be set
 export PDS_PETSC_ARCHNAME=${PDS_PETSC_ARCHNAME:-unknown}
-# Usage: setp <archmod> <precision-extra-opt-etc>
 function setp {
+# Usage: setp <archmod> <precision-extra-opt-etc>
   local ARCHMOD=$1
   local MOREMODS=$2
   export PETSC_DIR=$HOME/petsc-$ARCHMOD
@@ -93,6 +91,8 @@ alias setpmaintextrasingleopt="setpmaintsingleextraopt"
 alias setpmaintoptextrasingle="setpmaintsingleextraopt"
 alias setpmaintextraopt="setp maint double-extra-opt"
 alias setpmaintoptextra="setpmaintextraopt"
+alias setp3.5="setp 3.5 double-debug"
+alias setp3.5opt="setp 3.5 double-opt"
 alias setp3.7="setp 3.7 double-debug"
 alias setp3.7opt="setp 3.7 double-opt"
 alias setp3.7128="setp 3.7 float128-debug"
@@ -102,6 +102,8 @@ alias setp3.7extra="setp 3.7 double-extra-debug"
 alias setp3.7extraopt="setp 3.7 double-extra-opt"
 alias setp3.7optextra="setp3.7extraopt"
 alias setpdoc="setp docproject double-debug"
+alias setpstagbl="setp stagbl double-debug"
+alias setpstagblopt="setp stagbl double-opt"
 alias setpstagblextra="setp stagbl double-extra-debug"
 alias setpstagblextraopt="setp stagbl double-extra-opt"
 
