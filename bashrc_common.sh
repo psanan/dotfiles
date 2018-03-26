@@ -12,8 +12,6 @@ alias   sb="source $HOME/.bash_profile"
 alias vimr="vim -R"                 # read-only with vim
 alias   mj="make -j8"               # -j causes forking problems sometimes
 
-export PYTHONPATH=$PYTHONPATH:$HOME/pythontestharness/lib
-
 ### Git ########################################################################
 
 git config --global user.name "Patrick Sanan"
@@ -40,7 +38,7 @@ PS1='\[\e[1;31m\][\[\e[0;33m\]\H: \[\e[1;31m\]\W\[\e[0;36m\]$(__git_ps1 " (%s)")
 
 alias cdp='cd $PETSC_DIR'
 alias cdk='cd $PETSC_DIR/src/ksp/ksp/examples/tutorials'
-alias cdt='cd $PETSC_DIR/src/ts/examples/tutorials'
+alias cdd='cd $PETSC_DIR/src/dm/examples/tutorials'
 
 function whichp {
                                 echo -n 'PETSC_ARCH = '; echo $PETSC_ARCH
