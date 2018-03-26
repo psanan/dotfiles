@@ -4,11 +4,12 @@ import ycm_core
 flags = [
 '-Wall',
 '-Wextra',
-'-I','/opt/local/include', 
+'-I','/opt/local/include',
 '-std=c99',                # Change if not using C
 '-x','c',                  # Change if not using C
 ]
 
+# PETSc
 PETSC_DIR=os.getenv('PETSC_DIR')
 PETSC_ARCH=os.getenv('PETSC_ARCH')
 if PETSC_DIR :
@@ -16,6 +17,7 @@ if PETSC_DIR :
 if PETSC_ARCH and PETSC_DIR :
     flags.extend(['-I',PETSC_DIR+'/'+PETSC_ARCH+'/include',])
 
+# pTatin3D
 PTATIN_DIR=os.getenv('PTATIN_DIR')
 if PTATIN_DIR :
     flags.extend([

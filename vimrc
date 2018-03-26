@@ -10,6 +10,8 @@ call plug#begin('~/.vim/plugged')
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
 Plug 'altercation/vim-colors-solarized'
 Plug 'scrooloose/nerdtree'
+Plug 'tpope/vim-fugitive'
+Plug 'ctrlpvim/ctrlp.vim'
 call plug#end()
 
 "YouCompleteMe
@@ -74,6 +76,9 @@ set wildmode=longest,list
 
 "Unset the "last search pattern" register by hitting return
 nnoremap <CR> :noh<CR><CR>
+
+"Set scrolloff so that search results are above the bottom of the screen
+set scrolloff=15
 
 " Folding
 set fdm=syntax
