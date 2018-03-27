@@ -64,8 +64,13 @@ autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
 set ignorecase
 set smartcase
 
-" Automatic indentation
+" Indentation
 set autoindent
+
+" https://vi.stackexchange.com/questions/15692/how-can-i-adjust-s-alignment-of-c-style-comments#15693
+" See :help comments and :help format-comments
+" NOTE: MacVim seems to overwrite this on OS X
+set comments=s:/*,e-3:*/ 
 
 " Search while typing, highlight matches
 set incsearch
