@@ -69,7 +69,8 @@ set autoindent
 
 " https://vi.stackexchange.com/questions/15692/how-can-i-adjust-s-alignment-of-c-style-comments#15693
 " See :help comments and :help format-comments
-" NOTE: MacVim seems to overwrite this on OS X
+" NOTE: This does not work, as ftplugin settings override it!
+" (:verbose set comments to see which file did this)
 set comments=s:/*,e-3:*/ 
 
 " Search while typing, highlight matches
