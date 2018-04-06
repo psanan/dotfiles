@@ -1,25 +1,26 @@
-"Vim-plug
-"
-" Obtain with
+""" Plugins """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"Vim-plug. Obtain and install with
 "   curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-"
-" From vim, install with
-"   :PlugInstall
-"
+"   :PlugInstall  (from Vim)
 call plug#begin('~/.vim/plugged')
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
-Plug 'altercation/vim-colors-solarized'
-Plug 'scrooloose/nerdtree'
-Plug 'tpope/vim-fugitive'
-Plug 'ctrlpvim/ctrlp.vim'
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' } " Code completion, syntax checking
+Plug 'altercation/vim-colors-solarized'                                   " Colors
+Plug 'scrooloose/nerdtree'                                                " Prettier folder navigation
+Plug 'tpope/vim-fugitive'                                                 " Git tools
+Plug 'ctrlpvim/ctrlp.vim'                                                 " Better searching
 call plug#end()
 
 "YouCompleteMe
 " Note: we don't set anything here to do otherwise, so if you want to
 "       search header files for completions, you must type <c-Space>
+" Troubleshooting: sometimes one needs to delete .vim/plugged/YouCompleteMe
+" and re-run :PlugInstall
 let g:ycm_confirm_extra_conf = 0 " unsafe!
 let g:ycm_global_ycm_extra_conf = "~/pdsrc/ycm_extra_conf.py"
 let g:ycm_autoclose_preview_window_after_completion = 1
+
+""" Behavior """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Disable ex mode
 nnoremap Q <nop>
@@ -30,35 +31,14 @@ nnoremap Q <nop>
 " Mouse double left click to toggle folds
 noremap <2-LeftMouse> za
 
-" line numbers and ruler
-set number
-set ruler
-
-" Backspace beyond current insert [probably a bad habit]
+" Backspace beyond current insert (probably a bad habit)
 set backspace=indent,eol,start
 
-" tabs instead of spaces, PETSc spacing [2 chars for tabs]
+" 2 space instead of tabs
 set expandtab
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
-
-" syntax highlighting and color scheme
-syntax on
-colorscheme solarized
-set background=light
-let fortran_free_source=1
-set colorcolumn=81
-
-" Highlight trailing whitespace
-"highlight ExtraWhitespace ctermbg=grey guibg=red
-"match ExtraWhitespace /\s\+$/
-
-" use C syntax highlighting for .cl files
-autocmd BufNewFile,BufRead *.cl set syntax=c
-
-" Disable automatic multiline commenting
-autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
 
 " Smart case handling for searches
 set ignorecase
@@ -67,12 +47,6 @@ set smartcase
 " Indentation
 set autoindent
 
-" https://vi.stackexchange.com/questions/15692/how-can-i-adjust-s-alignment-of-c-style-comments#15693
-" See :help comments and :help format-comments
-" NOTE: This does not work, as ftplugin settings override it!
-" (:verbose set comments to see which file did this)
-set comments=s:/*,e-3:*/ 
-
 " Search while typing, highlight matches
 set incsearch
 set hlsearch
@@ -80,36 +54,61 @@ set hlsearch
 " Change tab completion to be bash-like
 set wildmode=longest,list
 
-"Unset the "last search pattern" register by hitting return
-nnoremap <CR> :noh<CR><CR>
-
-"Set scrolloff so that search results are above the bottom of the screen
-set scrolloff=15
+" Default tags to PETSc ctags
+set tags=$PETSC_DIR/CTAGS
 
 " Folding
 set fdm=syntax
 set foldlevelstart=99 " this seems like a hack
 
-" Kill all trailing whitespace with F3 (careful)
-map <F3> :%s/\s\+$//<CR>
+""" Appearance """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Default tags to PETSc ctags
-set tags=$PETSC_DIR/CTAGS
+" Line numbers and ruler
+set number
+set ruler
 
-" Shortcut to jump to tag, in new window
+" Syntax highlighting and color scheme
+syntax on
+colorscheme solarized
+set background=light
+let fortran_free_source=1
+set colorcolumn=81
+
+" Highlight trailing whitespace
+highlight ExtraWhitespace ctermbg=grey guibg=red
+match ExtraWhitespace /\s\+$/
+
+" Use C syntax highlighting for .cl files
+autocmd BufNewFile,BufRead *.cl set syntax=c
+
+" Disable automatic multiline commenting
+autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
+
+"Set scrolloff so that search results are above the bottom of the screen
+set scrolloff=15
+
+" Larger text for MacVim
+set gfn=Menlo:h14
+
+""" Shortcuts """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"Unset the "last search pattern" register by hitting return
+nnoremap <CR> :noh<CR><CR>
+
+" Jump to tag, in new window
 map <c-\>tt :vsp<CR><c-w><c-l><c-]>
 
-" Shortcuts for working with PETSc
+" Kill all trailing whitespace
+map <F3> :%s/\s\+$//<CR>
+
+" PETSCc
 imap <c-\>pc PETSC_COMM_WORLD
 imap <c-\>ch CHKERRQ(ierr);
 imap <c-\>pf PetscErrorCode func()<CR>{<CR>  PetscErrorCode ierr;<CR><CR>PetscFunctionBeginUser;<CR><CR>PetscFunctionReturn(0);<CR><BS>}<CR>
 imap <c-\>ff for (i=0; i<XXX; ++i)
 imap <c-\>pp ierr = PetscPrintf(PETSC_COMM_WORLD,"---\n");CHKERRQ(ierr);
 
-" Shortcuts for common templates making beamer slides
+" Beamer
 imap <c-\>fr \begin{frame}[fragile]<CR>\frametitle{}<CR><CR>\end{frame}<CR>
 imap <c-\>ir \begin{itemize}<CR>\item<CR>\end{itemize}<CR>
 imap <c-\>ls \begin{lstlisting}<CR><CR>\end{lstlisting}<CR>
-
-" Larger text for MacVim
-set gfn=Menlo:h14
