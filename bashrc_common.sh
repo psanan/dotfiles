@@ -31,8 +31,9 @@ source $PDSRC_ROOT/git-prompt.sh
 GIT_PS1_SHOWUPSTREAM=true
 GIT_PS1_SHOWDIRTYSTATE=true
 GIT_PS1_SHOWSTASHSTATE=true
-PS1='\[\e[1;31m\][\[\e[0;33m\]\H: \[\e[1;31m\]\W\[\e[0;36m\]$(__git_ps1 " (%s)")\[\e[1;31m\]]\$\[\e[0m\] '
+PS1='\[\e[1;31m\][\[\e[0;33m\]\H \[\e[0;34m\]$STY\[\e[0;0m\] \[\e[1;31m\]\W\[\e[0;36m\]$(__git_ps1 " (%s)")\[\e[1;31m\]]\$\[\e[0m\] '
 # Note: Don't forget the \[ \], or you'll have line-wrapping issues
+# Note: $STY is for use with GNU Screen (screen -S sessionName)
 
 ### PETSc ######################################################################
 
