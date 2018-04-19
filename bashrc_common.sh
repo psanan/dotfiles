@@ -104,6 +104,7 @@ alias setpstagbl="setp stagbl double-debug"
 alias setpstagblopt="setp stagbl double-opt"
 alias setpstagblextra="setp stagbl double-extra-debug"
 alias setpstagblextraopt="setp stagbl double-extra-opt"
+alias setpmb="setp mb double-debug" #For quick branches from master
 
 # A default PTATIN_DIR
 export PTATIN_DIR=$HOME/ptatin3d
