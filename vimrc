@@ -104,9 +104,8 @@ map <F3> :%s/\s\+$//<CR>
 " PETSCc
 imap <c-\>pc PETSC_COMM_WORLD
 imap <c-\>ch CHKERRQ(ierr);
-imap <c-\>pf PetscErrorCode func()<CR>{<CR>  PetscErrorCode ierr;<CR><CR>PetscFunctionBeginUser;<CR><CR>PetscFunctionReturn(0);<CR><BS>}<CR>
-imap <c-\>ff for (i=0; i<XXX; ++i)
-imap <c-\>pp ierr = PetscPrintf(PETSC_COMM_WORLD,"---\n");CHKERRQ(ierr);
+imap <c-\>po PetscObjectComm((PetscObject)dm)
+imap <c-\>pe SETERRQ(PetscObjectComm((PetscObject)dm),PETSC_ERR_SUP,"Not implemented");
 
 " Beamer
 imap <c-\>fr \begin{frame}[fragile]<CR>\frametitle{}<CR><CR>\end{frame}<CR>
