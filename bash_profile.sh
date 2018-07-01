@@ -5,10 +5,8 @@ source $HOME/.bashrc
 printf "\033[34mPATH=\033[0m$PATH\n"
 printf "\033[34mPYTHONPATH=\033[0m$PYTHONPATH\n"
 
-# If GNU screen exists and there are any screens running, display them
+# If GNU screen exists, run screen -ls
 if command -v screen > /dev/null; then
   printf "\033[34mGNU Screen:\033[0m "
-  if ! screen -ls; then
-    screen -ls
-  fi;
+  screen -ls
 fi;
