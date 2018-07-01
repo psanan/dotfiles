@@ -84,9 +84,6 @@ autocmd BufNewFile,BufRead *.cl set syntax=c
 " Disable automatic multiline commenting
 autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
 
-"Set scrolloff so that search results are above the bottom of the screen
-set scrolloff=15
-
 " Larger text for MacVim
 set gfn=Menlo:h14
 
