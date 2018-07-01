@@ -25,6 +25,13 @@ if PTATIN_DIR :
     '-I',PTATIN_DIR+'/src',
     ])
 
+# StagBL
+STAGBL_DIR=os.getenv('STAGBL_DIR')
+if STAGBL_DIR :
+    flags.extend([
+    '-I',STAGBL_DIR+'/include',
+    ])
+
 def DirectoryOfThisScript():
   return os.path.dirname( os.path.abspath( __file__ ) )
 

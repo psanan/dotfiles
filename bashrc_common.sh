@@ -107,5 +107,9 @@ alias setpstagblextra="setp stagbl double-extra-debug"
 alias setpstagblextraopt="setp stagbl double-extra-opt"
 alias setpmb="setp mb double-debug" #For quick branches from master
 
-# A default PTATIN_DIR
+# A default PTATIN_DIR (mostly for YCM)
 export PTATIN_DIR=$HOME/ptatin3d
+
+# A default STAGBL_DIR (mostly for YCM)
+export STAGBL_DIR=$HOME/stagbl
+alias cds='cd $STAGBL_DIR'
