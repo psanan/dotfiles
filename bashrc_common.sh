@@ -54,6 +54,9 @@ alias unsetp='unset PETSC_ARCH; unset PETSC_DIR; unset PMPI;'
 # Print out the configure options for the current PETSC_ARCH and PETSC_DIR (won't work for PETSc <3.6)
 alias confp='grep CONFIGURE_OPTIONS $PETSC_DIR/$PETSC_ARCH/lib/petsc/conf/petscvariables'
 
+# What currently works to rebuild after a pull
+alias remakep='make deletefortranstubs && make allclean && make reconfigure && make && make test'
+
 # Aliases to set common PETSc configurations. We always include the branch name,
 # to allow for auxiliary branches in a given directory, and to allow the arch
 # alone to identify the build (see petsc_configure*.sh in the
