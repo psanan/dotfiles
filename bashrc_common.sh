@@ -108,7 +108,8 @@ alias setpstagbl="setp stagbl double-debug"
 alias setpstagblopt="setp stagbl double-opt"
 alias setpstagblextra="setp stagbl double-extra-debug"
 alias setpstagblextraopt="setp stagbl double-extra-opt"
-alias setpmb="setp mb double-debug" #For quick branches from master
+alias setpmb="setp mb double-debug"
+alias setpmbextraopt="setp mb double-extra-opt"
 
 # A default PTATIN_DIR (mostly for YCM)
 export PTATIN_DIR=$HOME/ptatin3d
