@@ -47,6 +47,8 @@ function whichp {
                                 echo -n 'PMPI       = '; echo $PMPI
   if [ -n "$SLEPC_DIR"  ]; then echo -n 'SLEPC_DIR  = '; echo $SLEPC_DIR;  fi
   if [ -n "$PTATIN_DIR" ]; then echo -n 'PTATIN_DIR = '; echo $PTATIN_DIR; fi
+  if [ -n "$PETSC_DEB"  ]; then echo -n 'PETSC_DEB  = '; echo $PETSC_DEB;  fi #for LaMEM
+  if [ -n "$PETSC_OPT" ];  then echo -n 'PETSC_OPT  = '; echo $PETSC_OPT;  fi #for LaMEM
 }
 
 alias unsetp='unset PETSC_ARCH; unset PETSC_DIR; unset PMPI;'
@@ -69,37 +71,27 @@ function setp {
   export PETSC_DIR=$HOME/petsc-$ARCHMOD
   export PETSC_ARCH=arch-$PDS_PETSC_ARCHNAME-$ARCHMOD-$MOREMODS
   export PMPI=$PETSC_DIR/$PETSC_ARCH/bin/mpiexec
-  whichp
+}
+function setpprefix {
+# Usage: setp <archmod> <precision-extra-opt-etc>
+  setp $1 $2
+  export PETSC_DIR=$PETSC_DIR/$PETSC_ARCH-install
+  unset PETSC_ARCH
+  export PMPI=$PETSC_DIR/bin/mpiexec
 }
 alias setpmaster="setp master double-debug"
 alias setpmasteropt="setp master double-opt"
-alias setpmaster128="setp master float128-debug"
-alias setpmaster128opt="setp master float128-opt"
-alias setpmasteropt128="setpmaster128opt"
 alias setpmasterextra="setp master double-extra-debug"
 alias setpmasterextraopt="setp master double-extra-opt"
 alias setpmasteroptextra="setpmasterextraopt"
 alias setpmaint="setp maint double-debug"
 alias setpmaintopt="setp maint double-opt"
-alias setpmaint128="setp maint float128-debug"
-alias setpmaint128opt="setp maint float128-opt"
-alias setpmaintopt128="setpmaint128opt"
 alias setpmaintextra="setp maint double-extra-debug"
-alias setpmaintsingleextra="setp maint single-extra-debug"
-alias setpmaintextrasingle="setpmaintsingleextra"
-alias setpmaintsingleextraopt="setp maint single-extra-opt"
-alias setpmaintsingleoptextra="setpmaintsingleextraopt"
-alias setpmaintextrasingleopt="setpmaintsingleextraopt"
-alias setpmaintoptextrasingle="setpmaintsingleextraopt"
 alias setpmaintextraopt="setp maint double-extra-opt"
 alias setpmaintoptextra="setpmaintextraopt"
-alias setp3.5="setp 3.5 double-debug"
-alias setp3.5opt="setp 3.5 double-opt"
+alias setpmaintextraoptprefix="setpprefix maint double-extra-opt-prefix"
 alias setp3.7="setp 3.7 double-debug"
 alias setp3.7opt="setp 3.7 double-opt"
-alias setp3.7128="setp 3.7 float128-debug"
-alias setp3.7128opt="setp 3.7 float128-opt"
-alias setp3.7opt128="setp3.7128opt"
 alias setp3.7extra="setp 3.7 double-extra-debug"
 alias setp3.7extraopt="setp 3.7 double-extra-opt"
 alias setp3.7optextra="setp3.7extraopt"
@@ -110,6 +102,15 @@ alias setpstagblextra="setp stagbl double-extra-debug"
 alias setpstagblextraopt="setp stagbl double-extra-opt"
 alias setpmb="setp mb double-debug"
 alias setpmbextraopt="setp mb double-extra-opt"
+
+# LaMEM helper (change once PETSc 3.10 comes out, probably to use 3.9)
+function lamemhelper {
+  export PETSC_DEB=$HOME/petsc-maint/arch-$PDS_PETSC_ARCHNAME-maint-double-extra-debug-prefix-install
+  export PETSC_OPT=$HOME/petsc-maint/arch-$PDS_PETSC_ARCHNAME-maint-double-extra-opt-prefix-install
+  setpmaintextraoptprefix
+  unset PETSC_ARCH
+  whichp
+}
 
 # A default PTATIN_DIR (mostly for YCM)
 export PTATIN_DIR=$HOME/ptatin3d
