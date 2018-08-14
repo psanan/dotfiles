@@ -74,8 +74,9 @@ function setp {
 }
 function setpprefix {
 # Usage: setp <archmod> <precision-extra-opt-etc>
-  setp $1 $2
-  export PETSC_DIR=$PETSC_DIR/$PETSC_ARCH-install
+  local ARCHMOD=$1
+  local MOREMODS=$2
+  export PETSC_DIR=$HOME/petsc-$ARCHMOD/arch-$PDS_PETSC_ARCHNAME-$ARCHMOD-$MOREMODS-install
   unset PETSC_ARCH
   export PMPI=$PETSC_DIR/bin/mpiexec
 }
