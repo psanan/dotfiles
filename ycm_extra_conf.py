@@ -32,6 +32,13 @@ if STAGBL_DIR :
     '-I',STAGBL_DIR+'/include',
     ])
 
+# LaMEM
+LAMEM_DIR=os.getenv('LAMEM_DIR')
+if LAMEM_DIR :
+    flags.extend([
+    '-I',LAMEM_DIR+'/src',
+    ])
+
 def DirectoryOfThisScript():
   return os.path.dirname( os.path.abspath( __file__ ) )
 
