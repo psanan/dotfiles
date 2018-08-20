@@ -37,7 +37,7 @@ PS1='\[\e[1;31m\][\[\e[0;33m\]\H \[\e[0;34m\]$STY\[\e[0;0m\] \[\e[1;31m\]\W\[\e[
 
 ### PETSc ######################################################################
 
-alias cdp='cd $PETSC_DIR'
+alias cdp='cd $PETSC_DIR'                                   # note single quotes
 alias cdk='cd $PETSC_DIR/src/ksp/ksp/examples/tutorials'
 alias cdd='cd $PETSC_DIR/src/dm/examples/tutorials'
 
@@ -47,8 +47,9 @@ function whichp {
                                 echo -n 'PMPI       = '; echo $PMPI
   if [ -n "$SLEPC_DIR"  ]; then echo -n 'SLEPC_DIR  = '; echo $SLEPC_DIR;  fi
   if [ -n "$PTATIN_DIR" ]; then echo -n 'PTATIN_DIR = '; echo $PTATIN_DIR; fi
+  if [ -n "$LAMEM_DIR"  ]; then echo -n 'LAMEM_DIR  = '; echo $LAMEM_DIR;  fi
   if [ -n "$PETSC_DEB"  ]; then echo -n 'PETSC_DEB  = '; echo $PETSC_DEB;  fi #for LaMEM
-  if [ -n "$PETSC_OPT" ];  then echo -n 'PETSC_OPT  = '; echo $PETSC_OPT;  fi #for LaMEM
+  if [ -n "$PETSC_OPT"  ]; then echo -n 'PETSC_OPT  = '; echo $PETSC_OPT;  fi #for LaMEM
 }
 
 alias unsetp='unset PETSC_ARCH; unset PETSC_DIR; unset PMPI;'
@@ -73,7 +74,7 @@ function setp {
   export PMPI=$PETSC_DIR/$PETSC_ARCH/bin/mpiexec
 }
 function setpprefix {
-# Usage: setp <archmod> <precision-extra-opt-etc>
+  # Usage: setp <archmod> <precision-extra-opt-etc>
   local ARCHMOD=$1
   local MOREMODS=$2
   export PETSC_DIR=$HOME/petsc-$ARCHMOD/arch-$PDS_PETSC_ARCHNAME-$ARCHMOD-$MOREMODS-install
@@ -104,14 +105,21 @@ alias setpstagblextraopt="setp stagbl double-extra-opt"
 alias setpmb="setp mb double-debug"
 alias setpmbextraopt="setp mb double-extra-opt"
 
-# LaMEM helper (change once PETSc 3.10 comes out, probably to use 3.9)
+# LaMEM
 function lamemhelper {
-  export PETSC_DEB=$HOME/petsc-maint/arch-$PDS_PETSC_ARCHNAME-maint-double-extra-debug-prefix-install
-  export PETSC_OPT=$HOME/petsc-maint/arch-$PDS_PETSC_ARCHNAME-maint-double-extra-opt-prefix-install
-  setpmaintextraoptprefix
+  # Usage: lamemhelper <archmod>
+  local ARCHMOD=${1:-maint}
+  export PETSC_DEB=$HOME/petsc-$ARCHMOD/install-$PDS_PETSC_ARCHNAME-$ARCHMOD-double-extra-debug-prefix
+  export PETSC_OPT=$HOME/petsc-$ARCHMOD/install-$PDS_PETSC_ARCHNAME-$ARCHMOD-double-extra-opt-prefix
+  export PETSC_DIR=$PETSC_OPT
+  export PMPI=$PETSC_OPT/bin/mpiexec
   unset PETSC_ARCH
+  export LAMEM_DIR=$HOME/lamem-$ARCHMOD
   whichp
 }
+alias cdl='cd $LAMEM_DIR'
+alias lamemtest='cd $LAMEM_DIR/input_models/BuildInSetups; ../../bin/opt/LaMEM -ParamFile FallingBlock_DirectSolver.dat'
+alias lamemtest2='cd $LAMEM_DIR/input_models/BuildInSetups; $PMPI -np 2 ../../bin/opt/LaMEM -ParamFile FallingBlock_DirectSolver.dat'
 
 # A default PTATIN_DIR (mostly for YCM)
 export PTATIN_DIR=$HOME/ptatin3d

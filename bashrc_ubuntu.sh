@@ -16,3 +16,6 @@ alias setpdirect128="export PETSC_DIR=$HOME/petsc-quad-direct;export PETSC_ARCH=
 # Paraview
 alias paraview44="~/ParaView-4.4.0-Qt4-OpenGL2-Linux-64bit/bin/paraview"
 alias paraview54="~/ParaView-5.4.1-Qt5-OpenGL2-MPI-Linux-64bit/bin/paraview"
+
+# added by Anaconda3 installer
+export PATH="/home/patrick/anaconda3/bin:$PATH"
