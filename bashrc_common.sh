@@ -39,7 +39,6 @@ PS1='\[\e[1;31m\][\[\e[0;33m\]\H \[\e[0;34m\]$STY\[\e[0;0m\] \[\e[1;31m\]\W\[\e[
 
 alias cdp='cd $PETSC_DIR'                                   # note single quotes
 alias cdk='cd $PETSC_DIR/src/ksp/ksp/examples/tutorials'
-alias cdd='cd $PETSC_DIR/src/dm/examples/tutorials'
 
 function whichp {
                                 echo -n 'PETSC_ARCH = '; echo $PETSC_ARCH
@@ -81,36 +80,36 @@ function setpprefix {
   unset PETSC_ARCH
   export PMPI=$PETSC_DIR/bin/mpiexec
 }
-alias setpmaster="setp master double-debug"
-alias setpmasteropt="setp master double-opt"
-alias setpmasterextra="setp master double-extra-debug"
-alias setpmasterextraopt="setp master double-extra-opt"
+alias setpmaster="setp master debug"
+alias setpmasteropt="setp master opt"
+alias setpmasterextra="setp master extra-debug"
+alias setpmasterextraopt="setp master extra-opt"
 alias setpmasteroptextra="setpmasterextraopt"
-alias setpmaint="setp maint double-debug"
-alias setpmaintopt="setp maint double-opt"
-alias setpmaintextra="setp maint double-extra-debug"
-alias setpmaintextraopt="setp maint double-extra-opt"
+alias setpmaint="setp maint debug"
+alias setpmaintopt="setp maint opt"
+alias setpmaintextra="setp maint extra-debug"
+alias setpmaintextraopt="setp maint extra-opt"
 alias setpmaintoptextra="setpmaintextraopt"
-alias setpmaintextraoptprefix="setpprefix maint double-extra-opt-prefix"
-alias setp3.7="setp 3.7 double-debug"
-alias setp3.7opt="setp 3.7 double-opt"
-alias setp3.7extra="setp 3.7 double-extra-debug"
-alias setp3.7extraopt="setp 3.7 double-extra-opt"
+alias setpmaintextraoptprefix="setpprefix maint extra-opt-prefix"
+alias setp3.7="setp 3.7 debug"
+alias setp3.7opt="setp 3.7 opt"
+alias setp3.7extra="setp 3.7 extra-debug"
+alias setp3.7extraopt="setp 3.7 extra-opt"
 alias setp3.7optextra="setp3.7extraopt"
-alias setpdoc="setp docproject double-debug"
-alias setpstagbl="setp stagbl double-debug"
-alias setpstagblopt="setp stagbl double-opt"
-alias setpstagblextra="setp stagbl double-extra-debug"
-alias setpstagblextraopt="setp stagbl double-extra-opt"
-alias setpmb="setp mb double-debug"
-alias setpmbextraopt="setp mb double-extra-opt"
+alias setpdoc="setp docproject debug"
+alias setpstagbl="setp stagbl debug"
+alias setpstagblopt="setp stagbl opt"
+alias setpstagblextra="setp stagbl extra-debug"
+alias setpstagblextraopt="setp stagbl extra-opt"
+alias setpmb="setp mb debug"
+alias setpmbextraopt="setp mb extra-opt"
 
 # LaMEM
 function lamemhelper {
   # Usage: lamemhelper <archmod>
   local ARCHMOD=${1:-maint}
-  export PETSC_DEB=$HOME/petsc-$ARCHMOD/install-$PDS_PETSC_ARCHNAME-$ARCHMOD-double-extra-debug-prefix
-  export PETSC_OPT=$HOME/petsc-$ARCHMOD/install-$PDS_PETSC_ARCHNAME-$ARCHMOD-double-extra-opt-prefix
+  export PETSC_DEB=$HOME/petsc-$ARCHMOD/install-$PDS_PETSC_ARCHNAME-$ARCHMOD-extra-debug-prefix
+  export PETSC_OPT=$HOME/petsc-$ARCHMOD/install-$PDS_PETSC_ARCHNAME-$ARCHMOD-extra-opt-prefix
   export PETSC_DIR=$PETSC_OPT
   export PMPI=$PETSC_OPT/bin/mpiexec
   unset PETSC_ARCH
