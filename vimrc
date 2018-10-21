@@ -9,6 +9,7 @@ Plug 'altercation/vim-colors-solarized'                                   " Colo
 Plug 'scrooloose/nerdtree'                                                " Prettier folder navigation
 Plug 'tpope/vim-fugitive'                                                 " Git tools
 Plug 'ctrlpvim/ctrlp.vim'                                                 " Better searching
+Plug 'majutsushi/tagbar'                                                  " Local source structure
 call plug#end()
 
 "YouCompleteMe
@@ -98,6 +99,9 @@ map <c-\>tt :vsp<CR><c-w><c-l><c-]>
 
 " Kill all trailing whitespace
 map <F3> :%s/\s\+$//<CR>
+
+" Toggle Tagbar
+map <F8> :TagbarToggle <CR>
 
 " PETSCc
 imap <c-\>pc PETSC_COMM_WORLD
