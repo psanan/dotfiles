@@ -60,6 +60,8 @@ set wildmode=longest,list
 set tags=$PETSC_DIR/CTAGS
 
 " Folding
+let fortran_fold=1
+let fortran_fold_conditionals=1
 set fdm=syntax
 set foldlevelstart=99 " this seems like a hack
 
