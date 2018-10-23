@@ -76,10 +76,17 @@ syntax on
 colorscheme solarized
 set background=light
 let fortran_free_source=1
+
+" Color column in active window
 set colorcolumn=81
+augroup BgHighlight
+    autocmd!
+    autocmd WinEnter * set colorcolumn=81
+    autocmd WinLeave * set colorcolumn=0
+augroup END
 
 " Highlight trailing whitespace
-highlight ExtraWhitespace ctermbg=grey guibg=red
+highlight ExtraWhitespace ctermbg=grey guibg=grey
 match ExtraWhitespace /\s\+$/
 
 " Use C syntax highlighting for .cl files
@@ -105,14 +112,25 @@ map <c-\>tt :vsp<CR><c-w><c-l><c-]>
 " Kill all trailing whitespace
 map <F3> :%s/\s\+$//<CR>
 
+" Turn off highlighting of extra whitespace
+map <F4> :highlight clear ExtraWhitespace <CR>
+
+" NERDTree
+map <F7> :NERDTree <CR>
+
 " Toggle Tagbar
 map <F8> :TagbarToggle <CR>
+
+" Use control + hjkl to move windows
+nnoremap <C-h> <c-w>h
+nnoremap <C-j> <c-w>j
+nnoremap <C-k> <c-w>k
+nnoremap <C-l> <c-w>l
 
 " PETSCc
 imap <c-\>pc PETSC_COMM_WORLD
 imap <c-\>ch CHKERRQ(ierr);
 imap <c-\>po PetscObjectComm((PetscObject)dm)
-imap <c-\>pe SETERRQ(PetscObjectComm((PetscObject)dm),PETSC_ERR_SUP,"Not implemented");
 
 " Beamer
 imap <c-\>fr \begin{frame}[fragile]<CR>\frametitle{}<CR><CR>\end{frame}<CR>
