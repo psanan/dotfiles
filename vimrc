@@ -92,6 +92,9 @@ match ExtraWhitespace /\s\+$/
 " Use C syntax highlighting for .cl files
 autocmd BufNewFile,BufRead *.cl set syntax=c
 
+" Use C++ syntax highlighting for .cucl files
+autocmd BufNewFile,BufRead *.cucl set syntax=c
+
 " Disable automatic multiline commenting
 autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
 
