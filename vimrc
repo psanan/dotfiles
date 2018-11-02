@@ -122,8 +122,8 @@ map <F7> :NERDTree <CR>
 map <F8> :TagbarToggle <CR>
 
 " Move tabs
-map <F11> gt
-map <F12> gT
+map <F11> gT
+map <F12> gt
 
 " Use control + hjkl to move windows
 nnoremap <C-h> <c-w>h
