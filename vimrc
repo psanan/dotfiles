@@ -1,6 +1,6 @@
 """ Plugins """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-"Vim-plug. Obtain and install with
+" Vim-plug. Obtain and install with
 "   curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 "   :PlugInstall  (from Vim)
 call plug#begin('~/.vim/plugged')
@@ -10,6 +10,9 @@ Plug 'scrooloose/nerdtree'                                                " Pret
 Plug 'tpope/vim-fugitive'                                                 " Git tools
 Plug 'ctrlpvim/ctrlp.vim'                                                 " Better searching
 Plug 'majutsushi/tagbar'                                                  " Local source structure
+Plug 'vim-airline/vim-airline'                                            " Status bar
+Plug 'vim-airline/vim-airline-themes'                                     " Themes for status bar
+Plug 'tpope/vim-surround'                                                 " Useful motions
 call plug#end()
 
 "YouCompleteMe
@@ -21,6 +24,10 @@ let g:ycm_confirm_extra_conf = 0                                          " unsa
 let g:ycm_global_ycm_extra_conf = "~/pdsrc/ycm_extra_conf.py"
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_always_populate_location_list = 1                               " use :lne
+
+" Airline
+let g:airline_theme='solarized'
+let g:airline_solarized_bg='light'
 
 """ Behavior """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -131,7 +138,7 @@ nnoremap <C-j> <c-w>j
 nnoremap <C-k> <c-w>k
 nnoremap <C-l> <c-w>l
 
-" PETSCc
+" PETSc
 imap <c-\>pc PETSC_COMM_WORLD
 imap <c-\>ch CHKERRQ(ierr);
 imap <c-\>po PetscObjectComm((PetscObject)dm)
