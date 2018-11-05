@@ -92,17 +92,23 @@ let fortran_fold_conditionals=1
 set fdm=syntax
 set foldlevelstart=99 " this seems like a hack
 
+" Disable automatic multiline commenting
+autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
+
 """ Appearance """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Line numbers and ruler
+" Line numbers
 set number
-set ruler
 
 " Syntax highlighting and color scheme
 syntax on
 colorscheme solarized
 set background=light
 let fortran_free_source=1
+
+" Use C syntax highlighting for additional extensions
+autocmd BufNewFile,BufRead *.cl   set syntax=c
+autocmd BufNewFile,BufRead *.cucl set syntax=c
 
 " Color column in active window
 set colorcolumn=81
@@ -111,19 +117,6 @@ augroup BgHighlight
     autocmd WinEnter * set colorcolumn=81
     autocmd WinLeave * set colorcolumn=0
 augroup END
-
-" Highlight trailing whitespace
-highlight ExtraWhitespace ctermbg=grey guibg=grey
-match ExtraWhitespace /\s\+$/
-
-" Use C syntax highlighting for .cl files
-autocmd BufNewFile,BufRead *.cl set syntax=c
-
-" Use C++ syntax highlighting for .cucl files
-autocmd BufNewFile,BufRead *.cucl set syntax=c
-
-" Disable automatic multiline commenting
-autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
 
 " Larger text for MacVim
 set gfn=Menlo:h14
@@ -139,8 +132,9 @@ map <c-\>tt :vsp<CR><c-w><c-l><c-]>
 " Kill all trailing whitespace
 map <F3> :%s/\s\+$//<CR>
 
-" Turn off highlighting of extra whitespace
-map <F4> :highlight clear ExtraWhitespace <CR>
+" Turn on highlighting of extra whitespace
+match ExtraWhitespace /\s\+$/
+map <F4> :highlight ExtraWhitespace ctermbg=grey guibg=grey<CR>
 
 " NERDTree
 map <F7> :NERDTree <CR>
@@ -162,8 +156,3 @@ nnoremap <C-l> <c-w>l
 imap <c-\>pc PETSC_COMM_WORLD
 imap <c-\>ch CHKERRQ(ierr);
 imap <c-\>po PetscObjectComm((PetscObject)dm)
-
-" Beamer
-imap <c-\>fr \begin{frame}[fragile]<CR>\frametitle{}<CR><CR>\end{frame}<CR>
-imap <c-\>ir \begin{itemize}<CR>\item<CR>\end{itemize}<CR>
-imap <c-\>ls \begin{lstlisting}<CR><CR>\end{lstlisting}<CR>
