@@ -13,6 +13,7 @@ Plug 'majutsushi/tagbar'                                                  " Loca
 Plug 'vim-airline/vim-airline'                                            " Status bar
 Plug 'vim-airline/vim-airline-themes'                                     " Themes for status bar
 Plug 'tpope/vim-surround'                                                 " Useful motions
+Plug 'junegunn/fzf'
 call plug#end()
 
 "YouCompleteMe
@@ -28,6 +29,25 @@ let g:ycm_always_populate_location_list = 1                               " use 
 " Airline
 let g:airline_theme='solarized'
 let g:airline_solarized_bg='light'
+let g:airline_mode_map = {
+    \ '__' : '-',
+    \ 'c'  : 'C',
+    \ 'i'  : 'I',
+    \ 'ic' : 'I',
+    \ 'ix' : 'I',
+    \ 'n'  : 'N',
+    \ 'ni' : 'N',
+    \ 'no' : 'N',
+    \ 'R'  : 'R',
+    \ 'Rv' : 'R',
+    \ 's'  : 'S',
+    \ 'S'  : 'S',
+    \ '' : 'S',
+    \ 't'  : 'T',
+    \ 'v'  : 'V',
+    \ 'V'  : 'V',
+    \ '' : 'V',
+    \ }
 
 """ Behavior """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
