@@ -15,10 +15,6 @@ alias setpmaintoptgnu="export PETSC_DIR=/users/psanan/petsc-maint; export PETSC_
 alias setp3.7opt="export PETSC_DIR=/users/psanan/petsc-3.7; export PETSC_ARCH=arch-cray-xc50-daint;  whichp; module load PrgEnv-cray; echo Note: modules changed!"
 alias setpstagbl="export PETSC_DIR=/users/psanan/petsc-stagbl; export PETSC_ARCH=arch-cray-xc50-daint;  whichp; module load PrgEnv-cray; echo Note: modules changed!"
 
-# Shortcut to watch my jobs
-alias ww="watch -n 5 squeue -u psanan"
-alias wwi="watch -n 5 squeue -u psanan --sort=i" #order by job id
-
 # cd to scratch dir
 alias cds="cd $SCRATCH"
 
