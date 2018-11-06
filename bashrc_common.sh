@@ -11,6 +11,7 @@ alias   ll="ls -l"
 alias   sb="source $HOME/.bash_profile"
 alias vimr="vim -R"                 # read-only with vim
 alias   mj="make -j8"               # -j causes forking problems sometimes
+alias   gg="git grep"
 
 ### Git ########################################################################
 
