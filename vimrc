@@ -110,6 +110,10 @@ let fortran_free_source=1
 autocmd BufNewFile,BufRead *.cl   set syntax=c
 autocmd BufNewFile,BufRead *.cucl set syntax=c
 
+" Highlight trailing whitespace
+highlight ExtraWhitespace ctermbg=grey guibg=grey
+match ExtraWhitespace /\s\+$/
+
 " Color column in active window
 set colorcolumn=81
 augroup BgHighlight
@@ -132,9 +136,8 @@ map <c-\>tt :vsp<CR><c-w><c-l><c-]>
 " Kill all trailing whitespace
 map <F3> :%s/\s\+$//<CR>
 
-" Turn on highlighting of extra whitespace
-match ExtraWhitespace /\s\+$/
-map <F4> :highlight ExtraWhitespace ctermbg=grey guibg=grey<CR>
+" Turn off highlighting of extra whitespace
+map <F4> :highlight clear ExtraWhitespace <CR>
 
 " NERDTree
 map <F7> :NERDTree <CR>
