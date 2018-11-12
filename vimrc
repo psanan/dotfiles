@@ -8,15 +8,15 @@ Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' } " Code
 Plug 'altercation/vim-colors-solarized'                                   " Colors
 Plug 'scrooloose/nerdtree'                                                " Prettier folder navigation
 Plug 'tpope/vim-fugitive'                                                 " Git tools
-Plug 'ctrlpvim/ctrlp.vim'                                                 " Better searching
 Plug 'majutsushi/tagbar'                                                  " Local source structure
 Plug 'vim-airline/vim-airline'                                            " Status bar
 Plug 'vim-airline/vim-airline-themes'                                     " Themes for status bar
-Plug 'tpope/vim-surround'                                                 " Useful motions
-Plug 'junegunn/fzf'
+Plug 'ctrlpvim/ctrlp.vim'                                                 " Better searching         [experiment]
+Plug 'tpope/vim-surround'                                                 " Useful motions           [experiment]
+Plug 'junegunn/fzf'                                                       " Fuzzy find               [experiment]
 call plug#end()
 
-"YouCompleteMe
+" YouCompleteMe
 " Note: we don't set anything here to do otherwise, so if you want to
 "       search header files for completions, you must type <c-Space>
 " Troubleshooting: sometimes one needs to delete .vim/plugged/YouCompleteMe
@@ -122,12 +122,9 @@ augroup BgHighlight
     autocmd WinLeave * set colorcolumn=0
 augroup END
 
-" Larger text for MacVim
-set gfn=Menlo:h14
-
 """ Shortcuts """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-"Unset the "last search pattern" register by hitting return
+" Unset the "last search pattern" register by hitting return
 nnoremap <CR> :noh<CR><CR>
 
 " Jump to tag, in new window
