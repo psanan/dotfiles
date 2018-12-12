@@ -11,9 +11,10 @@ Plug 'tpope/vim-fugitive'                                                 " Git 
 Plug 'majutsushi/tagbar'                                                  " Local source structure
 Plug 'vim-airline/vim-airline'                                            " Status bar
 Plug 'vim-airline/vim-airline-themes'                                     " Themes for status bar
-Plug 'ctrlpvim/ctrlp.vim'                                                 " Better searching         [experiment]
-Plug 'tpope/vim-surround'                                                 " Useful motions           [experiment]
-Plug 'junegunn/fzf'                                                       " Fuzzy find               [experiment]
+Plug 'git@bitbucket.org:psanan/stice-gg'                                  " Wrapper for git grep
+"Plug 'ctrlpvim/ctrlp.vim'                                                 " Better searching         [experiment]
+"Plug 'tpope/vim-surround'                                                 " Useful motions           [experiment]
+"Plug 'junegunn/fzf'                                                       " Fuzzy find               [experiment]
 call plug#end()
 
 " YouCompleteMe
@@ -94,6 +95,9 @@ set foldlevelstart=99 " this seems like a hack
 
 " Disable automatic multiline commenting
 autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
+
+" Quiet!
+set noerrorbells
 
 """ Appearance """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 

@@ -1,4 +1,4 @@
-PDSRC_ROOT=/Users/patrick/pdsrc
+PDSRC_ROOT=$HOME/util/pdsrc
 source $PDSRC_ROOT/bashrc_common.sh
 ################################################################################
 
