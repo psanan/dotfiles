@@ -58,13 +58,12 @@ alias unsetp='unset PETSC_ARCH; unset PETSC_DIR; unset PMPI;'
 # Print out the configure options for the current PETSC_ARCH and PETSC_DIR (won't work for PETSc <3.6)
 alias confp='grep CONFIGURE_OPTIONS $PETSC_DIR/$PETSC_ARCH/lib/petsc/conf/petscvariables'
 
-# What currently works to rebuild after a pull
-alias remakep='make deletefortranstubs && make allclean && make reconfigure && make && make test'
-
 # Aliases to set common PETSc configurations. We always include the branch name,
 # to allow for auxiliary branches in a given directory, and to allow the arch
 # alone to identify the build (see petsc_configure*.sh in the
 # petsc_configure_helpers repo). These require PDS_PETSC_ARCHNAME to be set
+# Example: "setp 3.7 extra-opt" on OS X -->
+#          PETSC_ARCH=arch-darwin-3.7-extra-opt, PETSC_DIR=$HOME/code/petsc-3.7
 export PDS_PETSC_ARCHNAME=${PDS_PETSC_ARCHNAME:-unknown}
 function setp {
 # Usage: setp <archmod> <precision-extra-opt-etc>
@@ -82,29 +81,6 @@ function setpprefix {
   unset PETSC_ARCH
   export PMPI=$PETSC_DIR/bin/mpiexec
 }
-alias setpmaster="setp master debug"
-alias setpmasteropt="setp master opt"
-alias setpmasterextra="setp master extra-debug"
-alias setpmasterextraopt="setp master extra-opt"
-alias setpmasteroptextra="setpmasterextraopt"
-alias setpmaint="setp maint debug"
-alias setpmaintopt="setp maint opt"
-alias setpmaintextra="setp maint extra-debug"
-alias setpmaintextraopt="setp maint extra-opt"
-alias setpmaintoptextra="setpmaintextraopt"
-alias setpmaintextraoptprefix="setpprefix maint extra-opt-prefix"
-alias setp3.7="setp 3.7 debug"
-alias setp3.7opt="setp 3.7 opt"
-alias setp3.7extra="setp 3.7 extra-debug"
-alias setp3.7extraopt="setp 3.7 extra-opt"
-alias setp3.7optextra="setp3.7extraopt"
-alias setpdoc="setp docproject debug"
-alias setpstagbl="setp stagbl debug"
-alias setpstagblopt="setp stagbl opt"
-alias setpstagblextra="setp stagbl extra-debug"
-alias setpstagblextraopt="setp stagbl extra-opt"
-alias setpmb="setp mb debug"
-alias setpmbextraopt="setp mb extra-opt"
 
 # LaMEM
 function lamemhelper {

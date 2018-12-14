@@ -12,11 +12,11 @@ PS1=$PS1_LOCAL
 export PDS_PETSC_ARCHNAME=darwin
 
 # PETSc builds for SPIDER (bitbucket.org/djbower/spider-dev)
-alias setpdirectopt="export PETSC_DIR=$HOME/petsc-double-direct;export PETSC_ARCH=arch-darwin-c-opt;export PMPI=$HOME/petsc-double-direct/arch-darwin-c-opt/bin/mpiexec; whichp;"
-alias setpdirect="export PETSC_DIR=$HOME/petsc-double-direct;export PETSC_ARCH=arch-darwin-c-debug;export PMPI=$HOME/petsc-double-direct/arch-darwin-c-debug/bin/mpiexec; whichp;"
-alias setpdirectopt128="export PETSC_DIR=$HOME/petsc-quad-direct;export PETSC_ARCH=arch-darwin-c-opt;export PMPI=$HOME/petsc-quad-direct/arch-darwin-c-opt/bin/mpiexec; whichp;"
+alias setpdirectopt="export PETSC_DIR=$HOME/code/petsc-double-direct;export PETSC_ARCH=arch-darwin-c-opt;export PMPI=$HOME/code/petsc-double-direct/arch-darwin-c-opt/bin/mpiexec; whichp;"
+alias setpdirect="export PETSC_DIR=$HOME/code/petsc-double-direct;export PETSC_ARCH=arch-darwin-c-debug;export PMPI=$HOME/code/petsc-double-direct/arch-darwin-c-debug/bin/mpiexec; whichp;"
+alias setpdirectopt128="export PETSC_DIR=$HOME/code/petsc-quad-direct;export PETSC_ARCH=arch-darwin-c-opt;export PMPI=$HOME/code/petsc-quad-direct/arch-darwin-c-opt/bin/mpiexec; whichp;"
 alias setpdirect128opt=setpdirectopt128
-alias setpdirect128="export PETSC_DIR=$HOME/petsc-quad-direct;export PETSC_ARCH=arch-darwin-c-debug;export PMPI=$HOME/petsc-quad-direct/arch-darwin-c-debug/bin/mpiexec; whichp;"
+alias setpdirect128="export PETSC_DIR=$HOME/code/petsc-quad-direct;export PETSC_ARCH=arch-darwin-c-debug;export PMPI=$HOME/code/petsc-quad-direct/arch-darwin-c-debug/bin/mpiexec; whichp;"
 
 # Function which can title iTerm2 tabs
 function title {
