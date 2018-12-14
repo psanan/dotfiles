@@ -33,6 +33,7 @@ GIT_PS1_SHOWUPSTREAM=true
 GIT_PS1_SHOWDIRTYSTATE=true
 GIT_PS1_SHOWSTASHSTATE=true
 PS1='\[\e[1;31m\][\[\e[0;33m\]\H \[\e[0;34m\]$STY\[\e[0;0m\] \[\e[1;31m\]\W\[\e[0;36m\]$(__git_ps1 " (%s)")\[\e[1;31m\]]\$\[\e[0m\] '
+PS1_LOCAL='\[\e[1;31m\][\[\e[1;31m\]\W\[\e[0;36m\]$(__git_ps1 " (%s)")\[\e[1;31m\]]\$\[\e[0m\] '
 # Note: Don't forget the \[ \], or you'll have line-wrapping issues
 # Note: $STY is for use with GNU Screen (screen -S sessionName)
 
@@ -69,7 +70,7 @@ function setp {
 # Usage: setp <archmod> <precision-extra-opt-etc>
   local ARCHMOD=$1
   local MOREMODS=$2
-  export PETSC_DIR=$HOME/petsc-$ARCHMOD
+  export PETSC_DIR=$HOME/code/petsc-$ARCHMOD
   export PETSC_ARCH=arch-$PDS_PETSC_ARCHNAME-$ARCHMOD-$MOREMODS
   export PMPI=$PETSC_DIR/$PETSC_ARCH/bin/mpiexec
 }
@@ -77,7 +78,7 @@ function setpprefix {
   # Usage: setp <archmod> <precision-extra-opt-etc>
   local ARCHMOD=$1
   local MOREMODS=$2
-  export PETSC_DIR=$HOME/petsc-$ARCHMOD/arch-$PDS_PETSC_ARCHNAME-$ARCHMOD-$MOREMODS-install
+  export PETSC_DIR=$HOME/code/petsc-$ARCHMOD/arch-$PDS_PETSC_ARCHNAME-$ARCHMOD-$MOREMODS-install
   unset PETSC_ARCH
   export PMPI=$PETSC_DIR/bin/mpiexec
 }
@@ -109,8 +110,8 @@ alias setpmbextraopt="setp mb extra-opt"
 function lamemhelper {
   # Usage: lamemhelper <archmod>
   local ARCHMOD=${1:-maint}
-  export PETSC_DEB=$HOME/petsc-$ARCHMOD/install-$PDS_PETSC_ARCHNAME-$ARCHMOD-extra-debug-prefix
-  export PETSC_OPT=$HOME/petsc-$ARCHMOD/install-$PDS_PETSC_ARCHNAME-$ARCHMOD-extra-opt-prefix
+  export PETSC_DEB=$HOME/code/petsc-$ARCHMOD/install-$PDS_PETSC_ARCHNAME-$ARCHMOD-extra-debug-prefix
+  export PETSC_OPT=$HOME/code/petsc-$ARCHMOD/install-$PDS_PETSC_ARCHNAME-$ARCHMOD-extra-opt-prefix
   export PETSC_DIR=$PETSC_OPT
   export PMPI=$PETSC_OPT/bin/mpiexec
   unset PETSC_ARCH
@@ -122,8 +123,8 @@ alias lamemtest='cd $LAMEM_DIR/input_models/BuildInSetups; ../../bin/opt/LaMEM -
 alias lamemtest2='cd $LAMEM_DIR/input_models/BuildInSetups; $PMPI -np 2 ../../bin/opt/LaMEM -ParamFile FallingBlock_DirectSolver.dat'
 
 # A default PTATIN_DIR (mostly for YCM)
-export PTATIN_DIR=$HOME/ptatin3d
+export PTATIN_DIR=$HOME/code/ptatin3d
 
 # A default STAGBL_DIR (mostly for YCM)
-export STAGBL_DIR=$HOME/stagbl
+export STAGBL_DIR=$HOME/code/stagbl
 alias cds='cd $STAGBL_DIR'
