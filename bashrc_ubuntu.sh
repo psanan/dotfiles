@@ -2,9 +2,6 @@
 PDSRC_ROOT=$HOME/pdsrc
 source $PDSRC_ROOT/bashrc_common.sh
 
-# PETSc
-export PDS_PETSC_ARCHNAME=ubuntu
-
 # For SPIDER (corresponds to install hints there)
 alias cdm="cd $HOME/magma-ocean/code/evolution/c/src_mpi"
 alias setpdirectopt="export PETSC_DIR=$HOME/petsc-double-direct;export PETSC_ARCH=arch-linux2-c-opt;export PMPI=$HOME/petsc-double-direct/arch-linux2-c-opt/bin/mpiexec; whichp;"

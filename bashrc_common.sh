@@ -61,23 +61,22 @@ alias confp='grep CONFIGURE_OPTIONS $PETSC_DIR/$PETSC_ARCH/lib/petsc/conf/petscv
 # Aliases to set common PETSc configurations. We always include the branch name,
 # to allow for auxiliary branches in a given directory, and to allow the arch
 # alone to identify the build (see petsc_configure*.sh in the
-# petsc_configure_helpers repo). These require PDS_PETSC_ARCHNAME to be set
+# petsc_configure_helpers repo).
 # Example: "setp 3.7 extra-opt" on OS X -->
 #          PETSC_ARCH=arch-darwin-3.7-extra-opt, PETSC_DIR=$HOME/code/petsc-3.7
-export PDS_PETSC_ARCHNAME=${PDS_PETSC_ARCHNAME:-unknown}
 function setp {
 # Usage: setp <archmod> <precision-extra-opt-etc>
   local ARCHMOD=$1
   local MOREMODS=$2
   export PETSC_DIR=$HOME/code/petsc-$ARCHMOD
-  export PETSC_ARCH=arch-$PDS_PETSC_ARCHNAME-$ARCHMOD-$MOREMODS
+  export PETSC_ARCH=arch-$ARCHMOD-$MOREMODS
   export PMPI=$PETSC_DIR/$PETSC_ARCH/bin/mpiexec
 }
 function setpprefix {
   # Usage: setp <archmod> <precision-extra-opt-etc>
   local ARCHMOD=$1
   local MOREMODS=$2
-  export PETSC_DIR=$HOME/code/petsc-$ARCHMOD/arch-$PDS_PETSC_ARCHNAME-$ARCHMOD-$MOREMODS-install
+  export PETSC_DIR=$HOME/code/petsc-$ARCHMOD/arch-$ARCHMOD-$MOREMODS-install
   unset PETSC_ARCH
   export PMPI=$PETSC_DIR/bin/mpiexec
 }
@@ -86,8 +85,8 @@ function setpprefix {
 function lamemhelper {
   # Usage: lamemhelper <archmod>
   local ARCHMOD=${1:-maint}
-  export PETSC_DEB=$HOME/code/petsc-$ARCHMOD/install-$PDS_PETSC_ARCHNAME-$ARCHMOD-extra-debug-prefix
-  export PETSC_OPT=$HOME/code/petsc-$ARCHMOD/install-$PDS_PETSC_ARCHNAME-$ARCHMOD-extra-opt-prefix
+  export PETSC_DEB=$HOME/code/petsc-$ARCHMOD/install-$ARCHMOD-extra-debug-prefix
+  export PETSC_OPT=$HOME/code/petsc-$ARCHMOD/install-$ARCHMOD-extra-opt-prefix
   export PETSC_DIR=$PETSC_OPT
   export PMPI=$PETSC_OPT/bin/mpiexec
   unset PETSC_ARCH

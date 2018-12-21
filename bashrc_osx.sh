@@ -8,9 +8,6 @@ export VIMRUNTIME=/Applications/MacVim.app/Contents/Resources/vim/runtime
 # Use prompt without hostname
 PS1=$PS1_LOCAL
 
-# PETSc
-export PDS_PETSC_ARCHNAME=darwin
-
 # PETSc builds for SPIDER (bitbucket.org/djbower/spider-dev)
 alias setpdirectopt="export PETSC_DIR=$HOME/code/petsc-double-direct;export PETSC_ARCH=arch-darwin-c-opt;export PMPI=$HOME/code/petsc-double-direct/arch-darwin-c-opt/bin/mpiexec; whichp;"
 alias setpdirect="export PETSC_DIR=$HOME/code/petsc-double-direct;export PETSC_ARCH=arch-darwin-c-debug;export PMPI=$HOME/code/petsc-double-direct/arch-darwin-c-debug/bin/mpiexec; whichp;"
