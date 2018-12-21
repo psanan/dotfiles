@@ -1,2 +1,1 @@
-# Python Test Harness
-export PYTHONPATH=$PYTHONPATH:$HOME/pythontestharness/lib
+export PYTHONPATH=$PYTHONPATH:$HOME/code/pythontestharness/lib
