@@ -59,11 +59,10 @@ alias unsetp='unset PETSC_ARCH; unset PETSC_DIR; unset PMPI;'
 alias confp='grep CONFIGURE_OPTIONS $PETSC_DIR/$PETSC_ARCH/lib/petsc/conf/petscvariables'
 
 # Aliases to set common PETSc configurations. We always include the branch name,
-# to allow for auxiliary branches in a given directory, and to allow the arch
-# alone to identify the build (see petsc_configure*.sh in the
+# to allow for multiple variants in a given directory (see petsc_configure*.sh in the
 # petsc_configure_helpers repo).
-# Example: "setp 3.7 extra-opt" on OS X -->
-#          PETSC_ARCH=arch-darwin-3.7-extra-opt, PETSC_DIR=$HOME/code/petsc-3.7
+# Example: "setp 3.7 extra-opt" -->
+#          PETSC_ARCH=arch-3.7-extra-opt, PETSC_DIR=$HOME/code/petsc-3.7
 function setp {
 # Usage: setp <archmod> <precision-extra-opt-etc>
   local ARCHMOD=$1
