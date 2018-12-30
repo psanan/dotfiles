@@ -8,7 +8,7 @@
 PDSRC_ROOT=$HOME/util/pdsrc
 LINK="ln -sf"
 
-$LINK $PDSRC_ROOT/profile_osx.sh    $HOME/.profile
+$LINK $PDSRC_ROOT/profile.sh        $HOME/.profile
 $LINK $PDSRC_ROOT/bash_profile.sh   $HOME/.bash_profile
 $LINK $PDSRC_ROOT/bashrc_osx.sh     $HOME/.bashrc
 $LINK $PDSRC_ROOT/vimrc             $HOME/.vimrc
