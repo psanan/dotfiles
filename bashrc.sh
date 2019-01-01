@@ -1,14 +1,11 @@
-################################################################################
-# Common .bashrc                                                               #
-################################################################################
+### Location for additional scripts ############################################
 PDSRC_ROOT=${PDSRC_ROOT:-$HOME/util/pdsrc}
 
-# TODO: This duplicates bashrc.sh! once we can id remote machines, we can get rid
-#       of this and use a single bashrc
-
+### Terminal ###################################################################
 export CLICOLOR=1;                  # colorize the terminal
 export HISTCONTROL=ignoredups       # include commands starting with a space
 
+### Aliases ####################################################################
 alias   ll="ls -l"
 alias   sb="source $HOME/.bash_profile"
 alias vimr="vim -R"                 # read-only with vim
@@ -16,7 +13,6 @@ alias   mj="make -j8"               # -j causes forking problems sometimes
 alias   gg="git grep"
 
 ### Git ########################################################################
-
 git config --global user.name "Patrick Sanan"
 git config --global user.email "patrick.sanan@gmail.com"
 git config --global color.status auto
@@ -41,7 +37,6 @@ PS1_LOCAL='\[\e[1;31m\][\[\e[1;31m\]\W\[\e[0;36m\]$(__git_ps1 " (%s)")\[\e[1;31m
 # Note: $STY is for use with GNU Screen (screen -S sessionName)
 
 ### PETSc ######################################################################
-
 alias cdp='cd $PETSC_DIR'                                   # note single quotes
 alias cdk='cd $PETSC_DIR/src/ksp/ksp/examples/tutorials'
 
@@ -105,3 +100,56 @@ export PTATIN_DIR=$HOME/code/ptatin3d
 # A default STAGBL_DIR (mostly for YCM)
 export STAGBL_DIR=$HOME/code/stagbl
 alias cds='cd $STAGBL_DIR'
+
+### Linux-specific commands ####################################################
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+
+# For SPIDER (corresponds to install hints there)
+alias setpdirectopt="export PETSC_DIR=$HOME/code/petsc-double-direct;export PETSC_ARCH=arch-linux2-c-opt;export PMPI=$HOME/code/petsc-double-direct/arch-linux2-c-opt/bin/mpiexec; whichp;"
+alias setpdirect="export PETSC_DIR=$HOME/code/petsc-double-direct;export PETSC_ARCH=arch-linux2-c-debug;export PMPI=$HOME/code/petsc-double-direct/arch-linux2-c-debug/bin/mpiexec; whichp;"
+alias setpdirectopt128="export PETSC_DIR=$HOME/code/petsc-quad-direct;export PETSC_ARCH=arch-linux2-c-opt;export PMPI=$HOME/code/petsc-quad-direct/arch-linux2-c-opt/bin/mpiexec; whichp;"
+alias setpdirect128opt=setpdirectopt128
+alias setpdirect128="export PETSC_DIR=$HOME/code/petsc-quad-direct;export PETSC_ARCH=arch-linux2-c-debug;export PMPI=$HOME/code/petsc-quad-direct/arch-linux2-c-debug/bin/mpiexec; whichp;"
+
+# Paraview
+alias paraview44="~/ParaView-4.4.0-Qt4-OpenGL2-Linux-64bit/bin/paraview"
+alias paraview54="~/ParaView-5.4.1-Qt5-OpenGL2-MPI-Linux-64bit/bin/paraview"
+alias paraview56="~/ParaView-5.6.0-MPI-Linux-64bit/bin/paraview"
+#alias paraview=paraview56
+fi
+
+### OS X-specific commands ####################################################
+if [[ "$OSTYPE" == "darwin"* ]]; then
+
+# To use MacVim. This is a kludge
+export VIMRUNTIME=/Applications/MacVim.app/Contents/Resources/vim/runtime
+
+# Use prompt without hostname
+PS1=$PS1_LOCAL
+
+# PETSc builds for SPIDER (bitbucket.org/djbower/spider-dev)
+alias setpdirectopt="export PETSC_DIR=$HOME/code/petsc-double-direct;export PETSC_ARCH=arch-darwin-c-opt;export PMPI=$HOME/code/petsc-double-direct/arch-darwin-c-opt/bin/mpiexec; whichp;"
+alias setpdirect="export PETSC_DIR=$HOME/code/petsc-double-direct;export PETSC_ARCH=arch-darwin-c-debug;export PMPI=$HOME/code/petsc-double-direct/arch-darwin-c-debug/bin/mpiexec; whichp;"
+alias setpdirectopt128="export PETSC_DIR=$HOME/code/petsc-quad-direct;export PETSC_ARCH=arch-darwin-c-opt;export PMPI=$HOME/code/petsc-quad-direct/arch-darwin-c-opt/bin/mpiexec; whichp;"
+alias setpdirect128opt=setpdirectopt128
+alias setpdirect128="export PETSC_DIR=$HOME/code/petsc-quad-direct;export PETSC_ARCH=arch-darwin-c-debug;export PMPI=$HOME/code/petsc-quad-direct/arch-darwin-c-debug/bin/mpiexec; whichp;"
+
+# Function which can title iTerm2 tabs
+function title {
+    echo -e "\033]6;1;bg;red;brightness;155\a";
+    echo -e "\033]6;1;bg;green;brightness;55\a";
+    echo -e "\033]6;1;bg;blue;brightness;155\a";
+    echo -ne "\033]0;"$*"\007"
+}
+
+# Ideatron
+alias iii="cd $HOME/code/ideatron; ./runme.py; cd -"
+export IDEATRON_DATA_DIR=$HOME/life/Ideatron_data
+
+# Notes
+source $HOME/academic/pdsnotes/helpers.sh
+
+# Other helpers
+source $HOME/.helpers.sh
+
+fi
