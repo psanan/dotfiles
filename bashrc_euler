@@ -1,5 +1,5 @@
 PDSRC_ROOT=~/pdsrc
-source $PDSRC_ROOT/bashrc_common.sh
+source $PDSRC_ROOT/bashrc_common
 ################################################################################
 
 # Watch your jobs in the queue
