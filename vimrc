@@ -64,7 +64,7 @@ noremap <2-LeftMouse> za
 " Backspace beyond current insert (probably a bad habit)
 set backspace=indent,eol,start
 
-" 2 space instead of tabs
+" 2 spaces instead of tabs
 set expandtab
 set tabstop=2
 set softtabstop=2
@@ -114,10 +114,6 @@ let fortran_free_source=1
 autocmd BufNewFile,BufRead *.cl   set syntax=c
 autocmd BufNewFile,BufRead *.cucl set syntax=c
 
-" Highlight trailing whitespace
-highlight ExtraWhitespace ctermbg=grey guibg=grey
-match ExtraWhitespace /\s\+$/
-
 " Color column in active window
 set colorcolumn=81
 augroup BgHighlight
@@ -137,18 +133,11 @@ map <c-\>tt :vsp<CR><c-w><c-l><c-]>
 " Kill all trailing whitespace
 map <F3> :%s/\s\+$//<CR>
 
-" Turn off highlighting of extra whitespace
-map <F4> :highlight clear ExtraWhitespace <CR>
-
 " NERDTree
 map <F7> :NERDTree <CR>
 
 " Toggle Tagbar
 map <F8> :TagbarToggle <CR>
-
-" Move tabs
-map <F11> gT
-map <F12> gt
 
 " Use control + hjkl to move windows
 nnoremap <C-h> <c-w>h
