@@ -6,9 +6,9 @@
 PDSRC_ROOT=$HOME/util/pdsrc
 LINK="ln -sf"
 
-$LINK $PDSRC_ROOT/profile.sh        $HOME/.profile
-$LINK $PDSRC_ROOT/bash_profile.sh   $HOME/.bash_profile
-$LINK $PDSRC_ROOT/bashrc.sh         $HOME/.bashrc
+$LINK $PDSRC_ROOT/profile           $HOME/.profile
+$LINK $PDSRC_ROOT/bash_profile      $HOME/.bash_profile
+$LINK $PDSRC_ROOT/bashrc            $HOME/.bashrc
 $LINK $PDSRC_ROOT/vimrc             $HOME/.vimrc
 $LINK $PDSRC_ROOT/latexmkrc         $HOME/.latexmkrc
 $LINK $PDSRC_ROOT/gdbinit           $HOME/.gdbinit

@@ -1,3 +1,9 @@
+# If not running interactively, don't do anything
+case $- in
+    *i*) ;;
+      *) return;;
+esac
+
 ### Location for additional scripts ############################################
 PDSRC_ROOT=${PDSRC_ROOT:-$HOME/util/pdsrc}
 
