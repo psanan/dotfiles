@@ -17,6 +17,7 @@ alias   sb="source $HOME/.bash_profile"
 alias vimr="vim -R"                 # read-only with vim
 alias   mj="make -j8"               # -j causes forking problems sometimes
 alias   gg="git grep"
+alias  dus="du -sh * | sort -hr"    # sorted local file/directory sizes
 
 ### Git ########################################################################
 git config --global user.name "Patrick Sanan"
