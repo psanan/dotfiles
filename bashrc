@@ -101,10 +101,9 @@ alias cdl='cd $LAMEM_DIR'
 alias lamemtest='cd $LAMEM_DIR/input_models/BuildInSetups; ../../bin/opt/LaMEM -ParamFile FallingBlock_DirectSolver.dat'
 alias lamemtest2='cd $LAMEM_DIR/input_models/BuildInSetups; $PMPI -np 2 ../../bin/opt/LaMEM -ParamFile FallingBlock_DirectSolver.dat'
 
-# A default PTATIN_DIR (mostly for YCM)
+# Default software directories (mostly for YCM)
+export PETSC_DIR=$HOME/code/petsc
 export PTATIN_DIR=$HOME/code/ptatin3d
-
-# A default STAGBL_DIR (mostly for YCM)
 export STAGBL_DIR=$HOME/code/stagbl
 alias cds='cd $STAGBL_DIR'
 
@@ -151,7 +150,7 @@ function title {
 
 # Ideatron
 alias iii="cd $HOME/code/ideatron; ./runme.py; cd -"
-export IDEATRON_DATA_DIR=$HOME/life/Ideatron_data
+export IDEATRON_DATA_DIR=$HOME/life/ideatron_local
 
 # Notes
 source $HOME/academic/pdsnotes/helpers.sh
