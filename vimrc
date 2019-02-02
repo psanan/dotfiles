@@ -99,6 +99,10 @@ autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
 " Quiet!
 set noerrorbells
 
+" Use tab/shift-tab to move to next/prev tab
+nnoremap <TAB> gt
+nnoremap <S-TAB> gT
+
 """ Appearance """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Line numbers
