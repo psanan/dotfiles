@@ -18,10 +18,10 @@ alias setpstagbl="export PETSC_DIR=/users/psanan/petsc-stagbl; export PETSC_ARCH
 # cd to scratch dir
 alias cds="cd $SCRATCH"
 
+alias q="squeue -u `whoami`"
+
 # A default PTATIN_DIR
 export PTATIN_DIR=$SCRATCH/ptatin3d
-export PTATIN_DIR_PERF=$SCRATCH/ptatin3d-perf
-export PTATIN_DIR_LAETI=$SCRATCH/ptatin3d-laeti
 
 # A default HPGMG_DIR
 export HPGMG_DIR=$SCRATCH/hpgmg
