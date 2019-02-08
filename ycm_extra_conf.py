@@ -30,6 +30,7 @@ STAGBL_DIR=os.getenv('STAGBL_DIR')
 if STAGBL_DIR :
     flags.extend([
     '-I',STAGBL_DIR+'/include',
+    '-I',STAGBL_DIR+'/include/stagbl/private',
     ])
 
 # LaMEM
