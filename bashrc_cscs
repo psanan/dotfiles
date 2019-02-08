@@ -5,8 +5,8 @@ case $- in
 esac
 
 #Common
-PDSRC_ROOT=~/pdsrc
-source $PDSRC_ROOT/bashrc_common
+PDSRC_ROOT=$HOME/util/pdsrc
+source $PDSRC_ROOT/bashrc
 ################################################################################
 
 # PETSc (overrides the usual!)

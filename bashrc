@@ -4,6 +4,8 @@ case $- in
       *) return;;
 esac
 
+# Note: for some remote machines, we may have another bashrc, which sources this
+
 ### Location for additional scripts ############################################
 PDSRC_ROOT=${PDSRC_ROOT:-$HOME/util/pdsrc}
 
