@@ -16,10 +16,11 @@ export HISTCONTROL=ignoredups       # include commands starting with a space
 ### Aliases ####################################################################
 alias   ll="ls -l"
 alias   sb="source $HOME/.bash_profile"
-alias vimr="vim -R"                 # read-only with vim
-alias   mj="make -j8"               # -j causes forking problems sometimes
+alias vimr="vim -R"
+alias   mj="make -j8"
 alias   gg="git grep"
-alias  dus="du -sh * | sort -hr"    # sorted local file/directory sizes
+alias  dus="du -sh * | sort -hr"            # sorted local file/directory sizes
+alias  cdn="cd $HOME/academic/notes/notes"
 
 ### Git ########################################################################
 git config --global user.name "Patrick Sanan"
@@ -153,10 +154,7 @@ function title {
 alias iii="cd $HOME/code/ideatron; ./runme.py; cd -"
 export IDEATRON_DATA_DIR=$HOME/life/ideatron_local
 
-# Notes
-source $HOME/academic/pdsnotes/helpers.sh
-
-# Other helpers
+# Helpers
 source $HOME/.helpers.sh
 
 fi

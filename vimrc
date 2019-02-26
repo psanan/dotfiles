@@ -153,3 +153,6 @@ nnoremap <C-l> <c-w>l
 imap <c-\>pc PETSC_COMM_WORLD
 imap <c-\>ch CHKERRQ(ierr);
 imap <c-\>po PetscObjectComm((PetscObject)dm)
+
+" use "open" (OS X) to open a filename under the cursor
+nnoremap Gf :!open <cWORD> <CR>
