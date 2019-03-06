@@ -66,15 +66,19 @@ alias unsetp='unset PETSC_ARCH; unset PETSC_DIR; unset PMPI;'
 # Print out the configure options for the current PETSC_ARCH and PETSC_DIR (won't work for PETSc <3.6)
 alias confp='grep CONFIGURE_OPTIONS $PETSC_DIR/$PETSC_ARCH/lib/petsc/conf/petscvariables'
 
-# Aliases to set common PETSc configurations. We always include the branch name,
-# to allow for multiple variants in a given directory (see petsc_configure*.sh in the
-# petsc_configure_helpers repo).
-# Example: "setp 3.7 extra-opt" -->
-#          PETSC_ARCH=arch-3.7-extra-opt, PETSC_DIR=$HOME/code/petsc-3.7
+
+# Functions to set common PETSc configurations.
+# See petsc_configure*.sh in the petsc_configure_helpers repo
+function space2dash {
+  # Concatenate arguments and replace spaces with dashes
+  echo "$@" | sed 's/ /-/g'
+}
 function setp {
-# Usage: setp <archmod> <precision-extra-opt-etc>
+# Usage: setp <archmod> [<precision> <extra> ... ] <debug/opt>
+# Example: setp 3.7 extra opt 
+#          --> PETSC_ARCH=arch-3.7-extra-opt, PETSC_DIR=$HOME/code/petsc-3.7
   local ARCHMOD=$1
-  local MOREMODS=$2
+  local MOREMODS=$(space2dash ${@:2})
   export PETSC_DIR=$HOME/code/petsc-$ARCHMOD
   export PETSC_ARCH=arch-$ARCHMOD-$MOREMODS
   export PMPI=$PETSC_DIR/$PETSC_ARCH/bin/mpiexec
@@ -82,7 +86,7 @@ function setp {
 function setpprefix {
   # Usage: setp <archmod> <precision-extra-opt-etc>
   local ARCHMOD=$1
-  local MOREMODS=$2
+  local MOREMODS=$(space2dash ${@:2})
   export PETSC_DIR=$HOME/code/petsc-$ARCHMOD/arch-$ARCHMOD-$MOREMODS-install
   unset PETSC_ARCH
   export PMPI=$PETSC_DIR/bin/mpiexec
