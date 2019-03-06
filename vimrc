@@ -6,26 +6,21 @@
 call plug#begin('~/.vim/plugged')
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' } " Code completion, syntax checking
 Plug 'altercation/vim-colors-solarized'                                   " Colors
-Plug 'scrooloose/nerdtree'                                                " Prettier folder navigation
+Plug 'scrooloose/nerdtree'                                                " Folder navigation
 Plug 'tpope/vim-fugitive'                                                 " Git tools
 Plug 'majutsushi/tagbar'                                                  " Local source structure
 Plug 'vim-airline/vim-airline'                                            " Status bar
 Plug 'vim-airline/vim-airline-themes'                                     " Themes for status bar
 Plug 'git@bitbucket.org:psanan/stice-gg'                                  " Wrapper for git grep
-"Plug 'ctrlpvim/ctrlp.vim'                                                 " Better searching         [experiment]
-"Plug 'tpope/vim-surround'                                                 " Useful motions           [experiment]
-"Plug 'junegunn/fzf'                                                       " Fuzzy find               [experiment]
 call plug#end()
 
 " YouCompleteMe
-" Note: we don't set anything here to do otherwise, so if you want to
-"       search header files for completions, you must type <c-Space>
+" Note: if you want to search header files for completions, type <c-Space>
 " Troubleshooting: sometimes one needs to delete .vim/plugged/YouCompleteMe
-" and re-run :PlugInstall
+"                  and re-run :PlugInstall
 let g:ycm_confirm_extra_conf = 0                                          " unsafe!
-let g:ycm_global_ycm_extra_conf = "~/pdsrc/ycm_extra_conf.py"
+let g:ycm_global_ycm_extra_conf = "~/util/pdsrc/ycm_extra_conf.py"
 let g:ycm_autoclose_preview_window_after_completion = 1
-let g:ycm_always_populate_location_list = 1                               " use :lne
 
 " Airline
 let g:airline_theme='solarized'
@@ -57,9 +52,6 @@ nnoremap Q <nop>
 
 " Turn on mouse scrolling/selecting (works in iTerm2)
 :set mouse=a
-
-" Mouse double left click to toggle folds
-noremap <2-LeftMouse> za
 
 " Backspace beyond current insert (probably a bad habit)
 set backspace=indent,eol,start
@@ -96,13 +88,6 @@ set foldlevelstart=99 " this seems like a hack
 " Disable automatic multiline commenting
 autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
 
-" Quiet!
-set noerrorbells
-
-" Use tab/shift-tab to move to next/prev tab
-nnoremap <TAB> gt
-nnoremap <S-TAB> gT
-
 """ Appearance """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Line numbers
@@ -126,6 +111,9 @@ augroup BgHighlight
     autocmd WinLeave * set colorcolumn=0
 augroup END
 
+" Quiet!
+set noerrorbells
+
 """ Shortcuts """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Unset the "last search pattern" register by hitting return
@@ -140,7 +128,7 @@ map <F3> :%s/\s\+$//<CR>
 " NERDTree
 map <F7> :NERDTree <CR>
 
-" Toggle Tagbar
+" Tagbar
 map <F8> :TagbarToggle <CR>
 
 " Use control + hjkl to move windows
@@ -149,8 +137,14 @@ nnoremap <C-j> <c-w>j
 nnoremap <C-k> <c-w>k
 nnoremap <C-l> <c-w>l
 
+" Use tab/shift-tab to move to next/prev tab
+nnoremap <TAB> gt
+nnoremap <S-TAB> gT
+
+" Mouse double left click to toggle folds
+noremap <2-LeftMouse> za
+
 " PETSc
-imap <c-\>pc PETSC_COMM_WORLD
 imap <c-\>ch CHKERRQ(ierr);
 imap <c-\>po PetscObjectComm((PetscObject)dm)
 
