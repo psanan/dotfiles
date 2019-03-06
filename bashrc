@@ -42,9 +42,9 @@ PS1_LOCAL='\[\e[1;31m\][\[\e[1;31m\]\W\[\e[0;36m\]$(__git_ps1 " (%s)")\[\e[1;31m
 # Note: Don't forget the \[ \], or you'll have line-wrapping issues
 # Note: $STY is for use with GNU Screen (screen -S sessionName)
 
-alias gitlog="git log --graph --pretty=format:\"%h - %an, %ar : %s %d\""
-alias   gits="git status --short"
-alias  gitst="git status --short --untracked-files=no"
+alias  gitl="git log --graph --pretty=format:\"%h - %an, %ar : %s %d\""
+alias  gits="git status --short"
+alias gitst="git status --short --untracked-files=no"
 
 ### PETSc and related software #################################################
 alias cdp='cd $PETSC_DIR'                                   # note single quotes
