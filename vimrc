@@ -155,4 +155,6 @@ imap <c-\>ch CHKERRQ(ierr);
 imap <c-\>po PetscObjectComm((PetscObject)dm)
 
 " use "open" (OS X) to open a filename under the cursor
-nnoremap Gf :!open <cWORD> <CR>
+" The second <CR> means that you won't get to read error messages,
+" but also won't have to press enter again to return to the file in vim
+nnoremap Gf :!open <cWORD> <CR> <CR>
