@@ -3,11 +3,8 @@ source $PDSRC_ROOT/bashrc
 ################################################################################
 
 alias q=bjobs
-
-# PETSc (overrides the usual)
-alias setppardiso="export PETSC_DIR=/cluster/home/pasanan/petsc-pardiso; export PETSC_ARCH=arch-euler-pardiso;  whichp; echo \"  module purge; module load python/2.7.6; module load openblas; module load gcc; module load open_mpi\""
-
 alias cds="cd $SCRATCH"
+alias setppardiso="export PETSC_DIR=/cluster/home/pasanan/petsc-pardiso; export PETSC_ARCH=arch-euler-pardiso;  whichp; echo \"  module purge; module load python/2.7.6; module load openblas; module load gcc; module load open_mpi\""
 
 export EXSADDLE_WITH_PCILDL=1
 export ILUPACK_PLATFORM=GNU64
