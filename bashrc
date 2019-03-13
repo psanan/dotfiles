@@ -19,7 +19,7 @@ alias   sb="source $HOME/.bash_profile"
 alias vimr="vim -R"
 alias   mj="make -j8"
 alias   gg="git grep"
-alias  dus="du -sh * | sort -hr"            # sorted local file/directory sizes
+alias  dus="du -sh * | sort -hr"             # sorted local file/directory sizes
 alias  cdn="cd $HOME/academic/notes/notes"
 
 ### Git ########################################################################
@@ -32,10 +32,6 @@ git config --global core.editor vim
 
 source $PDSRC_ROOT/git-completion.bash
 
-alias gitlog="git log --graph --pretty=format:\"%h - %an, %ar : %s %d\""
-alias   gits="git status --short"
-alias  gitst="git status --short --untracked-files=no"
-
 source $PDSRC_ROOT/git-prompt.sh
 GIT_PS1_SHOWUPSTREAM=true
 GIT_PS1_SHOWDIRTYSTATE=true
@@ -46,7 +42,11 @@ PS1_LOCAL='\[\e[1;31m\][\[\e[1;31m\]\W\[\e[0;36m\]$(__git_ps1 " (%s)")\[\e[1;31m
 # Note: Don't forget the \[ \], or you'll have line-wrapping issues
 # Note: $STY is for use with GNU Screen (screen -S sessionName)
 
-### PETSc ######################################################################
+alias  gitl="git log --graph --pretty=format:\"%h - %an, %ar : %s %d\""
+alias  gits="git status --short"
+alias gitst="git status --short --untracked-files=no"
+
+### PETSc and related software #################################################
 alias cdp='cd $PETSC_DIR'                                   # note single quotes
 alias cdk='cd $PETSC_DIR/src/ksp/ksp/examples/tutorials'
 
@@ -62,10 +62,7 @@ function whichp {
 }
 
 alias unsetp='unset PETSC_ARCH; unset PETSC_DIR; unset PMPI;'
-
-# Print out the configure options for the current PETSC_ARCH and PETSC_DIR (won't work for PETSc <3.6)
 alias confp='grep CONFIGURE_OPTIONS $PETSC_DIR/$PETSC_ARCH/lib/petsc/conf/petscvariables'
-
 
 # Functions to set common PETSc configurations.
 # See petsc_configure*.sh in the petsc_configure_helpers repo
@@ -74,9 +71,9 @@ function space2dash {
   echo "$@" | sed 's/ /-/g'
 }
 function setp {
-# Usage: setp <archmod> [<precision> <extra> ... ] <debug/opt>
-# Example: setp 3.7 extra opt 
-#          --> PETSC_ARCH=arch-3.7-extra-opt, PETSC_DIR=$HOME/code/petsc-3.7
+  # Usage: setp <archmod> [<precision> <extra> ... ] <debug/opt>
+  # Example: setp 3.7 extra opt
+  #          --> PETSC_ARCH=arch-3.7-extra-opt, PETSC_DIR=$HOME/code/petsc-3.7
   local ARCHMOD=$1
   local MOREMODS=$(space2dash ${@:2})
   export PETSC_DIR=$HOME/code/petsc-$ARCHMOD
@@ -117,7 +114,7 @@ alias cds='cd $STAGBL_DIR'
 ### Linux-specific commands ####################################################
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
 
-# For SPIDER (corresponds to install hints there)
+# PETSc builds for SPIDER (bitbucket.org/djbower/spider-dev)
 alias setpdirectopt="export PETSC_DIR=$HOME/code/petsc-double-direct;export PETSC_ARCH=arch-linux2-c-opt;export PMPI=$HOME/code/petsc-double-direct/arch-linux2-c-opt/bin/mpiexec; whichp;"
 alias setpdirect="export PETSC_DIR=$HOME/code/petsc-double-direct;export PETSC_ARCH=arch-linux2-c-debug;export PMPI=$HOME/code/petsc-double-direct/arch-linux2-c-debug/bin/mpiexec; whichp;"
 alias setpdirectopt128="export PETSC_DIR=$HOME/code/petsc-quad-direct;export PETSC_ARCH=arch-linux2-c-opt;export PMPI=$HOME/code/petsc-quad-direct/arch-linux2-c-opt/bin/mpiexec; whichp;"
@@ -125,10 +122,9 @@ alias setpdirect128opt=setpdirectopt128
 alias setpdirect128="export PETSC_DIR=$HOME/code/petsc-quad-direct;export PETSC_ARCH=arch-linux2-c-debug;export PMPI=$HOME/code/petsc-quad-direct/arch-linux2-c-debug/bin/mpiexec; whichp;"
 
 # Paraview
-alias paraview44="~/ParaView-4.4.0-Qt4-OpenGL2-Linux-64bit/bin/paraview"
-alias paraview54="~/ParaView-5.4.1-Qt5-OpenGL2-MPI-Linux-64bit/bin/paraview"
 alias paraview="~/ParaView-5.6.0-MPI-Linux-64bit/bin/paraview"
-fi
+
+fi # Linux
 
 ### OS X-specific commands ####################################################
 if [[ "$OSTYPE" == "darwin"* ]]; then
@@ -146,14 +142,6 @@ alias setpdirectopt128="export PETSC_DIR=$HOME/code/petsc-quad-direct;export PET
 alias setpdirect128opt=setpdirectopt128
 alias setpdirect128="export PETSC_DIR=$HOME/code/petsc-quad-direct;export PETSC_ARCH=arch-darwin-c-debug;export PMPI=$HOME/code/petsc-quad-direct/arch-darwin-c-debug/bin/mpiexec; whichp;"
 
-# Function which can title iTerm2 tabs
-function title {
-    echo -e "\033]6;1;bg;red;brightness;155\a";
-    echo -e "\033]6;1;bg;green;brightness;55\a";
-    echo -e "\033]6;1;bg;blue;brightness;155\a";
-    echo -ne "\033]0;"$*"\007"
-}
-
 # Ideatron
 alias iii="cd $HOME/code/ideatron; ./runme.py; cd -"
 export IDEATRON_DATA_DIR=$HOME/life/ideatron_local
@@ -161,4 +149,4 @@ export IDEATRON_DATA_DIR=$HOME/life/ideatron_local
 # Helpers
 source $HOME/.helpers.sh
 
-fi
+fi # OS X
