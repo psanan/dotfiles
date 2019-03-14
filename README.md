@@ -5,9 +5,16 @@ Files defining settings for bash, vim, and other unix-style tools.
 
 ## Startup Files
 
-* Maintain
-    * `.bashrc`       (commands for all interactive shells)
-    * `.profile`      (commands for login shells)
-    * `.bash_profile` (bash-specific commands for login shells)
-* `.bash_profile` should source `~/.profile` and `~/.bashrc`.
-* `.bashrc` shouldn't output anything.
+`.bashrc`       
+
+    * commands for all interactive bash shells
+    * shouldn't output anything
+
+`.profile`      
+
+    * commands for login shells
+
+`.bash_profile`
+
+    * bash-specific commands for login shells
+    * should source `~/.profile` and `~/.bashrc`.
