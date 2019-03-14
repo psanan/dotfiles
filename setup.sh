@@ -1,17 +1,17 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 # Symlink settings files into the appropriate place.
 #
 # WARNING: this uses ln -sf by default, which will clobber
 
-PDSRC_ROOT=$HOME/util/pdsrc
+PSANAN_RC_ROOT=$HOME/util/rc
 LINK="ln -sf"
 
-$LINK $PDSRC_ROOT/profile           $HOME/.profile
-$LINK $PDSRC_ROOT/bash_profile      $HOME/.bash_profile
-$LINK $PDSRC_ROOT/bashrc            $HOME/.bashrc
-$LINK $PDSRC_ROOT/vimrc             $HOME/.vimrc
-$LINK $PDSRC_ROOT/latexmkrc         $HOME/.latexmkrc
-$LINK $PDSRC_ROOT/gdbinit           $HOME/.gdbinit
-$LINK $PDSRC_ROOT/octaverc          $HOME/.octaverc
-$LINK $PDSRC_ROOT/ycm_extra_conf.py $HOME/.ycm_extra_conf.py
-$LINK $PDSRC_ROOT/screenrc          $HOME/.screenrc
+$LINK $PSANAN_RC_ROOT/profile           $HOME/.profile
+$LINK $PSANAN_RC_ROOT/bash_profile      $HOME/.bash_profile
+$LINK $PSANAN_RC_ROOT/bashrc            $HOME/.bashrc
+$LINK $PSANAN_RC_ROOT/vimrc             $HOME/.vimrc
+$LINK $PSANAN_RC_ROOT/latexmkrc         $HOME/.latexmkrc
+$LINK $PSANAN_RC_ROOT/gdbinit           $HOME/.gdbinit
+$LINK $PSANAN_RC_ROOT/octaverc          $HOME/.octaverc
+$LINK $PSANAN_RC_ROOT/ycm_extra_conf.py $HOME/.ycm_extra_conf.py
+$LINK $PSANAN_RC_ROOT/screenrc          $HOME/.screenrc

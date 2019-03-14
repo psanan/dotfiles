@@ -1,5 +1,5 @@
-PDSRC_ROOT=$HOME/util/pdsrc
-source $PDSRC_ROOT/bashrc
+PSANAN_RC_ROOT=$HOME/util/rc
+source $PSANAN_RC_ROOT/bashrc
 ################################################################################
 
 alias cds="cd $SCRATCH"

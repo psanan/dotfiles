@@ -7,7 +7,7 @@ esac
 # Note: for some remote machines, we may have another bashrc, which sources this
 
 ### Location for additional scripts ############################################
-PDSRC_ROOT=${PDSRC_ROOT:-$HOME/util/pdsrc}
+PSANAN_RC_ROOT=${PSANAN_RC_ROOT:-$HOME/util/rc}
 
 ### Terminal ###################################################################
 export CLICOLOR=1;                  # colorize the terminal
@@ -30,9 +30,9 @@ git config --global color.branch auto
 git config --global push.default tracking
 git config --global core.editor vim
 
-source $PDSRC_ROOT/git-completion.bash
+source $PSANAN_RC_ROOT/git-completion.bash
 
-source $PDSRC_ROOT/git-prompt.sh
+source $PSANAN_RC_ROOT/git-prompt.sh
 GIT_PS1_SHOWUPSTREAM=true
 GIT_PS1_SHOWDIRTYSTATE=true
 GIT_PS1_SHOWSTASHSTATE=true

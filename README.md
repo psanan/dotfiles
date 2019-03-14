@@ -1,1 +1,13 @@
-There is a useful setup.sh here (experimental), but there are also tools like this which might be worth investigating: https://robots.thoughtbot.com/rcm-for-rc-files-in-dotfiles-repos
+# rc Files
+Files defining settings for bash, vim, and other unix-style tools.
+
+`setup.sh` is a simple script to symlink these files into place on a new system.
+
+## Startup Files
+
+* Maintain
+  * `.bashrc`       (commands for all interactive shells)
+  * `.profile`      (commands for login shells)
+  * `.bash_profile` (bash-specific commands for login shells)
+* `.bash_profile` should source `~/.profile` and `~/.bashrc`.
+* `.bashrc` shouldn't output anything.

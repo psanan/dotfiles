@@ -19,7 +19,7 @@ call plug#end()
 " Troubleshooting: sometimes one needs to delete .vim/plugged/YouCompleteMe
 "                  and re-run :PlugInstall
 let g:ycm_confirm_extra_conf = 0                                          " unsafe!
-let g:ycm_global_ycm_extra_conf = "~/util/pdsrc/ycm_extra_conf.py"
+let g:ycm_global_ycm_extra_conf = "~/util/rc/ycm_extra_conf.py"
 let g:ycm_autoclose_preview_window_after_completion = 1
 
 " Airline
