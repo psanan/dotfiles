@@ -7,14 +7,14 @@ Files defining settings for bash, vim, and other unix-style tools.
 
 `.bashrc`       
 
-    * commands for all interactive bash shells
-    * shouldn't output anything
+* commands for all interactive bash shells
+* shouldn't output anything
 
 `.profile`      
 
-    * commands for login shells
+* commands for login shells
 
 `.bash_profile`
 
-    * bash-specific commands for login shells
-    * should source `~/.profile` and `~/.bashrc`.
+* bash-specific commands for login shells
+* should source `~/.profile` and `~/.bashrc`.
