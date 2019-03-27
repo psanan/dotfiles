@@ -13,5 +13,4 @@ $LINK $PSANAN_RC_ROOT/vimrc             $HOME/.vimrc
 $LINK $PSANAN_RC_ROOT/latexmkrc         $HOME/.latexmkrc
 $LINK $PSANAN_RC_ROOT/gdbinit           $HOME/.gdbinit
 $LINK $PSANAN_RC_ROOT/octaverc          $HOME/.octaverc
-$LINK $PSANAN_RC_ROOT/ycm_extra_conf.py $HOME/.ycm_extra_conf.py
 $LINK $PSANAN_RC_ROOT/screenrc          $HOME/.screenrc
