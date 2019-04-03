@@ -81,12 +81,20 @@ function setp {
   export PMPI=$PETSC_DIR/$PETSC_ARCH/bin/mpiexec
 }
 function setpprefix {
-  # Usage: setp <archmod> <precision-extra-opt-etc>
+  # Usage: setpprefix <archmod> <precision-extra-opt-etc>
   local ARCHMOD=$1
   local MOREMODS=$(space2dash ${@:2})
   export PETSC_DIR=$HOME/code/petsc-$ARCHMOD/arch-$ARCHMOD-$MOREMODS-install
   unset PETSC_ARCH
   export PMPI=$PETSC_DIR/bin/mpiexec
+}
+function setpdev {
+  # Usage: setpdev <precision-extra-opt-etc>
+  # Example: setpdev extra debug
+  local ALLMODS=$(space2dash ${@})
+  export PETSC_DIR=$HOME/code/petsc
+  export PETSC_ARCH=arch-$ALLMODS
+  export PMPI=$PETSC_DIR/$PETSC_ARCH/bin/mpiexec
 }
 
 # LaMEM
@@ -134,6 +142,9 @@ export VIMRUNTIME=/Applications/MacVim.app/Contents/Resources/vim/runtime
 
 # Use prompt without hostname
 PS1=$PS1_LOCAL
+
+# Jupyter
+alias jupyter="jupyter-notebook-3.7"
 
 # PETSc builds for SPIDER (bitbucket.org/djbower/spider-dev)
 alias setpdirectopt="export PETSC_DIR=$HOME/code/petsc-double-direct;export PETSC_ARCH=arch-darwin-c-opt;export PMPI=$HOME/code/petsc-double-direct/arch-darwin-c-opt/bin/mpiexec; whichp;"
