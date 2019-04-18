@@ -10,3 +10,12 @@ alias setpmaintoptgnu="export PETSC_DIR=/users/psanan/petsc-maint; export PETSC_
 alias setp3.7opt="export PETSC_DIR=/users/psanan/petsc-3.7; export PETSC_ARCH=arch-cray-xc50-daint;  whichp; module load PrgEnv-cray; echo Note: modules changed!"
 
 export PTATIN_DIR=$SCRATCH/ptatin3d
+
+# Hints on things we do often
+printf "You may want to doit\n"
+doit () {
+  module unload PrgEnv-cray
+  module load PrgEnv-gnu
+  module load daint-gpu cudatoolkit cray-hdf5
+}
+type doit
