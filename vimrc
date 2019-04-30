@@ -12,6 +12,7 @@ Plug 'majutsushi/tagbar'                                                  " Loca
 Plug 'vim-airline/vim-airline'                                            " Status bar
 Plug 'vim-airline/vim-airline-themes'                                     " Themes for status bar
 Plug 'git@bitbucket.org:psanan/stice-gg'                                  " Wrapper for git grep
+Plug 'godlygeek/Tabular'                                                  " Alignment helper (Try :Tab /=)
 call plug#end()
 
 " YouCompleteMe
