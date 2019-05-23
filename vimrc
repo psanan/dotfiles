@@ -132,7 +132,7 @@ map <F7> :NERDTree <CR>
 " Tagbar
 map <F8> :TagbarToggle <CR>
 
-" Use control + hjkl to move windows
+" Use control + hjkl to move between windows
 nnoremap <C-h> <c-w>h
 nnoremap <C-j> <c-w>j
 nnoremap <C-k> <c-w>k
