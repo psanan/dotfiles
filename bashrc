@@ -101,12 +101,12 @@ function setpdev {
 function lamemhelper {
   # Usage: lamemhelper <archmod>
   local ARCHMOD=${1:-maint}
-  export PETSC_DEB=$HOME/code/petsc-$ARCHMOD/install-$ARCHMOD-extra-debug-prefix
-  export PETSC_OPT=$HOME/code/petsc-$ARCHMOD/install-$ARCHMOD-extra-opt-prefix
+  export PETSC_DEB=$HOME/code/petsc-$ARCHMOD/arch-$ARCHMOD-extra-debug-install
+  export PETSC_OPT=$HOME/code/petsc-$ARCHMOD/arch-$ARCHMOD-extra-opt-install
   export PETSC_DIR=$PETSC_OPT
   export PMPI=$PETSC_OPT/bin/mpiexec
   unset PETSC_ARCH
-  export LAMEM_DIR=$HOME/lamem-$ARCHMOD
+  export LAMEM_DIR=$HOME/code/lamem-$ARCHMOD
   whichp
 }
 alias cdl='cd $LAMEM_DIR'
