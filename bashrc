@@ -16,11 +16,12 @@ export HISTCONTROL=ignoredups       # include commands starting with a space
 ### Aliases ####################################################################
 alias   ll="ls -l"
 alias   sb="source $HOME/.bash_profile"
-alias vimr="vim -R"
+alias  vimr="vim -R"
 alias   mj="make -j8"
 alias   gg="git grep"
-alias  dus="du -sh * | sort -hr"             # sorted local file/directory sizes
+alias  dus="du -sh * | sort -hr"
 alias  cdn="cd $HOME/academic/notes/notes"
+alias plab="ipython3 -i --pylab=auto $HOME/code/petsc_python_helpers/ipython_setup.py"
 
 ### Git ########################################################################
 git config --global user.name "Patrick Sanan"
