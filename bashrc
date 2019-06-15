@@ -137,6 +137,9 @@ fi # Linux
 ### OS X-specific commands ####################################################
 if [[ "$OSTYPE" == "darwin"* ]]; then
 
+# Paraview
+alias paraview="/Applications/ParaView-5.6.0.app/Contents/MacOS/paraview"
+
 # To use MacVim. This is a kludge
 export VIMRUNTIME=/Applications/MacVim.app/Contents/Resources/vim/runtime
 
