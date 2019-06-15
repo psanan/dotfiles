@@ -16,11 +16,12 @@ export HISTCONTROL=ignoredups       # include commands starting with a space
 ### Aliases ####################################################################
 alias   ll="ls -l"
 alias   sb="source $HOME/.bash_profile"
-alias vimr="vim -R"
+alias  vimr="vim -R"
 alias   mj="make -j8"
 alias   gg="git grep"
-alias  dus="du -sh * | sort -hr"             # sorted local file/directory sizes
+alias  dus="du -sh * | sort -hr"
 alias  cdn="cd $HOME/academic/notes/notes"
+alias plab="ipython3 -i --pylab=auto $HOME/code/petsc_python_helpers/ipython_setup.py"
 
 ### Git ########################################################################
 git config --global user.name "Patrick Sanan"
@@ -101,12 +102,12 @@ function setpdev {
 function lamemhelper {
   # Usage: lamemhelper <archmod>
   local ARCHMOD=${1:-maint}
-  export PETSC_DEB=$HOME/code/petsc-$ARCHMOD/install-$ARCHMOD-extra-debug-prefix
-  export PETSC_OPT=$HOME/code/petsc-$ARCHMOD/install-$ARCHMOD-extra-opt-prefix
+  export PETSC_DEB=$HOME/code/petsc-$ARCHMOD/arch-$ARCHMOD-extra-debug-install
+  export PETSC_OPT=$HOME/code/petsc-$ARCHMOD/arch-$ARCHMOD-extra-opt-install
   export PETSC_DIR=$PETSC_OPT
   export PMPI=$PETSC_OPT/bin/mpiexec
   unset PETSC_ARCH
-  export LAMEM_DIR=$HOME/lamem-$ARCHMOD
+  export LAMEM_DIR=$HOME/code/lamem-$ARCHMOD
   whichp
 }
 alias cdl='cd $LAMEM_DIR'
