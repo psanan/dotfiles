@@ -22,6 +22,7 @@ alias   gg="git grep"
 alias  dus="du -sh * | sort -hr"
 alias  cdn="cd $HOME/academic/notes/notes"
 alias plab="ipython3 -i --pylab=auto $HOME/code/petsc_python_helpers/ipython_setup.py"
+alias news="newsboat"
 
 ### Git ########################################################################
 git config --global user.name "Patrick Sanan"
