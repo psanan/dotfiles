@@ -24,6 +24,14 @@ alias  cdn="cd $HOME/academic/notes/notes"
 alias plab="ipython3 -i --pylab=auto $HOME/code/petsc_python_helpers/ipython_setup.py"
 alias news="newsboat"
 
+function t {
+  d=`date +%Y.%m.%d`
+  notepath="$HOME/academic/notes/tech/$d.md"
+  echo '# Untitled Tech Note' >> $notepath
+  echo '{tag1} {tag2} '       >> $notepath
+  vim $notepath
+}
+
 ### Git ########################################################################
 git config --global user.name "Patrick Sanan"
 git config --global user.email "patrick.sanan@gmail.com"
