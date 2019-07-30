@@ -13,6 +13,7 @@ Plug 'vim-airline/vim-airline'                                            " Stat
 Plug 'vim-airline/vim-airline-themes'                                     " Themes for status bar
 Plug 'git@bitbucket.org:psanan/stice-gg'                                  " Wrapper for git grep
 Plug 'godlygeek/Tabular'                                                  " Alignment helper (Try :Tab /=)
+Plug 'tmhedberg/simpylfold'                                               " Python folding
 call plug#end()
 
 " YouCompleteMe
