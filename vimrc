@@ -124,6 +124,9 @@ nnoremap <CR> :noh<CR><CR>
 " Jump to tag, in new window
 map <c-\>tt :vsp<CR><c-w><c-l><c-]>
 
+" Search for trailing whitespace (highlights with "set hlsearch")
+map <F4> :/\s\+$<CR>
+
 " Kill all trailing whitespace
 map <F3> :%s/\s\+$//<CR>
 
