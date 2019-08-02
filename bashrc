@@ -40,21 +40,30 @@ git config --global color.branch auto
 git config --global push.default tracking
 git config --global core.editor vim
 
-source $PSANAN_RC_ROOT/git-completion.bash
+alias  gitl="git log --graph --pretty=format:\"%h - %an, %ar : %s %d\""
+alias  gits="git status --short"
+alias gitst="git status --short --untracked-files=no"
 
+source $PSANAN_RC_ROOT/git-completion.bash
 source $PSANAN_RC_ROOT/git-prompt.sh
 GIT_PS1_SHOWUPSTREAM=true
 GIT_PS1_SHOWDIRTYSTATE=true
 GIT_PS1_SHOWSTASHSTATE=true
 GIT_PS1_SHOWUNTRACKEDFILES=true
-PS1='\[\e[1;31m\][\[\e[0;33m\]\H \[\e[0;34m\]$STY \[\e[0;92m\]($(basename "$CONDA_DEFAULT_ENV")) \[\e[1;31m\]\W\[\e[0;36m\]$(__git_ps1 " (%s)")\[\e[1;31m\]]\$\[\e[0m\] '
-PS1_LOCAL='\[\e[1;31m\][\[\e[0;92m\]($(basename "$CONDA_DEFAULT_ENV")) \[\e[1;31m\]\W\[\e[0;36m\]$(__git_ps1 " (%s)")\[\e[1;31m\]]\$\[\e[0m\] '
+
+### Prompt #####################################################################
+# helper function to add a space to non-empty strings
+function addsp {
+  if [[ -z "$1" ]]; then
+    echo ""
+  else
+    echo "$1 "
+  fi
+}
+PS1='\[\e[1;31m\][\[\e[0;33m\]\H \[\e[0;34m\]$(addsp "$STY")\[\e[0;92m\]($(basename "$CONDA_DEFAULT_ENV")) \[\e[1;31m\]\W\[\e[0;36m\]$(__git_ps1 " (%s)")\[\e[1;31m\]]\$\[\e[0m\] '
 # Note: Don't forget the \[ \], or you'll have line-wrapping issues
 # Note: $STY is for use with GNU Screen (screen -S sessionName)
 
-alias  gitl="git log --graph --pretty=format:\"%h - %an, %ar : %s %d\""
-alias  gits="git status --short"
-alias gitst="git status --short --untracked-files=no"
 
 ### PETSc and related software #################################################
 alias cdp='cd $PETSC_DIR'                                   # note single quotes
@@ -152,9 +161,6 @@ alias paraview="/Applications/ParaView-5.6.0.app/Contents/MacOS/paraview"
 
 # To use MacVim. This is a kludge
 export VIMRUNTIME=/Applications/MacVim.app/Contents/Resources/vim/runtime
-
-# Use prompt without hostname
-PS1=$PS1_LOCAL
 
 # Jupyter
 alias jupyter="jupyter-notebook-3.7"
