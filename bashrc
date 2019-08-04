@@ -60,7 +60,7 @@ function addsp {
     echo "$1 "
   fi
 }
-PS1='\[\e[1;31m\][\[\e[0;33m\]\H \[\e[0;34m\]$(addsp "$STY")\[\e[0;92m\]($(basename "$CONDA_DEFAULT_ENV")) \[\e[1;31m\]\W\[\e[0;36m\]$(__git_ps1 " (%s)")\[\e[1;31m\]]\$\[\e[0m\] '
+PS1='\[\e[1;31m\][\[\e[0;33m\]\H \[\e[0;34m\]$(addsp "$STY")\[\e[1;31m\]\W\[\e[0;36m\]$(__git_ps1 " (%s)")\[\e[1;31m\]]\$\[\e[0m\] '
 # Note: Don't forget the \[ \], or you'll have line-wrapping issues
 # Note: $STY is for use with GNU Screen (screen -S sessionName)
 
