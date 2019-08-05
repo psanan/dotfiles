@@ -156,16 +156,17 @@ fi # Linux
 ### OS X-specific commands ####################################################
 if [[ "$OSTYPE" == "darwin"* ]]; then
 
+# Vim and MacVim
+alias vim="/Applications/MacVim.app/Contents/bin/vim"
+alias mvim="/Applications/MacVim.app/Contents/bin/mvim"
+
 # Paraview
 alias paraview="/Applications/ParaView-5.6.0.app/Contents/MacOS/paraview"
-
-# To use MacVim. This is a kludge
-export VIMRUNTIME=/Applications/MacVim.app/Contents/Resources/vim/runtime
 
 # Jupyter
 alias jupyter="jupyter-notebook-3.7"
 
-# PETSc builds for SPIDER (bitbucket.org/djbower/spider-dev)
+# PETSc builds for SPIDER
 alias setpdirectopt="export PETSC_DIR=$HOME/code/petsc-double-direct;export PETSC_ARCH=arch-darwin-c-opt;export PMPI=$HOME/code/petsc-double-direct/arch-darwin-c-opt/bin/mpiexec; whichp;"
 alias setpdirect="export PETSC_DIR=$HOME/code/petsc-double-direct;export PETSC_ARCH=arch-darwin-c-debug;export PMPI=$HOME/code/petsc-double-direct/arch-darwin-c-debug/bin/mpiexec; whichp;"
 alias setpdirectopt128="export PETSC_DIR=$HOME/code/petsc-quad-direct;export PETSC_ARCH=arch-darwin-c-opt;export PMPI=$HOME/code/petsc-quad-direct/arch-darwin-c-opt/bin/mpiexec; whichp;"

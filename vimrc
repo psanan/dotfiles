@@ -1,8 +1,12 @@
 """ Plugins """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Vim-plug. Obtain and install with
-"   curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-"   :PlugInstall  (from Vim)
+" Vim-plug.
+" Automatic installation (https://github.com/junegunn/vim-plug/wiki/tips#automatic-installation)
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 call plug#begin('~/.vim/plugged')
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' } " Code completion, syntax checking
 Plug 'altercation/vim-colors-solarized'                                   " Colors
@@ -103,7 +107,6 @@ let fortran_free_source=1
 
 " Use C syntax highlighting for additional extensions
 autocmd BufNewFile,BufRead *.cl   set syntax=c
-autocmd BufNewFile,BufRead *.cucl set syntax=c
 
 " Color column in active window
 set colorcolumn=81
@@ -112,9 +115,6 @@ augroup BgHighlight
     autocmd WinEnter * set colorcolumn=81
     autocmd WinLeave * set colorcolumn=0
 augroup END
-
-" Quiet!
-set noerrorbells
 
 """ Shortcuts """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
