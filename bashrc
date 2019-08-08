@@ -21,6 +21,7 @@ alias   mj="make -j8"
 alias   gg="git grep"
 alias  dus="du -sh * | sort -hr"
 alias  cdn="cd $HOME/academic/notes/notes"
+alias  cdt="cd $HOME/academic/notes/tech"
 alias plab="ipython3 -i --pylab=auto $HOME/code/petsc_python_helpers/ipython_setup.py"
 alias news="newsboat"
 
@@ -52,18 +53,17 @@ GIT_PS1_SHOWSTASHSTATE=true
 GIT_PS1_SHOWUNTRACKEDFILES=true
 
 ### Prompt #####################################################################
-# helper function to add a space to non-empty strings
-function addsp {
-  if [[ -z "$1" ]]; then
-    echo ""
-  else
-    echo "$1 "
-  fi
-}
-PS1='\[\e[1;31m\][\[\e[0;33m\]\H \[\e[0;34m\]$(addsp "$STY")\[\e[1;31m\]\W\[\e[0;36m\]$(__git_ps1 " (%s)")\[\e[1;31m\]]\$\[\e[0m\] '
+# helper function to add a space and (optional) brackets to non-empty strings
+function addsp { if [[ -z "$1" ]]; then echo ""; else echo "$2$1$3 "; fi; }
+PS1_OPEN="\[\e[1;31m\]["
+PS1_CLOSE="\[\e[1;31m\]]$\[\e[0m\] "
+PS1_BODY='\[\e[0;34m\]$(addsp "$STY" "[" "]")\[\e[0;95m\]$(addsp "$PETSC_ARCH" "(" ")")\[\e[1;31m\]\W\[\e[0;36m\]$(__git_ps1 " (%s)")'
+PS1_HOST="\[\e[0;33m\]\H "
+PS1_LOCAL="$PS1_OPEN$PS1_BODY$PS1_CLOSE"
+PS1_REMOTE="$PS1_OPEN$PS1_HOST$PS1_BODY$PS1_CLOSE"
+PS1=$PS1_REMOTE
 # Note: Don't forget the \[ \], or you'll have line-wrapping issues
 # Note: $STY is for use with GNU Screen (screen -S sessionName)
-
 
 ### PETSc and related software #################################################
 alias cdp='cd $PETSC_DIR'                                   # note single quotes
@@ -156,6 +156,9 @@ fi # Linux
 ### OS X-specific commands ####################################################
 if [[ "$OSTYPE" == "darwin"* ]]; then
 
+# Use "local prompt"
+PS1=$PS1_LOCAL
+
 # Vim and MacVim
 alias vim="/Applications/MacVim.app/Contents/bin/vim"
 alias mvim="/Applications/MacVim.app/Contents/bin/mvim"
@@ -174,7 +177,7 @@ alias setpdirect128opt=setpdirectopt128
 alias setpdirect128="export PETSC_DIR=$HOME/code/petsc-quad-direct;export PETSC_ARCH=arch-darwin-c-debug;export PMPI=$HOME/code/petsc-quad-direct/arch-darwin-c-debug/bin/mpiexec; whichp;"
 
 # Ideatron
-alias iii="cd $HOME/code/ideatron; ./runme.py; cd -"
+alias iii="cd $HOME/code/ideatron; ./run.py; cd -"
 export IDEATRON_DATA_DIR=$HOME/life/ideatron_local
 
 # Helpers
