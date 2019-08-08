@@ -15,7 +15,6 @@ Plug 'tpope/vim-fugitive'                                                 " Git 
 Plug 'majutsushi/tagbar'                                                  " Local source structure
 Plug 'vim-airline/vim-airline'                                            " Status bar
 Plug 'vim-airline/vim-airline-themes'                                     " Themes for status bar
-Plug 'git@bitbucket.org:psanan/stice-gg'                                  " Wrapper for git grep
 Plug 'godlygeek/Tabular'                                                  " Alignment helper (Try :Tab /=)
 Plug 'tmhedberg/simpylfold'                                               " Python folding
 call plug#end()
