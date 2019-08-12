@@ -151,6 +151,7 @@ noremap <2-LeftMouse> za
 " PETSc
 imap <c-\>ch CHKERRQ(ierr);
 imap <c-\>po PetscObjectComm((PetscObject)dm)
+imap <c-\>pe SETERRQ(PETSC_COMM_WORLD,PETSC_ERR_SUP,"Not Implemented!");
 
 " use "open" (OS X) to open a filename under the cursor
 " The second <CR> means that you won't get to read error messages,
