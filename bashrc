@@ -128,15 +128,13 @@ function lamemhelper {
   export LAMEM_DIR=$HOME/code/lamem-$ARCHMOD
   whichp
 }
-alias cdl='cd $LAMEM_DIR'
 alias lamemtest='cd $LAMEM_DIR/input_models/BuildInSetups; ../../bin/opt/LaMEM -ParamFile FallingBlock_DirectSolver.dat'
 alias lamemtest2='cd $LAMEM_DIR/input_models/BuildInSetups; $PMPI -np 2 ../../bin/opt/LaMEM -ParamFile FallingBlock_DirectSolver.dat'
 
 # Default software directories (mostly for YCM)
-export PETSC_DIR=$HOME/code/petsc
+setpdev extra debug
 export PTATIN_DIR=$HOME/code/ptatin3d
 export STAGBL_DIR=$HOME/code/stagbl
-alias cds='cd $STAGBL_DIR'
 
 ### Linux-specific commands ####################################################
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
