@@ -27,10 +27,18 @@ alias news="newsboat"
 
 function t {
   d=`date +%Y.%m.%d`
-  notepath="$HOME/academic/notes/tech/$d.md"
-  echo '# Untitled Tech Note' >> $notepath
-  echo '{tag1} {tag2} '       >> $notepath
-  vim $notepath
+  note_path_stem="$HOME/academic/notes/tech/$d"
+  note_path="$note_path_stem"".md"
+  postfixes=({a..z}) # Will behave strangely for more than 26 files
+  i=0
+  while [ -f "$note_path" ]
+  do
+    ((i++))
+    note_path=$(printf "$note_path_stem%s.md" ${postfixes[i]})
+  done
+  printf '# Untitled Tech Note\n' >> $note_path
+  printf '{tag1} {tag2}\n'        >> $note_path
+  vim $note_path
 }
 
 ### Git ########################################################################
@@ -180,5 +188,9 @@ export IDEATRON_DATA_DIR=$HOME/life/ideatron_local
 
 # Helpers
 source $HOME/.helpers.sh
+
+# Hacks for YCM problems
+alias ycmon="mv ~/.vim/plugged/YouCompleteMe_sucks ~/.vim/plugged/YouCompleteMe"
+alias ycmoff="mv ~/.vim/plugged/YouCompleteMe ~/.vim/plugged/YouCompleteMe_sucks"
 
 fi # OS X
