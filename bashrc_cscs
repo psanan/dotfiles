@@ -2,20 +2,9 @@ PSANAN_RC_ROOT=$HOME/util/rc
 source $PSANAN_RC_ROOT/bashrc
 ################################################################################
 
+unset PETSC_DIR PETSC_ARCH
+
 alias cds="cd $SCRATCH"
 alias q="squeue -u `whoami`"
 
-alias setpmaintopt="export PETSC_DIR=/users/psanan/petsc-maint; export PETSC_ARCH=arch-cray-xc50-daint;  whichp; module load PrgEnv-cray; echo Note: modules changed!"
-alias setpmaintoptgnu="export PETSC_DIR=/users/psanan/petsc-maint; export PETSC_ARCH=arch-gnu-xc50-daint; whichp; module unload PrgEnv-cray; module load PrgEnv-gnu; module load cudatoolkit; echo \"Note: modules changed!\""
-alias setp3.7opt="export PETSC_DIR=/users/psanan/petsc-3.7; export PETSC_ARCH=arch-cray-xc50-daint;  whichp; module load PrgEnv-cray; echo Note: modules changed!"
-
-unsetp
-
-# Hints on things we do often
-printf "You may want to doit\n"
-doit () {
-  module unload PrgEnv-cray
-  module load PrgEnv-gnu
-  module load daint-gpu cudatoolkit cray-hdf5
-}
-type doit
+alias setpgnu="export PETSC_DIR=/users/psanan/code/petsc-master; export PETSC_ARCH=arch-gnu-xc50-daint; whichp; module unload PrgEnv-cray; module load PrgEnv-gnu; module load daint-gpu cudatoolkit cray-hdf5; echo \"Note: modules changed!\""
