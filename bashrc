@@ -183,8 +183,7 @@ alias setpdirect128opt=setpdirectopt128
 alias setpdirect128="export PETSC_DIR=$HOME/code/petsc-quad-direct;export PETSC_ARCH=arch-darwin-c-debug;export PMPI=$HOME/code/petsc-quad-direct/arch-darwin-c-debug/bin/mpiexec; whichp;"
 
 # Ideatron
-alias iii="cd $HOME/code/ideatron; ./run.py; cd -"
-export IDEATRON_DATA_DIR=$HOME/life/ideatron_local
+alias iii="$HOME/code/ideatron/run.py -d $HOME/life/ideatron_local"
 
 # Helpers
 source $HOME/.helpers.sh
