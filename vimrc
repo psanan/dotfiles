@@ -101,6 +101,9 @@ set foldlevelstart=99 " this seems like a hack
 " Disable automatic multiline commenting
 autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
 
+" Quiet!
+set belloff=all
+
 """ Appearance """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Line numbers
