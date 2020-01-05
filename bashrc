@@ -61,7 +61,9 @@ GIT_PS1_SHOWSTASHSTATE=true
 GIT_PS1_SHOWUNTRACKEDFILES=true
 
 ### Prompt #####################################################################
-# helper function to add a space and (optional) brackets to non-empty strings
+# addsp adds a space and (optional) brackets to non-empty strings
+# Don't forget the \[ \], or you'll have line-wrapping issues
+# $STY is for use with GNU Screen (screen -S sessionName)
 function addsp { if [[ -z "$1" ]]; then echo ""; else echo "$2$1$3 "; fi; }
 PS1_OPEN="\[\e[1;31m\]["
 PS1_CLOSE="\[\e[1;31m\]]$\[\e[0m\] "
@@ -70,8 +72,6 @@ PS1_HOST="\[\e[0;33m\]\H "
 PS1_LOCAL="$PS1_OPEN$PS1_BODY$PS1_CLOSE"
 PS1_REMOTE="$PS1_OPEN$PS1_HOST$PS1_BODY$PS1_CLOSE"
 PS1=$PS1_REMOTE
-# Note: Don't forget the \[ \], or you'll have line-wrapping issues
-# Note: $STY is for use with GNU Screen (screen -S sessionName)
 
 ### PETSc and related software #################################################
 alias cdp='cd $PETSC_DIR'                                   # note single quotes
@@ -138,11 +138,6 @@ function lamemhelper {
 }
 alias lamemtest='cd $LAMEM_DIR/input_models/BuildInSetups; ../../bin/opt/LaMEM -ParamFile FallingBlock_DirectSolver.dat'
 alias lamemtest2='cd $LAMEM_DIR/input_models/BuildInSetups; $PMPI -np 2 ../../bin/opt/LaMEM -ParamFile FallingBlock_DirectSolver.dat'
-
-# Default software directories (mostly for YCM)
-setpdev extra debug
-export PTATIN_DIR=$HOME/code/ptatin3d
-export STAGBL_DIR=$HOME/code/stagbl
 
 ### Linux-specific commands ####################################################
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
