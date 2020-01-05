@@ -165,9 +165,16 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 # Use "local prompt"
 PS1=$PS1_LOCAL
 
-# Vim and MacVim
-alias vim="/Applications/MacVim.app/Contents/bin/vim"
-alias mvim="/Applications/MacVim.app/Contents/bin/mvim"
+# Vim and MacVim. Check that the expected symlinks exist - you should
+# do this manually, e.g.
+# (If this isn't true, YouCompleteMe will experience strange crashes)
+vim_symlink='/usr/local/bin/vim'
+vim_symlink_target='/Applications/MacVim.app/Contents/bin/vim'
+if [ ! -e "$vim_symlink" -o "$(readlink $vim_symlink)" != "$vim_symlink_target" ]; then
+    printf "WARNING: $vim_symlink does not link to $vim_symlink_target as expected!\n"
+    printf "Perhaps you want to do this:\n"
+    printf "    sudo ln -s $vim_symlink_target $vim_symlink\n"
+fi
 
 # Paraview
 alias paraview="/Applications/ParaView-5.6.0.app/Contents/MacOS/paraview"
