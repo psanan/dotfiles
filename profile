@@ -11,5 +11,3 @@ export PYTHONPATH=$PYTHONPATH:$HOME/code/petsc_python_helpers
 export PYTHONPATH=$PYTHONPATH:$HOME/code/sciath/
 export PYTHONPATH=$PYTHONPATH:$HOME/code/pythonTestHarness/lib # remove once SciATH public, and update all projects
 
-# hack to find things that pip installs from Macports
-export PATH=$PATH:/opt/local/Library/Frameworks/Python.framework/Versions/3.7/bin/
