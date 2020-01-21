@@ -15,7 +15,7 @@ export HISTCONTROL=ignoredups       # include commands starting with a space
 
 ### Aliases ####################################################################
 alias   ll="ls -l"
-alias   sb="source $HOME/.bash_profile"
+alias   sb="source $HOME/.bashrc"
 alias  vimr="vim -R"
 alias   mj="make -j8"
 alias   gg="git grep"
