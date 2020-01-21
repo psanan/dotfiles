@@ -9,6 +9,9 @@ flags = [
 '-x','c',                  # Change if not using C
 ]
 
+# MPI
+flags.extend(get_mpi_include_flags())
+
 # PETSc
 PETSC_DIR=os.getenv('PETSC_DIR')
 PETSC_ARCH=os.getenv('PETSC_ARCH')
@@ -79,3 +82,16 @@ def FlagsForFile( filename, **kwargs ):
     'flags': final_flags,
     'do_cache': True
   }
+
+def get_mpi_include_flags(mpicc='mpicc'):
+    """ Attempt to use -show argument of MPI compiler wrapper to extract include flags """
+    include_flags = []
+    try:
+        output = subprocess.run([mpicc,'-show'],capture_output=True)
+        flags = output.stdout.split()
+        for flag in flags:
+            if flag.startswith(b'-I'):
+                include_flags.append(flag.decode('utf-8'))
+    except FileNotFoundError:
+        pass
+    return include_flags
