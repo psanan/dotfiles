@@ -20,14 +20,14 @@ alias  vimr="vim -R"
 alias   mj="make -j8"
 alias   gg="git grep"
 alias  dus="du -sh * | sort -hr"
-alias  cdn="cd $HOME/academic/notes/notes"
-alias  cdt="cd $HOME/academic/notes/tech"
+alias  cdn="cd $HOME/work/notes/notes"
+alias  cdt="cd $HOME/work/notes/tech"
 alias plab="ipython3 -i --pylab=auto $HOME/code/petsc_python_helpers/ipython_setup.py"
 alias news="newsboat"
 
 function t {
   d=`date +%Y.%m.%d`
-  note_path_stem="$HOME/academic/notes/tech/$d"
+  note_path_stem="$HOME/work/notes/tech/$d"
   note_path="$note_path_stem"".md"
   postfixes=({a..z}) # Will behave strangely for more than 26 files
   i=0
