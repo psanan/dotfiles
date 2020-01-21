@@ -1,5 +1,24 @@
 import os
+import subprocess
 import ycm_core
+
+def get_mpi_include_flags(mpicc='mpicc'):
+    """ Attempt to use -show argument of MPI compiler wrapper to extract include flags """
+    include_flags = []
+    try:
+
+        # Python 3, but YCM wants system Python which is old..
+        #output = subprocess.run([mpicc,'-show'],capture_output=True)
+        #flags = output.stdout.split()
+        output = subprocess.check_output([mpicc,'-show'])
+        flags = output.split()
+        for flag in flags:
+            if flag.startswith(b'-I'):
+                include_flags.append(flag.decode('utf-8'))
+    #except FileNotFoundError:
+    except OSError:
+        pass
+    return include_flags
 
 flags = [
 '-Wall',
@@ -83,15 +102,3 @@ def FlagsForFile( filename, **kwargs ):
     'do_cache': True
   }
 
-def get_mpi_include_flags(mpicc='mpicc'):
-    """ Attempt to use -show argument of MPI compiler wrapper to extract include flags """
-    include_flags = []
-    try:
-        output = subprocess.run([mpicc,'-show'],capture_output=True)
-        flags = output.stdout.split()
-        for flag in flags:
-            if flag.startswith(b'-I'):
-                include_flags.append(flag.decode('utf-8'))
-    except FileNotFoundError:
-        pass
-    return include_flags
