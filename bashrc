@@ -160,8 +160,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 # Use "local prompt"
 PS1=$PS1_LOCAL
 
-# Vim and MacVim. Check that the expected symlinks exist - you should
-# do this manually, e.g.
+# Vim and MacVim: check that the expected symlinks exist
 # (If this isn't true, YouCompleteMe will experience strange crashes)
 vim_symlink='/usr/local/bin/vim'
 vim_symlink_target='/Applications/MacVim.app/Contents/bin/vim'
@@ -173,9 +172,6 @@ fi
 
 # Paraview
 alias paraview="/Applications/ParaView-5.6.0.app/Contents/MacOS/paraview"
-
-# Jupyter
-alias jupyter="jupyter-notebook-3.7"
 
 # PETSc builds for SPIDER
 alias setpdirectopt="export PETSC_DIR=$HOME/code/petsc-double-direct;export PETSC_ARCH=arch-darwin-c-opt;export PMPI=$HOME/code/petsc-double-direct/arch-darwin-c-opt/bin/mpiexec; whichp;"
@@ -189,9 +185,5 @@ alias iii="$HOME/code/ideatron/run.py -d $HOME/life/ideatron_local"
 
 # Helpers
 source $HOME/.helpers.sh
-
-# Hacks for YCM problems
-alias ycmon="mv ~/.vim/plugged/YouCompleteMe_sucks ~/.vim/plugged/YouCompleteMe"
-alias ycmoff="mv ~/.vim/plugged/YouCompleteMe ~/.vim/plugged/YouCompleteMe_sucks"
 
 fi # OS X
