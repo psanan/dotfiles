@@ -33,22 +33,18 @@ flags.extend(get_mpi_include_flags())
 
 # PETSc
 PETSC_DIR=os.getenv('PETSC_DIR')
+if not PETSC_DIR:
+    PETSC_DIR = os.path.join(os.getenv('HOME'),'code','petsc')
 PETSC_ARCH=os.getenv('PETSC_ARCH')
 if PETSC_DIR :
     flags.extend(['-I',PETSC_DIR+'/include',])
 if PETSC_ARCH and PETSC_DIR :
     flags.extend(['-I',PETSC_DIR+'/'+PETSC_ARCH+'/include',])
 
-# pTatin3D
-PTATIN_DIR=os.getenv('PTATIN_DIR')
-if PTATIN_DIR :
-    flags.extend([
-    '-I',PTATIN_DIR+'/include',
-    '-I',PTATIN_DIR+'/src',
-    ])
-
 # StagBL
 STAGBL_DIR=os.getenv('STAGBL_DIR')
+if not STAGBL_DIR:
+    STAGBL_DIR = os.path.join(os.getenv('HOME'),'code','stagbl')
 if STAGBL_DIR :
     flags.extend([
     '-I',STAGBL_DIR+'/include',
@@ -60,6 +56,14 @@ LAMEM_DIR=os.getenv('LAMEM_DIR')
 if LAMEM_DIR :
     flags.extend([
     '-I',LAMEM_DIR+'/src',
+    ])
+
+# pTatin3D
+PTATIN_DIR=os.getenv('PTATIN_DIR')
+if PTATIN_DIR :
+    flags.extend([
+    '-I',PTATIN_DIR+'/include',
+    '-I',PTATIN_DIR+'/src',
     ])
 
 def DirectoryOfThisScript():
