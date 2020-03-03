@@ -123,6 +123,13 @@ function setpdev {
   export PETSC_ARCH=arch-$ALLMODS
   export PMPI=$PETSC_DIR/$PETSC_ARCH/bin/mpiexec
 }
+function setphere {
+  # Usage: setphere <petsc-arch>
+  # Example: cd /some/petsc/dir && setphere arch-foo-bar
+  export PETSC_DIR=$PWD
+  export PETSC_ARCH=${1%/} # strip any trailing slash, so you can tab-complete
+  export PMPI=$PETSC_DIR/$PETSC_ARCH/bin/mpiexec
+}
 
 # LaMEM
 function lamemhelper {
