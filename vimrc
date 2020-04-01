@@ -143,6 +143,9 @@ map <F3> :%s/\s\+$//<CR>
 " NERDTree
 map <F7> :NERDTree <CR>
 
+" YouCompleteMe
+map <F12> :YcmCompleter FixIt<CR>
+
 " Tagbar
 map <F8> :TagbarToggle <CR>
 
