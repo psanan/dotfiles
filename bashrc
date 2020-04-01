@@ -13,23 +13,24 @@ PSANAN_RC_ROOT=${PSANAN_RC_ROOT:-$HOME/util/rc}
 export CLICOLOR=1;                  # colorize the terminal
 export HISTCONTROL=ignoredups       # include commands starting with a space
 
-### Aliases ####################################################################
-alias   ll="ls -l"
-alias   sb="source $HOME/.bashrc"
-alias  vimr="vim -R"
-alias   mj="make -j8"
-alias   gg="git grep"
-alias  dus="du -sh * | sort -hr"
-alias  cdn="cd $HOME/work/notes/notes"
-alias  cdt="cd $HOME/work/notes/tech"
-alias plab="ipython3 -i --pylab=auto $HOME/code/petsc_python_helpers/ipython_setup.py"
+### Aliases and helper functions ###############################################
+alias gg="git grep"
+alias lg="lazygit"
+alias ll="ls -l"
+alias mj="make -j8"
+alias sb="source $HOME/.bashrc"
+alias cdn="cd $HOME/work/notes/notes"
+alias cdt="cd $HOME/work/notes/tech"
+alias dus="du -sh * | sort -hr"
+alias vimr="vim -R"
 alias news="newsboat"
+alias plab="ipython --matplotlib -i $HOME/code/petsc_python_helpers/ipython_setup.py"
 
 function t {
   d=`date +%Y.%m.%d`
   note_path_stem="$HOME/work/notes/tech/$d"
   note_path="$note_path_stem"".md"
-  postfixes=({a..z}) # Will behave strangely for more than 26 files
+  postfixes=({a..z}) # TODO board up. Will behave strangely for more than 26 files
   i=0
   while [ -f "$note_path" ]
   do
@@ -75,7 +76,7 @@ PS1=$PS1_REMOTE
 
 ### PETSc and related software #################################################
 alias cdp='cd $PETSC_DIR'                                   # note single quotes
-alias cdk='cd $PETSC_DIR/src/ksp/ksp/examples/tutorials'
+alias cdk='cd $PETSC_DIR/src/ksp/ksp/tutorials'
 
 function whichp {
                                 echo -n 'PETSC_ARCH = '; echo $PETSC_ARCH
@@ -176,6 +177,7 @@ if [ ! -e "$vim_symlink" -o "$(readlink $vim_symlink)" != "$vim_symlink_target" 
     printf "Perhaps you want to do this:\n"
     printf "    sudo ln -s $vim_symlink_target $vim_symlink\n"
 fi
+alias vi="echo use vim"
 
 # Paraview
 alias paraview="/Applications/ParaView-5.6.0.app/Contents/MacOS/paraview"
