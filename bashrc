@@ -24,7 +24,7 @@ alias cdt="cd $HOME/work/notes/tech"
 alias dus="du -sh * | sort -hr"
 alias vimr="vim -R"
 alias news="newsboat"
-alias plab="ipython --matplotlib -i $HOME/code/petsc_python_helpers/ipython_setup.py"
+alias plab="ipython --no-confirm-exit --matplotlib -i $HOME/code/petsc_python_helpers/ipython_setup.py"
 
 function t {
   d=`date +%Y.%m.%d`
@@ -76,6 +76,7 @@ PS1=$PS1_REMOTE
 ### PETSc and related software #################################################
 alias cdp='cd $PETSC_DIR'                                   # note single quotes
 alias cdk='cd $PETSC_DIR/src/ksp/ksp/tutorials'
+alias cdd='cd $PETSC_DIR/src/dm/impls/stag/tutorials'
 
 function whichp {
                                 echo -n 'PETSC_ARCH = '; echo $PETSC_ARCH
@@ -105,7 +106,7 @@ function setp {
   local MOREMODS=$(space2dash ${@:2})
   export PETSC_DIR=$HOME/code/petsc-$ARCHMOD
   export PETSC_ARCH=arch-$ARCHMOD-$MOREMODS
-  export PMPI=$PETSC_DIR/$PETSC_ARCH/bin/mpiexec
+  export PMPI=$PETSC_DIR/lib/petsc/bin/petscmpiexec
 }
 function setpprefix {
   # Usage: setpprefix <archmod> <precision-extra-opt-etc>
@@ -113,7 +114,7 @@ function setpprefix {
   local MOREMODS=$(space2dash ${@:2})
   export PETSC_DIR=$HOME/code/petsc-$ARCHMOD/arch-$ARCHMOD-$MOREMODS-install
   unset PETSC_ARCH
-  export PMPI=$PETSC_DIR/bin/mpiexec
+  export PMPI=$PETSC_DIR/lib/petsc/bin/petscmpiexec
 }
 function setpdev {
   # Usage: setpdev <precision-extra-opt-etc>
@@ -121,14 +122,14 @@ function setpdev {
   local ALLMODS=$(space2dash ${@})
   export PETSC_DIR=$HOME/code/petsc
   export PETSC_ARCH=arch-$ALLMODS
-  export PMPI=$PETSC_DIR/$PETSC_ARCH/bin/mpiexec
+  export PMPI=$PETSC_DIR/lib/petsc/bin/petscmpiexec
 }
 function setphere {
   # Usage: setphere <petsc-arch>
   # Example: cd /some/petsc/dir && setphere arch-foo-bar
   export PETSC_DIR=$PWD
   export PETSC_ARCH=${1%/} # strip any trailing slash, so you can tab-complete
-  export PMPI=$PETSC_DIR/$PETSC_ARCH/bin/mpiexec
+  export PMPI=$PETSC_DIR/lib/petsc/bin/petscmpiexec
 }
 
 # LaMEM
