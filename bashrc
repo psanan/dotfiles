@@ -29,13 +29,12 @@ alias plab="ipython --matplotlib -i $HOME/code/petsc_python_helpers/ipython_setu
 function t {
   d=`date +%Y.%m.%d`
   note_path_stem="$HOME/work/notes/tech/$d"
-  note_path="$note_path_stem"".md"
-  postfixes=({a..z}) # TODO board up. Will behave strangely for more than 26 files
+  note_path=$(printf '%s.md' "$note_path_stem")
   i=0
   while [ -f "$note_path" ]
   do
     ((i++))
-    note_path=$(printf "$note_path_stem%s.md" ${postfixes[i]})
+    note_path=$(printf '%s_%d.md' "$note_path_stem" $i)
   done
   printf '# Untitled Tech Note\n' >> $note_path
   printf '{tag1} {tag2}\n'        >> $note_path
