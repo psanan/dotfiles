@@ -1,10 +1,8 @@
 #!/usr/bin/env sh
 # Symlink settings files into the appropriate place.
-#
-# WARNING: this uses ln -sf by default, which will clobber
 
 PSANAN_RC_ROOT=$HOME/util/rc
-LINK="ln -sf"
+LINK="ln -sf" # WARNING: will clobber
 
 $LINK $PSANAN_RC_ROOT/profile      $HOME/.profile
 $LINK $PSANAN_RC_ROOT/bash_profile $HOME/.bash_profile
