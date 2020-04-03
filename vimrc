@@ -26,6 +26,7 @@ call plug#end()
 let g:ycm_confirm_extra_conf = 0                                          " unsafe!
 let g:ycm_global_ycm_extra_conf = "~/util/rc/ycm_extra_conf.py"
 let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_always_populate_location_list = 1
 
 " On OS X, YCM insists on using system Python
 if has("unix")
@@ -133,28 +134,31 @@ augroup END
 nnoremap <CR> :noh<CR><CR>
 
 " Jump to tag, in new window
-map <c-\>tt :vsp<CR><c-w><c-l><c-]>
-
-" Search for trailing whitespace (highlights with "set hlsearch")
-map <F4> :/\s\+$<CR>
+nmap <c-\>tt :vsp<CR><c-w><c-l><c-]>
 
 " Kill all trailing whitespace
-map <F3> :%s/\s\+$//<CR>
+nmap <F3> :%s/\s\+$//<CR>
+
+" Search for trailing whitespace (highlights with "set hlsearch")
+nmap <F4> :/\s\+$<CR>
 
 " NERDTree
-map <F7> :NERDTree <CR>
-
-" YouCompleteMe
-map <F12> :YcmCompleter FixIt<CR>
+nmap <F7> :NERDTree<CR>
 
 " Tagbar
-map <F8> :TagbarToggle <CR>
+nmap <F8> :TagbarToggle<CR>
+
+" YouCompleteMe
+"nmap <F11> :lnext<CR>
+command Lnextwrap try | lnext | catch | lfirst | catch | endtry
+nmap <F11> :Lnextwrap<CR>
+nmap <F12> :YcmCompleter FixIt<CR>
 
 " Use control + hjkl to move between windows
-nnoremap <C-h> <c-w>h
-nnoremap <C-j> <c-w>j
-nnoremap <C-k> <c-w>k
-nnoremap <C-l> <c-w>l
+nnoremap <c-h> <c-w>h
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-l> <c-w>l
 
 " Use tab/shift-tab to move to next/prev tab
 nnoremap <TAB> gt
