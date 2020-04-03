@@ -14,8 +14,8 @@ Plug 'scrooloose/nerdtree'                                                " Fold
 Plug 'tpope/vim-fugitive'                                                 " Git tools
 Plug 'majutsushi/tagbar'                                                  " Local source structure
 Plug 'vim-airline/vim-airline'                                            " Status bar
-Plug 'vim-airline/vim-airline-themes'                                     " Themes for status bar
-Plug 'godlygeek/Tabular'                                                  " Alignment helper (Try :Tab /=)
+Plug 'vim-airline/vim-airline-themes'
+Plug 'godlygeek/Tabular'                                                  " Alignment (Try :Tab /=)
 Plug 'tmhedberg/simpylfold'                                               " Python folding
 call plug#end()
 
@@ -130,17 +130,14 @@ augroup END
 
 """ Shortcuts """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Unset the "last search pattern" register by hitting return
+" Unset the "last search pattern" register
 nnoremap <CR> :noh<CR><CR>
 
 " Jump to tag, in new window
 nmap <c-\>tt :vsp<CR><c-w><c-l><c-]>
 
-" Kill all trailing whitespace
+" Kill all trailing whitespace (undo to leave highlighted)
 nmap <F3> :%s/\s\+$//<CR>
-
-" Search for trailing whitespace (highlights with "set hlsearch")
-nmap <F4> :/\s\+$<CR>
 
 " NERDTree
 nmap <F7> :NERDTree<CR>
@@ -148,23 +145,21 @@ nmap <F7> :NERDTree<CR>
 " Tagbar
 nmap <F8> :TagbarToggle<CR>
 
-" YouCompleteMe
-"nmap <F11> :lnext<CR>
+" Jump to next in location list, wrapping (for YouCompleteMe)
 command Lnextwrap try | lnext | catch | lfirst | catch | endtry
 nmap <F11> :Lnextwrap<CR>
-nmap <F12> :YcmCompleter FixIt<CR>
 
-" Use control + hjkl to move between windows
+" Move between windows
 nnoremap <c-h> <c-w>h
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-l> <c-w>l
 
-" Use tab/shift-tab to move to next/prev tab
+" Next/prev tab
 nnoremap <TAB> gt
 nnoremap <S-TAB> gT
 
-" Mouse double left click to toggle folds
+" Toggle folds
 noremap <2-LeftMouse> za
 
 " PETSc
