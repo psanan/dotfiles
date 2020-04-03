@@ -9,7 +9,7 @@ flags = [
     '-Wunused',
     '-I', '/opt/local/include',
     '-std=c99',  # Change if not using C
-    '-x', 'c',  # Change if not using C
+    '-x', 'c',   # Change if not using C
 ]
 
 # PETSc and MPI
@@ -25,8 +25,8 @@ if PETSC_DIR and PETSC_ARCH:
     with open(os.path.join(PETSC_DIR, PETSC_ARCH, 'lib', 'petsc', 'conf', 'petscvariables'), 'r') as petsc_variables_file:
         for line in petsc_variables_file:
             if re.match('MPICC_SHOW', line):
-                flags.extend(
-                    [flag for flag in line.split() if flag.startswith('-I')])
+                flags.extend([flag for flag in line.split() if flag.startswith('-I')])
+                break
 
 # StagBL
 STAGBL_DIR = os.getenv('STAGBL_DIR')
@@ -34,28 +34,23 @@ if not STAGBL_DIR:
     STAGBL_DIR = os.path.join(os.getenv('HOME'), 'code', 'stagbl')
 if STAGBL_DIR:
     flags.extend([
-        '-I',
-        os.path.join(STAGBL_DIR, 'include'),
-        '-I',
-        os.path.join(STAGBL_DIR, 'include', 'stagbl', 'private'),
+        '-I', os.path.join(STAGBL_DIR, 'include'),
+        '-I', os.path.join(STAGBL_DIR, 'include', 'stagbl', 'private'),
     ])
 
 # LaMEM
 LAMEM_DIR = os.getenv('LAMEM_DIR')
 if LAMEM_DIR:
     flags.extend([
-        '-I',
-        os.path.join(LAMEM_DIR, 'src'),
+        '-I', os.path.join(LAMEM_DIR, 'src'),
     ])
 
 # pTatin3D
 PTATIN_DIR = os.getenv('PTATIN_DIR')
 if PTATIN_DIR:
     flags.extend([
-        '-I',
-        os.path.join(PTATIN_DIR, 'include'),
-        '-I',
-        os.path.join(PTATIN_DIR, 'src'),
+        '-I', os.path.join(PTATIN_DIR, 'include'),
+        '-I', os.path.join(PTATIN_DIR, 'src'),
     ])
 
 
