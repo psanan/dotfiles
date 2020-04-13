@@ -6,3 +6,4 @@ bind s eval "split -v" "focus" "screen"
 
 mousetrack on
 startup_message off
+altscreen on
