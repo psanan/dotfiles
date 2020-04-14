@@ -139,15 +139,15 @@ nmap <c-\>tt :vsp<CR><c-w><c-l><c-]>
 " Kill all trailing whitespace (undo to leave highlighted)
 nmap <F3> :%s/\s\+$//<CR>
 
-" NERDTree
-nmap <F7> :NERDTree<CR>
-
 " Tagbar
 nmap <F8> :TagbarToggle<CR>
 
 " Jump to next in location list, wrapping (for YouCompleteMe)
 command Lnextwrap try | lnext | catch | lfirst | catch | endtry
 nmap <F11> :Lnextwrap<CR>
+
+" YouCompleteMe FixIt
+nmap <F12> :YcmCompleter FixIt<CR>
 
 " Move between windows
 nnoremap <c-h> <c-w>h
@@ -159,13 +159,11 @@ nnoremap <c-l> <c-w>l
 nnoremap <TAB> gt
 nnoremap <S-TAB> gT
 
-" Toggle folds
-noremap <2-LeftMouse> za
-
 " PETSc
 imap <c-\>ch CHKERRQ(ierr);
 imap <c-\>po PetscObjectComm((PetscObject)dm)
-imap <c-\>pe SETERRQ(PETSC_COMM_WORLD,PETSC_ERR_SUP,"Not Implemented!");
+imap <c-\>pe SETERRQ(PetscObjectComm((PetscObject)dm),PETSC_ERR_SUP,"Not Implemented!");
+imap <c-\>pp ierr = PetscPrintf(PETSC_COMM_WORLD,"xxx\n");CHKERRQ(ierr);
 
 " use "open" (OS X) to open a filename under the cursor
 " The second <CR> means that you won't get to read error messages,
