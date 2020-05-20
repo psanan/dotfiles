@@ -176,7 +176,7 @@ alias vi="echo use vim"
 alias paraview="/Applications/ParaView-5.6.0.app/Contents/MacOS/paraview"
 
 # Ideatron
-alias iii="$HOME/code/ideatron/run.py -d $HOME/life/ideatron_local"
+alias iii="$HOME/code/ideatron/run.py -d $HOME/docs/ideatron_local"
 
 # Helpers
 source $HOME/.helpers.sh
