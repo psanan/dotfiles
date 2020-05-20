@@ -4,6 +4,9 @@ escape ^^^
 # vertically split, change focus, and start a new session with escape-s
 bind s eval "split -v" "focus" "screen"
 
+# deactivate screen locking
+bind x
+
 mousetrack on
 startup_message off
 altscreen on
