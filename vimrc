@@ -132,11 +132,11 @@ augroup END
 " Unset the "last search pattern" register
 nnoremap <CR> :noh<CR><CR>
 
-" Jump to tag, in new window
-nmap <c-\>tt :vsp<CR><c-w><c-l><c-]>
-
 " Kill all trailing whitespace (undo to leave highlighted)
 nmap <F3> :%s/\s\+$//<CR>
+
+" Jump to tag, in new window
+nmap <F7> :vsp<CR><c-w><c-l><c-]>
 
 " Tagbar
 nmap <F8> :TagbarToggle<CR>
@@ -163,6 +163,7 @@ imap <c-\>ch CHKERRQ(ierr);
 imap <c-\>po PetscObjectComm((PetscObject)dm)
 imap <c-\>pe SETERRQ(PetscObjectComm((PetscObject)dm),PETSC_ERR_SUP,"Not Implemented!");
 imap <c-\>pp ierr = PetscPrintf(PETSC_COMM_WORLD,"xxx\n");CHKERRQ(ierr);
+imap <c-\>pf PetscErrorCode XXXX()<CR>{<CR>PetscErrorCode ierr;<CR><CR>PetscFunctionBegin;<CR>PetscFunctionReturn(0);<CR>}<CR>
 
 " use "open" (OS X) to open a filename under the cursor
 " The second <CR> means that you won't get to read error messages,
