@@ -132,6 +132,14 @@ augroup END
 " Unset the "last search pattern" register
 nnoremap <CR> :noh<CR><CR>
 
+" See contents of registers
+" List contents of all registers (that typically contain pasteable text).
+" https://superuser.com/questions/656949/always-show-the-register-list-in-vim
+nnoremap <silent> "" :registers "0123456789abcdefghijklmnopqrstuvwxyz*+.<CR>
+
+" Copy to system clipboard, if supported
+map <F2> "*y
+
 " Kill all trailing whitespace (undo to leave highlighted)
 nmap <F3> :%s/\s\+$//<CR>
 
