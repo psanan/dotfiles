@@ -151,11 +151,11 @@ alias lamemtest2='cd $LAMEM_DIR/input_models/BuildInSetups; $PMPI -np 2 ../../bi
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
 
 # PETSc builds for SPIDER
-alias setpdirectopt="export PETSC_DIR=$HOME/code/petsc-double-direct;export PETSC_ARCH=arch-linux2-c-opt;export PMPI=$HOME/code/petsc-double-direct/arch-linux2-c-opt/bin/mpiexec; whichp;"
-alias setpdirect="export PETSC_DIR=$HOME/code/petsc-double-direct;export PETSC_ARCH=arch-linux2-c-debug;export PMPI=$HOME/code/petsc-double-direct/arch-linux2-c-debug/bin/mpiexec; whichp;"
-alias setpdirectopt128="export PETSC_DIR=$HOME/code/petsc-quad-direct;export PETSC_ARCH=arch-linux2-c-opt;export PMPI=$HOME/code/petsc-quad-direct/arch-linux2-c-opt/bin/mpiexec; whichp;"
+alias setpdirectopt="export PETSC_DIR=$HOME/code/petsc-double-direct;export PETSC_ARCH=arch-linux2-c-opt;export PMPI=$HOME/code/petsc-double-direct/lib/petsc/bin/petscmpiexec; whichp;"
+alias setpdirect="export PETSC_DIR=$HOME/code/petsc-double-direct;export PETSC_ARCH=arch-linux2-c-debug;export PMPI=$HOME/code/petsc-double-direct/lib/petsc/bin/petscmpiexec; whichp;"
+alias setpdirectopt128="export PETSC_DIR=$HOME/code/petsc-quad-direct;export PETSC_ARCH=arch-linux2-c-opt;export PMPI=$HOME/code/petsc-quad-direct/lib/petsc/bin/petscmpiexec; whichp;"
 alias setpdirect128opt=setpdirectopt128
-alias setpdirect128="export PETSC_DIR=$HOME/code/petsc-quad-direct;export PETSC_ARCH=arch-linux2-c-debug;export PMPI=$HOME/code/petsc-quad-direct/arch-linux2-c-debug/bin/mpiexec; whichp;"
+alias setpdirect128="export PETSC_DIR=$HOME/code/petsc-quad-direct;export PETSC_ARCH=arch-linux2-c-debug;export PMPI=$HOME/code/petsc-quad-direct/lib/petsc/bin/petscmpiexec; whichp;"
 
 # Paraview
 alias paraview="~/ParaView-5.6.0-MPI-Linux-64bit/bin/paraview"
@@ -183,11 +183,11 @@ alias vi="echo use vim"
 alias paraview="/Applications/ParaView-5.6.0.app/Contents/MacOS/paraview"
 
 # PETSc builds for SPIDER
-alias setpdirectopt="export PETSC_DIR=$HOME/code/petsc-double-direct;export PETSC_ARCH=arch-darwin-c-opt;export PMPI=$HOME/code/petsc-double-direct/arch-darwin-c-opt/bin/mpiexec; whichp;"
-alias setpdirect="export PETSC_DIR=$HOME/code/petsc-double-direct;export PETSC_ARCH=arch-darwin-c-debug;export PMPI=$HOME/code/petsc-double-direct/arch-darwin-c-debug/bin/mpiexec; whichp;"
-alias setpdirectopt128="export PETSC_DIR=$HOME/code/petsc-quad-direct;export PETSC_ARCH=arch-darwin-c-opt;export PMPI=$HOME/code/petsc-quad-direct/arch-darwin-c-opt/bin/mpiexec; whichp;"
+alias setpdirectopt="export PETSC_DIR=$HOME/code/petsc-double-direct;export PETSC_ARCH=arch-darwin-c-opt;export PMPI=$HOME/code/petsc-double-direct/lib/petsc/bin/petscmpiexec; whichp;"
+alias setpdirect="export PETSC_DIR=$HOME/code/petsc-double-direct;export PETSC_ARCH=arch-darwin-c-debug;export PMPI=$HOME/code/petsc-double-direct/lib/petsc/bin/petscmpiexec; whichp;"
+alias setpdirectopt128="export PETSC_DIR=$HOME/code/petsc-quad-direct;export PETSC_ARCH=arch-darwin-c-opt;export PMPI=$HOME/code/petsc-quad-direct/lib/petsc/bin/petscmpiexec; whichp;"
 alias setpdirect128opt=setpdirectopt128
-alias setpdirect128="export PETSC_DIR=$HOME/code/petsc-quad-direct;export PETSC_ARCH=arch-darwin-c-debug;export PMPI=$HOME/code/petsc-quad-direct/arch-darwin-c-debug/bin/mpiexec; whichp;"
+alias setpdirect128="export PETSC_DIR=$HOME/code/petsc-quad-direct;export PETSC_ARCH=arch-darwin-c-debug;export PMPI=$HOME/code/petsc-quad-direct/lib/petsc/bin/petscmpiexec; whichp;"
 
 # Ideatron
 alias iii="$HOME/code/ideatron/run.py -d $HOME/life/ideatron_local"
