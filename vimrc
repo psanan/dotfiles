@@ -113,6 +113,11 @@ colorscheme solarized
 set background=dark
 let fortran_free_source=1
 
+" Spellchecking highlighting
+hi clear SpellBad
+hi SpellBad cterm=bold ctermfg=white ctermbg=red
+hi SpellBad gui=bold guifg=white guibg=red
+
 " Use C syntax highlighting for additional extensions
 autocmd BufNewFile,BufRead *.cl   set syntax=c
 
