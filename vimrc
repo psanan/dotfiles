@@ -102,9 +102,6 @@ set foldlevelstart=99 " this seems like a hack
 " Disable automatic multiline commenting
 autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
 
-" Quiet!
-set belloff=all
-
 """ Appearance """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Line numbers
@@ -115,6 +112,11 @@ syntax on
 colorscheme solarized
 set background=dark
 let fortran_free_source=1
+
+" Spellchecking highlighting
+hi clear SpellBad
+hi SpellBad cterm=bold ctermfg=white ctermbg=red
+hi SpellBad gui=bold guifg=white guibg=red
 
 " Use C syntax highlighting for additional extensions
 autocmd BufNewFile,BufRead *.cl   set syntax=c
@@ -131,11 +133,6 @@ augroup END
 
 " Unset the "last search pattern" register
 nnoremap <CR> :noh<CR><CR>
-
-" See contents of registers
-" List contents of all registers (that typically contain pasteable text).
-" https://superuser.com/questions/656949/always-show-the-register-list-in-vim
-nnoremap <silent> "" :registers "0123456789abcdefghijklmnopqrstuvwxyz*+.<CR>
 
 " Copy to system clipboard, if supported
 map <F2> "*y

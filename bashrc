@@ -115,14 +115,6 @@ function setpprefix {
   unset PETSC_ARCH
   export PMPI=$PETSC_DIR/lib/petsc/bin/petscmpiexec
 }
-function setpdev {
-  # Usage: setpdev <precision-extra-opt-etc>
-  # Example: setpdev extra debug
-  local ALLMODS=$(space2dash ${@})
-  export PETSC_DIR=$HOME/code/petsc
-  export PETSC_ARCH=arch-$ALLMODS
-  export PMPI=$PETSC_DIR/lib/petsc/bin/petscmpiexec
-}
 function setphere {
   # Usage: setphere <petsc-arch>
   # Example: cd /some/petsc/dir && setphere arch-foo-bar
