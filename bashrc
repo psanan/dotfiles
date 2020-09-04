@@ -63,11 +63,10 @@ GIT_PS1_SHOWUNTRACKEDFILES=true
 ### Prompt #####################################################################
 # addsp adds a space and (optional) brackets to non-empty strings
 # Don't forget the \[ \], or you'll have line-wrapping issues
-# $STY is for use with GNU Screen (screen -S sessionName)
 function addsp { if [[ -z "$1" ]]; then echo ""; else echo "$2$1$3 "; fi; }
 PS1_OPEN="\[\e[1;31m\]["
 PS1_CLOSE="\[\e[1;31m\]]$\[\e[0m\] "
-PS1_BODY='\[\e[0;34m\]$(addsp "$STY")\[\e[0;95m\]$(addsp "$PETSC_ARCH" "(" ")")\[\e[1;31m\]\W\[\e[0;36m\]$(__git_ps1 " (%s)")'
+PS1_BODY='\[\e[0;95m\]$(addsp "$PETSC_ARCH" "(" ")")\[\e[1;31m\]\W\[\e[0;36m\]$(__git_ps1 " (%s)")'
 PS1_HOST="\[\e[0;33m\]\H "
 PS1_LOCAL="$PS1_OPEN$PS1_BODY$PS1_CLOSE"
 PS1_REMOTE="$PS1_OPEN$PS1_HOST$PS1_BODY$PS1_CLOSE"

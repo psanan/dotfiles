@@ -10,3 +10,6 @@ bind x
 mousetrack on
 startup_message off
 altscreen on
+
+hardstatus alwaysfirstline
+hardstatus string '%S (GNU screen) %{wk}%?%-Lw%?%{=b kR}(%{W}%n*%f %t%?(%u)%?%{=b kR})%{= w}%?%+Lw%?%? %{g}]'
