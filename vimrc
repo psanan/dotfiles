@@ -166,7 +166,7 @@ nnoremap <S-TAB> gT
 " PETSc
 imap <c-\>ch CHKERRQ(ierr);
 imap <c-\>po PetscObjectComm((PetscObject)dm)
-imap <c-\>pe SETERRQ(PetscObjectComm((PetscObject)dm),PETSC_ERR_SUP,"Not Implemented!");
+imap <c-\>pe SETERRQ(PETSC_COMM_WORLD,PETSC_ERR_SUP,"Not Implemented!");
 imap <c-\>pp ierr = PetscPrintf(PETSC_COMM_WORLD,"xxx\n");CHKERRQ(ierr);
 imap <c-\>pf PetscErrorCode XXXX()<CR>{<CR>PetscErrorCode ierr;<CR><CR>PetscFunctionBegin;<CR>PetscFunctionReturn(0);<CR>}<CR>
 
