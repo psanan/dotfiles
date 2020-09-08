@@ -12,6 +12,8 @@ PSANAN_RC_ROOT=${PSANAN_RC_ROOT:-$HOME/util/rc}
 ### Terminal ###################################################################
 export CLICOLOR=1;                  # colorize the terminal
 export HISTCONTROL=ignoredups       # include commands starting with a space
+# Turn off history expansion (allows "!"):
+set +o histexpand
 
 ### Aliases and helper functions ###############################################
 alias gg="git grep"
