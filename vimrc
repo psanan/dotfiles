@@ -140,6 +140,9 @@ map <F2> "*y
 " Kill all trailing whitespace (undo to leave highlighted)
 nmap <F3> :%s/\s\+$//<CR>
 
+" NERDTree
+nmap <F5> :NERDTree<CR>
+
 " Jump to tag, in new window
 nmap <F7> :vsp<CR><c-w><c-l><c-]>
 
