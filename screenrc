@@ -12,4 +12,4 @@ startup_message off
 altscreen on
 
 hardstatus alwaysfirstline
-hardstatus string '%{bk} %S (GNU screen) %{w}%?%-Lw%?%{=b kR}(%{W}%n*%f %t%?(%u)%?%{=b kR})%{= w}%?%+Lw%?%? %{g}]'
+hardstatus string '%{bk} GNU screen: %S %{dk} %{w}%?%-Lw%?%{=b kR}(%{W}%n*%f %t%?(%u)%?%{=b kR})%{= w}%?%+Lw%?%? %{g}]'
