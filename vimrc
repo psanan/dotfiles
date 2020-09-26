@@ -1,29 +1,31 @@
 """ Plugins """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Vim-plug.
-" Automatic installation (https://github.com/junegunn/vim-plug/wiki/tips#automatic-installation)
+" https://github.com/junegunn/vim-plug/wiki/tips#automatic-installation
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 call plug#begin('~/.vim/plugged')
-Plug 'Valloric/YouCompleteMe', { 'do': '/usr/bin/python ./install.py --clang-completer' } " Code completion, syntax checking
-Plug 'altercation/vim-colors-solarized'                                   " Colors
-Plug 'scrooloose/nerdtree'                                                " Folder navigation
-Plug 'tpope/vim-fugitive'                                                 " Git tools
-Plug 'majutsushi/tagbar'                                                  " Local source structure
-Plug 'vim-airline/vim-airline'                                            " Status bar
+Plug 'Valloric/YouCompleteMe', { 'do': '/usr/bin/python ./install.py --clang-completer' }
+Plug 'altercation/vim-colors-solarized'
+Plug 'scrooloose/nerdtree'
+Plug 'tpope/vim-fugitive'
+Plug 'majutsushi/tagbar'
+Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'godlygeek/Tabular'                                                  " Alignment (Try :Tab /=)
-Plug 'tmhedberg/simpylfold'                                               " Python folding
+Plug 'godlygeek/Tabular'  " Alignment (Try :Tab /=)
+Plug 'tmhedberg/simpylfold'  " Python folding
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 call plug#end()
 
 " YouCompleteMe
 " Note: if you want to search header files for completions, type <c-Space>
 " Troubleshooting: sometimes one needs to delete .vim/plugged/YouCompleteMe
 "                  and re-run :PlugInstall
-let g:ycm_confirm_extra_conf = 0                                          " unsafe!
+let g:ycm_confirm_extra_conf = 0  "unsafe!
 let g:ycm_global_ycm_extra_conf = "~/util/rc/ycm_extra_conf.py"
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_always_populate_location_list = 1
@@ -58,6 +60,9 @@ let g:airline_mode_map = {
     \ 'V'  : 'V',
     \ '' : 'V',
     \ }
+
+" Fzf
+let g:fzf_command_prefix = 'Fzf'
 
 """ Behavior """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -134,14 +139,20 @@ augroup END
 " Unset the "last search pattern" register
 nnoremap <CR> :noh<CR><CR>
 
-" Copy to system clipboard, if supported
-map <F2> "*y
+" fzf
+" see :help fzf-vim-customization for example with git-grep instead of ag
+map <F1> :FzfAg<CR>
+map <F2> :FzfFiles<CR>
+map <F4> :FzfLines<CR>
 
 " Kill all trailing whitespace (undo to leave highlighted)
 nmap <F3> :%s/\s\+$//<CR>
 
 " NERDTree
 nmap <F5> :NERDTree<CR>
+
+" Copy to system clipboard, if supported
+map <F6> "*y
 
 " Jump to tag, in new window
 nmap <F7> :vsp<CR><c-w><c-l><c-]>
