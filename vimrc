@@ -113,6 +113,9 @@ set foldlevelstart=99 " this seems like a hack
 " Disable automatic multiline commenting
 autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
 
+" Allow the cursor to go where there's no char
+set virtualedit=block
+
 """ Appearance """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Line numbers
