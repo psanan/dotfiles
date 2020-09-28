@@ -125,6 +125,7 @@ function setphere {
   export PETSC_ARCH=${1%/} # strip any trailing slash, so you can tab-complete
   export PMPI=$PETSC_DIR/lib/petsc/bin/petscmpiexec
 }
+alias setpw="setp stagbl extra opt" # temporary
 
 # LaMEM
 function lamemhelper {
@@ -146,6 +147,11 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
 
 # Paraview
 alias paraview="~/ParaView-5.6.0-MPI-Linux-64bit/bin/paraview"
+
+# MATLAB
+alias matlab="/usr/local/MATLAB/R2019a/bin/matlab"
+
+export CLEAN_MPICH=$HOME/code/petsc/arch-mpich-only/bin/mpiexec
 
 fi # Linux
 
@@ -176,3 +182,21 @@ alias iii="$HOME/code/ideatron/run.py -d $HOME/docs/ideatron_local"
 source $HOME/.helpers.sh
 
 fi # OS X
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/patrick/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/patrick/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/patrick/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/patrick/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

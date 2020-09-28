@@ -149,12 +149,10 @@ augroup END
 nnoremap <CR> :noh<CR><CR>
 
 " fzf
-map <F1> :FzfAg<CR>
-map <F2> :FzfFiles<CR>
+map <F1> :FzfGGrep<CR>
+map <F2> :FzfAg<CR>
+map <F3> :FzfFiles<CR>
 map <F4> :FzfLines<CR>
-
-" Kill all trailing whitespace (undo to leave highlighted)
-nmap <F3> :%s/\s\+$//<CR>
 
 " NERDTree
 nmap <F5> :NERDTree<CR>
@@ -167,6 +165,9 @@ nmap <F7> :vsp<CR><c-w><c-l><c-]>
 
 " Tagbar
 nmap <F8> :TagbarToggle<CR>
+
+" Kill all trailing whitespace (undo to leave highlighted)
+nmap <F9> :%s/\s\+$//<CR>
 
 " Jump to next in location list, wrapping (for YouCompleteMe)
 command Lnextwrap try | lnext | catch | lfirst | catch | endtry
