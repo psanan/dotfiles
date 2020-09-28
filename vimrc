@@ -196,3 +196,7 @@ imap <c-\>pf PetscErrorCode XXXX()<CR>{<CR>PetscErrorCode ierr;<CR><CR>PetscFunc
 " The second <CR> means that you won't get to read error messages,
 " but also won't have to press enter again to return to the file in vim
 nnoremap Gf :!open <cWORD> <CR> <CR>
+
+" vimrc shortcuts
+noremap <Leader>v :tabedit $MYVIMRC<CR>
+noremap <Leader>sv :source $MYVIMRC<CR>
