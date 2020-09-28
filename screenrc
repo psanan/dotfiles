@@ -4,10 +4,13 @@ escape ^^^
 # vertically split, change focus, and start a new session with escape-s
 bind s eval "split -v" "focus" "screen"
 
-# deactivate screen locking
-bind x
+# use 'x' to kill the current region instead of locking the screen
+bind x remove
 
+# I don't know why, but often I have to manually turn mousetrack back on (escape : mousetrack on)
 mousetrack on
+defmousetrack on
+
 startup_message off
 altscreen on
 
