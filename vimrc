@@ -64,6 +64,12 @@ let g:airline_mode_map = {
 " Fzf
 let g:fzf_command_prefix = 'Fzf'
 
+" from :help fzf-vim-customization
+command! -bang -nargs=* FzfGGrep
+  \ call fzf#vim#grep(
+  \   'git grep --line-number -- '.shellescape(<q-args>), 0,
+  \   fzf#vim#with_preview({'dir': systemlist('git rev-parse --show-toplevel')[0]}), <bang>0)
+
 """ Behavior """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Disable ex mode
@@ -140,7 +146,6 @@ augroup END
 nnoremap <CR> :noh<CR><CR>
 
 " fzf
-" see :help fzf-vim-customization for example with git-grep instead of ag
 map <F1> :FzfAg<CR>
 map <F2> :FzfFiles<CR>
 map <F4> :FzfLines<CR>
