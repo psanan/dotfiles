@@ -158,16 +158,16 @@ map <F4> :FzfLines<CR>
 nmap <F5> :NERDTree<CR>
 
 " Copy to system clipboard, if supported
-map <F6> "*y
+map <leader>y "*y
 
 " Jump to tag, in new window
-nmap <F7> :vsp<CR><c-w><c-l><c-]>
+nmap <leader>t :vsp<CR><c-w><c-l><c-]>
 
 " Tagbar
 nmap <F8> :TagbarToggle<CR>
 
 " Kill all trailing whitespace (undo to leave highlighted)
-nmap <F9> :%s/\s\+$//<CR>
+nmap <leader>w :%s/\s\+$//<CR>
 
 " Jump to next in location list, wrapping (for YouCompleteMe)
 command Lnextwrap try | lnext | catch | lfirst | catch | endtry
@@ -186,6 +186,10 @@ nnoremap <c-l> <c-w>l
 nnoremap <TAB> gt
 nnoremap <S-TAB> gT
 
+" LaTeX
+imap <c-\>i \begin{itemize}<CR>\item<CR>\end{itemize}<CR>
+imap <c-\>g \includegraphics[width=\textwidth]{images/xxx.png}<CR>
+
 " PETSc
 imap <c-\>ch CHKERRQ(ierr);
 imap <c-\>po PetscObjectComm((PetscObject)dm)
@@ -196,8 +200,8 @@ imap <c-\>pf PetscErrorCode XXXX()<CR>{<CR>PetscErrorCode ierr;<CR><CR>PetscFunc
 " use "open" (OS X) to open a filename under the cursor
 " The second <CR> means that you won't get to read error messages,
 " but also won't have to press enter again to return to the file in vim
-nnoremap Gf :!open <cWORD> <CR> <CR>
+nnoremap <Leader>gf :!open <cWORD> <CR> <CR>
 
-" vimrc shortcuts
+" vimrc
 noremap <Leader>v :tabedit $MYVIMRC<CR>
 noremap <Leader>sv :source $MYVIMRC<CR>
