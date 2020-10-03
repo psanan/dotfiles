@@ -17,7 +17,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'godlygeek/Tabular'  " Alignment (Try :Tab /=)
 Plug 'tmhedberg/simpylfold'  " Python folding
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf', { 'do': './install' }
 Plug 'junegunn/fzf.vim'
 call plug#end()
 
