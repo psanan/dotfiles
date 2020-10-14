@@ -40,7 +40,7 @@ endif
 
 " Airline
 let g:airline_theme='solarized'
-let g:airline_solarized_bg='dark'
+let g:airline_solarized_bg='light'
 let g:airline_mode_map = {
     \ '__' : '-',
     \ 'c'  : 'C',
@@ -124,7 +124,7 @@ set number
 " Syntax highlighting and color scheme
 syntax on
 colorscheme solarized
-set background=dark
+set background=light
 let fortran_free_source=1
 
 " Spellchecking highlighting
