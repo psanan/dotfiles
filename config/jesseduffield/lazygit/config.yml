@@ -1,0 +1,14 @@
+reporting: "off"
+startuppopupversion: 1
+
+# https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md#light-terminal-theme
+gui:
+  theme:
+    lightTheme: true
+    activeBorderColor:
+      - black
+      - bold
+    inactiveBorderColor:
+       - black
+    selectedLineBGColor:
+       - default
