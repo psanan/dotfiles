@@ -76,6 +76,9 @@ PS1_LOCAL="$PS1_OPEN$PS1_BODY$PS1_CLOSE"
 PS1_REMOTE="$PS1_OPEN$PS1_HOST$PS1_BODY$PS1_CLOSE"
 PS1=$PS1_REMOTE
 
+### fzf ########################################################################
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
 ### PETSc and related software #################################################
 alias cdp='cd $PETSC_DIR'                                   # note single quotes
 alias cdk='cd $PETSC_DIR/src/ksp/ksp/tutorials'
@@ -200,4 +203,3 @@ unset __conda_setup
 # <<< conda initialize <<<
 
 
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
