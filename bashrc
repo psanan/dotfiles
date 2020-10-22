@@ -81,6 +81,8 @@ alias cdp='cd $PETSC_DIR'                                   # note single quotes
 alias cdk='cd $PETSC_DIR/src/ksp/ksp/tutorials'
 alias cdd='cd $PETSC_DIR/src/dm/impls/stag/tutorials'
 
+export CLEAN_MPICH=$HOME/code/petsc/arch-mpich-only/bin/mpiexec
+
 function whichp {
                                 echo -n 'PETSC_ARCH = '; echo $PETSC_ARCH
                                 echo -n 'PETSC_DIR  = '; echo $PETSC_DIR
@@ -151,8 +153,6 @@ alias paraview="~/ParaView-5.6.0-MPI-Linux-64bit/bin/paraview"
 
 # MATLAB
 alias matlab="/usr/local/MATLAB/R2019a/bin/matlab"
-
-export CLEAN_MPICH=$HOME/code/petsc/arch-mpich-only/bin/mpiexec
 
 fi # Linux
 
