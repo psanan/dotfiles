@@ -51,6 +51,7 @@ git config --global color.branch auto
 git config --global push.default tracking
 git config --global core.editor vim
 git config --global pull.ff only
+git config --global init.defaultBranch main
 
 alias  gitl="git log --graph --pretty=format:\"%h - %an, %ar : %s %d\""
 alias  gits="git status --short"
