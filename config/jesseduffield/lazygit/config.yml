@@ -9,6 +9,6 @@ gui:
       - black
       - bold
     inactiveBorderColor:
-       - black
+       - grey
     selectedLineBGColor:
-       - default
+       - reverse
