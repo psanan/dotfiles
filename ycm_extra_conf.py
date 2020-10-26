@@ -53,6 +53,14 @@ if PTATIN_DIR:
     ])
 
 
+# Julia
+JULIA_DIR = os.getenv('JULIA_DIR')
+if JULIA_DIR:
+    flags.extend([
+        '-I', os.path.join(JULIA_DIR, 'include', 'julia'),
+    ])
+
+
 def DirectoryOfThisScript():
     return os.path.dirname(os.path.abspath(__file__))
 

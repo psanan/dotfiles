@@ -3,6 +3,11 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
 fi
 
+# Julia
+export JULIA_DIR=$HOME/code/julia  # symlink this to a specific version
+export PATH="$JULIA_DIR/bin:$PATH"
+
+
 # SciATH
 export PYTHONPATH=$PYTHONPATH:$HOME/code/sciath
 
