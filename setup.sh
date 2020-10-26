@@ -21,7 +21,7 @@ $link $psanan_rc_root/vim/spell/en.utf-8.add      $HOME/.vim/spell/en.utf-8.add
 
 yapf_dir=config/yapf
 mkdir -p $HOME/.$yapf_dir
-$link $psanan_rc_root/config/yapf/style           $HOME/.$yapf_dir/style
+$link $psanan_rc_root/$yapf_dir/style             $HOME/.$yapf_dir/style
 
 lazygit_dir=config/jesseduffield/lazygit
 mkdir -p $HOME/.$lazygit_dir
