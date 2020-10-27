@@ -197,10 +197,11 @@ imap <c-\>pe SETERRQ(PETSC_COMM_WORLD,PETSC_ERR_SUP,"Not Implemented!");
 imap <c-\>pp ierr = PetscPrintf(PETSC_COMM_WORLD,"xxx\n");CHKERRQ(ierr);
 imap <c-\>pf PetscErrorCode XXXX()<CR>{<CR>PetscErrorCode ierr;<CR><CR>PetscFunctionBegin;<CR>PetscFunctionReturn(0);<CR>}<CR>
 
-" use "open" (OS X) to open a filename under the cursor
+" use "open" (OS X) to open a pdf corresponding to the filename,
+" in a particular location. This is for use with my notes system.
 " The second <CR> means that you won't get to read error messages,
 " but also won't have to press enter again to return to the file in vim
-nnoremap <Leader>gf :!open <cWORD> <CR> <CR>
+nnoremap <Leader>gf :execute '!open ~/work/ref/' . expand('%:r') . '.pdf' <CR> <CR>
 
 " vimrc
 noremap <Leader>v :tabedit $MYVIMRC<CR>
