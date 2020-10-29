@@ -2,7 +2,7 @@ PSANAN_RC_ROOT=$HOME/util/rc
 source $PSANAN_RC_ROOT/bashrc
 ################################################################################
 
-module load git/2.11.0
+module load git
 
 #https://scicomp.ethz.ch/wiki/Reopening_of_Euler_and_Leonhard_(May_2020)
 git config --global http.proxy http://proxy.ethz.ch:3128
