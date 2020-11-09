@@ -19,10 +19,20 @@ $link $psanan_rc_root/vimrc                       $HOME/.vimrc
 $link $psanan_rc_root/vim/after/indent/python.vim $HOME/.vim/after/indent/python.vim
 $link $psanan_rc_root/vim/spell/en.utf-8.add      $HOME/.vim/spell/en.utf-8.add
 
-yapf_dir=config/yapf
-mkdir -p $HOME/.$yapf_dir
-$link $psanan_rc_root/$yapf_dir/style             $HOME/.$yapf_dir/style
+yapf_dir=$psanan_rc_root/config/yapf
+yapf_target_dir="$HOME/.config/yapf"
+mkdir -p "$yapf_target_dir"
+$link "$yapf_dir/style"             "$yapf_target_dir/style"
 
-lazygit_dir=config/jesseduffield/lazygit
-mkdir -p $HOME/.$lazygit_dir
-$link $psanan_rc_root/$lazygit_dir/config.yml     $HOME/.$lazygit_dir/config.yml
+lazygit_dir="$psanan_rc_root/config/jesseduffield/lazygit"
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  lazygit_target_dir="$HOME/Library/Application Support/jesseduffield/lazygit"
+else
+  lazygit_target_dir="$HOME/.config/jesseduffield/lazygit"
+fi
+mkdir -p "$lazygit_target_dir"
+$link "$lazygit_dir/config.yml"     "$lazygit_target_dir/config.yml"
+
+echo $link "$lazygit_dir/config.yml"     "$lazygit_target_dir/config.yml"
+
+echo "$lazygit_dir" "$lazygit_target_dir"
