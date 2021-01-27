@@ -14,7 +14,7 @@ defmousetrack on
 startup_message off
 altscreen on
 
-hardstatus alwaysfirstline
+hardstatus alwayslastline
 hardstatus string 'GNU screen: %{cd}%S%{dd}  %-Lw%{= BW}%50>%n%f* %t%{-}%+Lw%<'
 
 defshell -bash
