@@ -100,30 +100,6 @@ function whichp {
 alias unsetp='unset PETSC_ARCH PETSC_DIR PMPI PETSC_DEB PETSC_OPT'
 alias confp='grep CONFIGURE_OPTIONS $PETSC_DIR/$PETSC_ARCH/lib/petsc/conf/petscvariables'
 
-# Functions to set common PETSc configurations.
-# See petsc_configure*.sh in the petsc_configure_helpers repo
-function space2dash {
-  # Concatenate arguments and replace spaces with dashes
-  echo "$@" | sed 's/ /-/g'
-}
-function setp {
-  # Usage: setp <archmod> [<precision> <extra> ... ] <debug/opt>
-  # Example: setp 3.7 extra opt
-  #          --> PETSC_ARCH=arch-3.7-extra-opt, PETSC_DIR=$HOME/code/petsc-3.7
-  local ARCHMOD=$1
-  local MOREMODS=$(space2dash ${@:2})
-  export PETSC_DIR=$HOME/code/petsc-$ARCHMOD
-  export PETSC_ARCH=arch-$ARCHMOD-$MOREMODS
-  export PMPI=$PETSC_DIR/lib/petsc/bin/petscmpiexec
-}
-function setpprefix {
-  # Usage: setpprefix <archmod> <precision-extra-opt-etc>
-  local ARCHMOD=$1
-  local MOREMODS=$(space2dash ${@:2})
-  export PETSC_DIR=$HOME/code/petsc-$ARCHMOD/arch-$ARCHMOD-$MOREMODS-install
-  unset PETSC_ARCH
-  export PMPI=$PETSC_DIR/lib/petsc/bin/petscmpiexec
-}
 function setphere {
   # Usage: setphere <petsc-arch>
   # Example: cd /some/petsc/dir && setphere arch-foo-bar
@@ -131,7 +107,6 @@ function setphere {
   export PETSC_ARCH=${1%/} # strip any trailing slash, so you can tab-complete
   export PMPI=$PETSC_DIR/lib/petsc/bin/petscmpiexec
 }
-alias setpw="setp stagbl extra opt" # temporary
 
 # LaMEM
 function lamemhelper {
