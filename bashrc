@@ -16,7 +16,7 @@ export HISTCONTROL=ignoredups       # include commands starting with a space
 set +o histexpand
 
 ### Aliases and helper functions ###############################################
-alias gg="git grep"
+alias gg="git grep -i"
 alias lg="lazygit"
 alias ll="ls -l"
 alias mj="make -j8"
