@@ -116,6 +116,9 @@ autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
 " Allow the cursor to go where there's no char
 set virtualedit=block
 
+" Quiet
+set belloff=all
+
 """ Appearance """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Line numbers
@@ -132,9 +135,6 @@ hi clear SpellBad
 hi SpellBad cterm=bold ctermfg=white ctermbg=red
 hi SpellBad gui=bold guifg=white guibg=red
 
-" Use C syntax highlighting for additional extensions
-autocmd BufNewFile,BufRead *.cl   set syntax=c
-
 " Color column in active window
 set colorcolumn=81
 augroup BgHighlight
@@ -149,32 +149,32 @@ augroup END
 nnoremap <CR> :noh<CR><CR>
 
 " fzf
-map <F1> :FzfGGrep<CR>
-map <F2> :FzfAg<CR>
-map <F3> :FzfFiles<CR>
-map <F4> :FzfLines<CR>
+noremap <F1> :FzfGGrep<CR>
+noremap <F2> :FzfAg<CR>
+noremap <F3> :FzfFiles<CR>
+noremap <F4> :FzfLines<CR>
 
 " NERDTree
-nmap <F5> :NERDTree<CR>
+nnoremap <F5> :NERDTree<CR>
 
 " Copy to system clipboard, if supported
-map <leader>y "*y
+noremap <leader>y "*y
 
 " Jump to tag, in new window
-nmap <leader>t :vsp<CR><c-w><c-l><c-]>
+nnoremap <leader>t :vsp<CR><c-w><c-l><c-]>
 
 " Tagbar
-nmap <F8> :TagbarToggle<CR>
+nnoremap <F8> :TagbarToggle<CR>
 
 " Kill all trailing whitespace (undo to leave highlighted)
-nmap <leader>w :%s/\s\+$//<CR>
+nnoremap <leader>w :%s/\s\+$//<CR>
 
 " Jump to next in location list, wrapping (for YouCompleteMe)
 command Lnextwrap try | lnext | catch | lfirst | catch | endtry
-nmap <F11> :Lnextwrap<CR>
+nnoremap <F11> :Lnextwrap<CR>
 
 " YouCompleteMe FixIt
-nmap <F12> :YcmCompleter FixIt<CR>
+nnoremap <F12> :YcmCompleter FixIt<CR>
 
 " Move between windows
 nnoremap <c-h> <c-w>h
@@ -187,22 +187,35 @@ nnoremap <TAB> gt
 nnoremap <S-TAB> gT
 
 " LaTeX
-imap <c-\>i \begin{itemize}<CR>\item<CR>\end{itemize}<CR>
-imap <c-\>g \includegraphics[width=\textwidth]{images/xxx.png}<CR>
+inoremap <c-\>c \begin{center}<CR>\end{center}<CR>
+inoremap <c-\>f \begin{frame}[fragile]<CR>\frametitle{}<CR>\end{frame}<CR>
+inoremap <c-\>i \begin{itemize}<CR>\item<CR>\end{itemize}<CR>
+inoremap <c-\>g \begin{center}<CR>\includegraphics[width=\textwidth]{images/xxx.png}<CR>\end{center}<CR>
+inoremap <c-\>s \begin{minipage}{0.49\textwidth}<CR>\end{minipage}<CR>\begin{minipage}{0.49\textwidth}<CR>\end{minipage}
 
 " PETSc
-imap <c-\>ch CHKERRQ(ierr);
-imap <c-\>po PetscObjectComm((PetscObject)dm)
-imap <c-\>pe SETERRQ(PETSC_COMM_WORLD,PETSC_ERR_SUP,"Not Implemented!");
-imap <c-\>pp ierr = PetscPrintf(PETSC_COMM_WORLD,"xxx\n");CHKERRQ(ierr);
-imap <c-\>pf PetscErrorCode XXXX()<CR>{<CR>PetscErrorCode ierr;<CR><CR>PetscFunctionBegin;<CR>PetscFunctionReturn(0);<CR>}<CR>
+inoremap <c-\>ch CHKERRQ(ierr);
+inoremap <c-\>po PetscObjectComm((PetscObject)dm)
+inoremap <c-\>pe SETERRQ(PETSC_COMM_WORLD,PETSC_ERR_SUP,"Not Implemented!");
+inoremap <c-\>pp ierr = PetscPrintf(PETSC_COMM_WORLD,"xxx\n");CHKERRQ(ierr);
+inoremap <c-\>pf PetscErrorCode XXXX()<CR>{<CR>PetscErrorCode ierr;<CR><CR>PetscFunctionBegin;<CR>PetscFunctionReturn(0);<CR>}<CR>
+
+" Notes (PDSHub ID 3)
+" Edit notes file for a given reference under the cursor
+nnoremap <Leader>n :edit ~/work/notes/notes/<cword>.md <CR>
+
+" Open filename under cursor with "open" (OS X), not pausing
+nnoremap <Leader>go :!open <cWORD> <CR> <CR>
 
 " use "open" (OS X) to open a pdf corresponding to the filename,
 " in a particular location. This is for use with my notes system.
 " The second <CR> means that you won't get to read error messages,
 " but also won't have to press enter again to return to the file in vim
-nnoremap <Leader>gf :execute '!open ~/work/ref/' . expand('%:r') . '.pdf' <CR> <CR>
+nnoremap <Leader>gf :execute '!open ~/work/ref/' . expand('%:t:r') . '.pdf' <CR> <CR>
 
 " vimrc
-noremap <Leader>v :tabedit $MYVIMRC<CR>
-noremap <Leader>sv :source $MYVIMRC<CR>
+nnoremap <Leader>v :tabedit $MYVIMRC<CR>
+nnoremap <Leader>sv :source $MYVIMRC<CR>
+
+" BibTeX file (PDSHub ID 2)
+nnoremap <Leader>b :tabedit ~/work/bib/pds.bib<CR>
