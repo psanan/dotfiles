@@ -12,8 +12,7 @@ PSANAN_RC_ROOT=${PSANAN_RC_ROOT:-$HOME/util/rc}
 ### Terminal ###################################################################
 export CLICOLOR=1;                  # colorize the terminal
 export HISTCONTROL=ignoredups       # include commands starting with a space
-# Turn off history expansion (allows "!"):
-set +o histexpand
+set +o histexpand                   # Turn off history expansion (allows "!"):
 
 ### Aliases and helper functions ###############################################
 alias gg="git grep -i"
@@ -21,10 +20,10 @@ alias lg="lazygit"
 alias ll="ls -l"
 alias mj="make -j8"
 alias sb="source $HOME/.bashrc"
+alias vimr="vim -R"
 alias cdn="cd $HOME/work/notes/notes"
 alias cdt="cd $HOME/work/notes/tech"
 alias dus="du -sh * | sort -hr"
-alias vimr="vim -R"
 alias news="newsboat"
 alias plab="ipython --no-confirm-exit --matplotlib -i $HOME/code/petsc_python_helpers/ipython_setup.py"
 
