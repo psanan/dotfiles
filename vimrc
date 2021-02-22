@@ -116,9 +116,6 @@ autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
 " Allow the cursor to go where there's no char
 set virtualedit=block
 
-" Quiet
-set belloff=all
-
 """ Appearance """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Line numbers
