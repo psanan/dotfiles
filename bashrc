@@ -22,6 +22,7 @@ alias mj="make -j8"
 alias sb="source $HOME/.bashrc"
 alias vimr="vim -R"
 alias cdn="cd $HOME/work/notes/notes"
+alias cds="cd $HOME/Downloads"  # a scratch directory. Override on clusters.
 alias cdt="cd $HOME/work/notes/tech"
 alias dus="du -sh * | sort -hr"
 alias news="newsboat"
