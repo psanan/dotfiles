@@ -20,6 +20,7 @@ alias lg="lazygit"
 alias ll="ls -l"
 alias mj="make -j8"
 alias sb="source $HOME/.bashrc"
+alias vi="echo use vim"
 alias vimr="vim -R"
 alias cdn="cd $HOME/work/notes/notes"
 alias cds="cd $HOME/Downloads"  # a scratch directory. Override on clusters.
@@ -149,7 +150,6 @@ if [ ! -e "$vim_symlink" -o "$(readlink $vim_symlink)" != "$vim_symlink_target" 
     printf "Perhaps you want to do this:\n"
     printf "    sudo ln -s $vim_symlink_target $vim_symlink\n"
 fi
-alias vi="echo use vim"
 
 # Paraview
 alias paraview="/Applications/ParaView-5.6.0.app/Contents/MacOS/paraview"
