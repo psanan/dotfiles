@@ -146,9 +146,9 @@ augroup END
 nnoremap <CR> :noh<CR><CR>
 
 " fzf
-noremap <F1> :FzfGGrep<CR>
-noremap <F2> :FzfAg<CR>
-noremap <F3> :FzfFiles<CR>
+noremap <F1> :FzfFiles<CR>
+noremap <F2> :FzfGGrep<CR>
+noremap <F3> :FzfAg<CR>
 noremap <F4> :FzfLines<CR>
 
 " NERDTree
