@@ -19,6 +19,7 @@ Plug 'godlygeek/Tabular'  " Alignment (Try :Tab /=)
 Plug 'tmhedberg/simpylfold'  " Python folding
 Plug 'junegunn/fzf', { 'do': './install' }
 Plug 'junegunn/fzf.vim'
+Plug 'JuliaEditorSupport/julia-vim'
 call plug#end()
 
 " YouCompleteMe
