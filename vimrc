@@ -8,7 +8,7 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 call plug#begin('~/.vim/plugged')
-Plug 'Valloric/YouCompleteMe', { 'do': '/usr/bin/python ./install.py --clang-completer' }
+Plug 'Valloric/YouCompleteMe', { 'do': 'python3 ./install.py --clangd-completer' }
 Plug 'altercation/vim-colors-solarized'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-fugitive'
@@ -23,21 +23,11 @@ Plug 'JuliaEditorSupport/julia-vim'
 call plug#end()
 
 " YouCompleteMe
-" Note: if you want to search header files for completions, type <c-Space>
-" Troubleshooting: sometimes one needs to delete .vim/plugged/YouCompleteMe
-"                  and re-run :PlugInstall
+" Note: to search header files for completions, type <c-Space>
+" Troubleshooting: Delete .vim/plugged/YouCompleteMe, :PlugInstall
 let g:ycm_confirm_extra_conf = 0  "unsafe!
 let g:ycm_global_ycm_extra_conf = "~/util/rc/ycm_extra_conf.py"
 let g:ycm_autoclose_preview_window_after_completion = 1
-let g:ycm_always_populate_location_list = 1
-
-" On OS X, YCM insists on using system Python
-if has("unix")
-  let s:uname = system("uname")
-  if s:uname == "Darwin\n"
-    let g:ycm_path_to_python_interpreter = '/usr/bin/python'
-  endif
-endif
 
 " Airline
 let g:airline_theme='solarized'

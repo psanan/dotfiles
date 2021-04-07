@@ -140,16 +140,6 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 # Use "local prompt"
 PS1=$PS1_LOCAL
 
-# Vim and MacVim: check that the expected symlinks exist
-# (If this isn't true, YouCompleteMe will experience strange crashes)
-vim_symlink='/usr/local/bin/vim'
-vim_symlink_target='/Applications/MacVim.app/Contents/bin/vim'
-if [ ! -e "$vim_symlink" -o "$(readlink $vim_symlink)" != "$vim_symlink_target" ]; then
-    printf "WARNING: $vim_symlink does not link to $vim_symlink_target as expected!\n"
-    printf "Perhaps you want to do this:\n"
-    printf "    sudo ln -s $vim_symlink_target $vim_symlink\n"
-fi
-
 # Ideatron
 alias iii="$HOME/code/ideatron/run.py -d $HOME/docs/ideatron_local"
 
@@ -157,20 +147,3 @@ alias iii="$HOME/code/ideatron/run.py -d $HOME/docs/ideatron_local"
 source $HOME/.helpers.sh
 
 fi # OS X
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/patrick/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/patrick/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/patrick/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/patrick/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
-
