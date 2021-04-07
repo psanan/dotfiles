@@ -3,6 +3,7 @@ startuppopupversion: 1
 
 # https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md#light-terminal-theme
 gui:
+  showFileTree: true
   theme:
     lightTheme: true
     activeBorderColor:
