@@ -6,7 +6,6 @@ flags = [
     '-Wall',
     '-Wextra',
     '-Wunused',
-    '-I', '/opt/local/include',
     '-std=c99',  # Change if not using C
     '-x', 'c',   # Change if not using C
 ]
@@ -61,11 +60,7 @@ if JULIA_DIR:
     ])
 
 
-def DirectoryOfThisScript():
-    return os.path.dirname(os.path.abspath(__file__))
-
-
-def MakeRelativePathsInFlagsAbsolute(flags, working_directory):
+def make_relative_paths_in_flags_absolute(flags, working_directory):
     if not working_directory:
         return list(flags)
     new_flags = []
@@ -94,8 +89,9 @@ def MakeRelativePathsInFlagsAbsolute(flags, working_directory):
     return new_flags
 
 
-def FlagsForFile(filename, **kwargs):
-    relative_to = DirectoryOfThisScript()
-    final_flags = MakeRelativePathsInFlagsAbsolute(flags, relative_to)
-
-    return {'flags': final_flags, 'do_cache': True}
+def Settings( **kwargs ):
+    relative_to = os.path.dirname(os.path.abspath(__file__))
+    final_flags = make_relative_paths_in_flags_absolute(flags, relative_to)
+    return {
+        'flags': final_flags,
+    }

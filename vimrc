@@ -8,15 +8,14 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 call plug#begin('~/.vim/plugged')
-Plug 'Valloric/YouCompleteMe', { 'do': 'python3 ./install.py --clangd-completer' }
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clangd-completer' }
 Plug 'altercation/vim-colors-solarized'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-fugitive'
 Plug 'majutsushi/tagbar'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'godlygeek/Tabular'  " Alignment (Try :Tab /=)
-Plug 'tmhedberg/simpylfold'  " Python folding
+Plug 'godlygeek/Tabular'
 Plug 'junegunn/fzf', { 'do': './install' }
 Plug 'junegunn/fzf.vim'
 Plug 'JuliaEditorSupport/julia-vim'
@@ -25,8 +24,8 @@ call plug#end()
 " YouCompleteMe
 " Note: to search header files for completions, type <c-Space>
 " Troubleshooting: Delete .vim/plugged/YouCompleteMe, :PlugInstall
-let g:ycm_confirm_extra_conf = 0  "unsafe!
 let g:ycm_global_ycm_extra_conf = "~/util/rc/ycm_extra_conf.py"
+let g:ycm_extra_conf_globlist = "~/util/rc/ycm_extra_conf.py"
 let g:ycm_autoclose_preview_window_after_completion = 1
 
 " Airline
