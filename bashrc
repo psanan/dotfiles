@@ -15,8 +15,6 @@ export HISTCONTROL=ignoredups       # include commands starting with a space
 set +o histexpand                   # Turn off history expansion (allows "!"):
 
 ### Aliases and helper functions ###############################################
-alias gg="git grep -i"
-alias lg="lazygit"
 alias ll="ls -l"
 alias mj="make -j8"
 alias sb="source $HOME/.bashrc"
@@ -54,9 +52,13 @@ git config --global core.editor vim
 git config --global pull.ff only
 git config --global init.defaultBranch main
 
-alias  gitl="git log --graph --pretty=format:\"%h - %an, %ar : %s %d\""
-alias  gits="git status --short"
+alias gitl="git log --graph --pretty=format:\"%h - %an, %ar : %s %d\""
+alias gits="git status --short"
 alias gitst="git status --short --untracked-files=no"
+alias gitbu='name=$(git rev-parse --abbrev-ref HEAD)-backup-$(date -u +"%Y%m%dT%H%M%SZ") && echo "$name" && git branch $name'
+alias gitf="git commit --amend --no-edit"
+alias gg="git grep -i"
+alias lg="lazygit"
 
 source $PSANAN_RC_ROOT/git-completion.bash
 source $PSANAN_RC_ROOT/git-prompt.sh
