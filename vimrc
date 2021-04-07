@@ -61,6 +61,19 @@ let g:airline_mode_map = {
     \ '' : 'V',
     \ }
 
+" https://github.com/vim-airline/vim-airline/issues/544
+function! AirlineInit()
+  " first define a new part for modified
+  call airline#parts#define('modified', {
+    \ 'raw': '%m',
+    \ 'accent': 'red',
+    \ })
+
+  " then override the default layout for section c with your new part
+  let g:airline_section_c = airline#section#create(['%<', '%f', 'modified', ' ', 'readonly'])
+endfunction
+autocmd VimEnter * call AirlineInit()
+
 " Fzf
 let g:fzf_command_prefix = 'Fzf'
 
