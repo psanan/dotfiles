@@ -42,6 +42,10 @@ function t {
   vim $note_path
 }
 
+### ccache #####################################################################
+export CCACHE_MAXSIZE=15G
+# f90cache doesn't have this so you'd have to supply e.g -M 15G
+
 ### Git ########################################################################
 git config --global user.name "Patrick Sanan"
 git config --global user.email "patrick.sanan@gmail.com"
@@ -128,6 +132,8 @@ alias lamemtest2='cd $LAMEM_DIR/input_models/BuildInSetups; $PMPI -np 2 ../../bi
 
 ### Linux-specific commands ####################################################
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
+
+alias gsed="sed"
 
 # MATLAB
 alias matlab="/usr/local/MATLAB/R2019a/bin/matlab"
