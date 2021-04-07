@@ -17,3 +17,11 @@ export PYTHONPATH=$PYTHONPATH:$HOME/code/petsc_python_helpers
 
 # Rift-o-mat DMStag/Python utilities (note that this overrides PetscBinaryIO.py!)
 export PYTHONPATH=$HOME/code/rift-o-mat/utils:$PYTHONPATH
+
+# Paraview
+if [[ "$OSTYPE" == "darwin"* ]]; then
+export PATH="/Applications/ParaView-5.8.0.app/Contents/MacOS/:$PATH"
+fi
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+export PATH="~/ParaView-5.6.0-MPI-Linux-64bit/bin/paraview:$PATH"
+fi

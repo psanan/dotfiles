@@ -127,9 +127,6 @@ alias lamemtest2='cd $LAMEM_DIR/input_models/BuildInSetups; $PMPI -np 2 ../../bi
 ### Linux-specific commands ####################################################
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
 
-# Paraview
-alias paraview="~/ParaView-5.6.0-MPI-Linux-64bit/bin/paraview"
-
 # MATLAB
 alias matlab="/usr/local/MATLAB/R2019a/bin/matlab"
 
@@ -150,9 +147,6 @@ if [ ! -e "$vim_symlink" -o "$(readlink $vim_symlink)" != "$vim_symlink_target" 
     printf "Perhaps you want to do this:\n"
     printf "    sudo ln -s $vim_symlink_target $vim_symlink\n"
 fi
-
-# Paraview
-alias paraview="/Applications/ParaView-5.6.0.app/Contents/MacOS/paraview"
 
 # Ideatron
 alias iii="$HOME/code/ideatron/run.py -d $HOME/docs/ideatron_local"
