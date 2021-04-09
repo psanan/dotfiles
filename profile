@@ -4,7 +4,9 @@ export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 fi
 
 # Homebrew sbin
+if [[ "$OSTYPE" == "darwin"* ]]; then
 export PATH="/usr/local/sbin:$PATH"
+fi
 
 # Julia
 export JULIA_DIR=$HOME/code/julia  # symlink this to a specific version
@@ -25,6 +27,6 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 export PATH="/Applications/ParaView-5.9.0.app/Contents/MacOS:$PATH"
 export PATH="/Applications/ParaView-5.9.0.app/Contents/bin:$PATH"
 fi
-if [[ "$OSTYPE" == "linux-gnu" ]]; then
-export PATH="~/ParaView-5.6.0-MPI-Linux-64bit/bin/paraview:$PATH"
-fi
+#if [[ "$OSTYPE" == "linux-gnu" ]]; then
+# # add path for Paraview executables here
+#fi
