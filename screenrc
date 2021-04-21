@@ -7,7 +7,6 @@ bind s eval "split -v" "focus" "screen"
 # use 'x' to kill the current region instead of locking the screen
 bind x remove
 
-# I don't know why, but often I have to manually turn mousetrack back on (escape : mousetrack on)
 mousetrack on
 defmousetrack on
 
