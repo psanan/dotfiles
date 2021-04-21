@@ -59,6 +59,15 @@ if JULIA_DIR:
         '-I', os.path.join(JULIA_DIR, 'include', 'julia'),
     ])
 
+# p4est
+P4EST_DIR = os.getenv('P4EST_DIR')
+if not P4EST_DIR:
+    P4EST_DIR = os.path.join(os.getenv('HOME'), 'code', 'p4est-install')
+if P4EST_DIR:
+    flags.extend([
+        '-I', os.path.join(P4EST_DIR, 'include'),
+    ])
+
 
 def make_relative_paths_in_flags_absolute(flags, working_directory):
     if not working_directory:
