@@ -30,3 +30,6 @@ fi
 #if [[ "$OSTYPE" == "linux-gnu" ]]; then
 # # add path for Paraview executables here
 #fi
+
+# Python env helper
+export PATH="$HOME/code/req2env:$PATH"
