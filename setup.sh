@@ -12,6 +12,7 @@ $link $psanan_rc_root/gdbinit      $HOME/.gdbinit
 $link $psanan_rc_root/latexmkrc    $HOME/.latexmkrc
 $link $psanan_rc_root/octaverc     $HOME/.octaverc
 $link $psanan_rc_root/screenrc     $HOME/.screenrc
+$link $psanan_rc_root/tmux.conf    $HOME/.tmux.conf
 
 mkdir -p $HOME/.vim/after/indent
 mkdir -p $HOME/.vim/spell
