@@ -86,9 +86,14 @@ set backspace=indent,eol,start
 
 " 2 spaces instead of tabs
 set expandtab
-set tabstop=2
-set softtabstop=2
-set shiftwidth=2
+
+function SetTab(width)
+  let &tabstop=a:width
+  let &softtabstop=a:width
+  let &shiftwidth=a:width
+endfunction
+
+call SetTab(2)
 
 " Smart case handling for searches
 set ignorecase
@@ -219,3 +224,6 @@ nnoremap <Leader>sv :source $MYVIMRC<CR>
 
 " BibTeX file (PDSHub ID 2)
 nnoremap <Leader>b :tabedit ~/work/bib/pds.bib<CR>
+
+" Set to 4-space indentation
+nnoremap <Leader>f :call SetTab(4)<CR>
