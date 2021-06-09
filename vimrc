@@ -165,6 +165,9 @@ nnoremap <F5> :NERDTree<CR>
 " Copy to system clipboard, if supported
 noremap <leader>y "*y
 
+" Paste from last deliberate yank (no deleted text)
+noremap <leader>p "0p
+
 " Jump to tag, in new window
 nnoremap <leader>t :vsp<CR><c-w><c-l><c-]>
 
