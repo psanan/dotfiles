@@ -72,6 +72,11 @@ GIT_PS1_SHOWDIRTYSTATE=true
 GIT_PS1_SHOWSTASHSTATE=true
 GIT_PS1_SHOWUNTRACKEDFILES=true
 
+# Use e.g. git clone $GITHUB:user/repo
+export GITHUB="git@github.com:"
+export GITLAB="git@gitlab.com:"
+export BITBUCKET="git@bitbucket.org:"
+
 ### Prompt #####################################################################
 # addsp adds a space and (optional) brackets to non-empty strings
 # Don't forget the \[ \], or you'll have line-wrapping issues
