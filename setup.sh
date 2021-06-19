@@ -11,7 +11,6 @@ for dot_file in \
   "config/yapf/style" \
   "gdbinit" \
   "latexmkrc" \
-  "octavrc" \
   "profile" \
   "screenrc" \
   "tmux.conf" \
