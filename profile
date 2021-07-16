@@ -33,3 +33,6 @@ fi
 
 # Python env helper
 export PATH="$HOME/code/req2env:$PATH"
+
+# cargo
+export PATH="$PATH:$HOME/.cargo/bin"
