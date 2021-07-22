@@ -31,38 +31,6 @@ let g:ycm_autoclose_preview_window_after_completion = 1
 " Airline
 let g:airline_theme='solarized'
 let g:airline_solarized_bg='light'
-let g:airline_mode_map = {
-    \ '__' : '-',
-    \ 'c'  : 'C',
-    \ 'i'  : 'I',
-    \ 'ic' : 'I',
-    \ 'ix' : 'I',
-    \ 'n'  : 'N',
-    \ 'ni' : 'N',
-    \ 'no' : 'N',
-    \ 'R'  : 'R',
-    \ 'Rv' : 'R',
-    \ 's'  : 'S',
-    \ 'S'  : 'S',
-    \ '' : 'S',
-    \ 't'  : 'T',
-    \ 'v'  : 'V',
-    \ 'V'  : 'V',
-    \ '' : 'V',
-    \ }
-
-" https://github.com/vim-airline/vim-airline/issues/544
-function! AirlineInit()
-  " first define a new part for modified
-  call airline#parts#define('modified', {
-    \ 'raw': '%m',
-    \ 'accent': 'red',
-    \ })
-
-  " then override the default layout for section c with your new part
-  let g:airline_section_c = airline#section#create(['%<', '%f', 'modified', ' ', 'readonly'])
-endfunction
-autocmd VimEnter * call AirlineInit()
 
 " Fzf
 let g:fzf_command_prefix = 'Fzf'
@@ -176,13 +144,6 @@ nnoremap <F8> :TagbarToggle<CR>
 
 " Kill all trailing whitespace (undo to leave highlighted)
 nnoremap <leader>w :%s/\s\+$//<CR>
-
-" Jump to next in location list, wrapping (for YouCompleteMe)
-command Lnextwrap try | lnext | catch | lfirst | catch | endtry
-nnoremap <F11> :Lnextwrap<CR>
-
-" YouCompleteMe FixIt
-nnoremap <F12> :YcmCompleter FixIt<CR>
 
 " Move between windows
 nnoremap <c-h> <c-w>h
