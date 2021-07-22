@@ -8,8 +8,10 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 export PATH="/usr/local/sbin:$PATH"
 fi
 
-# Julia
-export JULIA_DIR=$HOME/code/julia  # symlink this to a specific version
+# Julia  
+# Download Julia from the web and symlink, e.g.
+#     ln -sf /Applications/Julia-1.6.app/Contents/Resources/julia $HOME/code/julia
+export JULIA_DIR=$HOME/code/julia
 export PATH="$JULIA_DIR/bin:$PATH"
 
 # SciATH

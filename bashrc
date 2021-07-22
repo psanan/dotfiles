@@ -27,6 +27,17 @@ alias cdt="cd $HOME/work/notes/tech"
 alias dus="du -sh * | sort -hr"
 alias news="newsboat"
 alias plab="ipython --no-confirm-exit --matplotlib -i $HOME/code/petsc_python_helpers/ipython_setup.py"
+alias split="tmux split -h"
+
+# Experiment: use these instead of OS X specific link clicking
+# (if useful, change things to have one file per year, probably, and just get the year automatically0
+alias week="vim +$ ~/docs/goals/2021/Q3.md"
+alias year="vim ~/docs/goals/2021/yearly.md"
+alias vokab="vim ~/docs/languages/deutsch/Vokabular.txt"
+alias mzk="vim ~/mzk/tunes/lists/music_to_find.txt"
+function pn {
+  vim ~/work/projects/$1/README.md
+}
 
 function t {
   d=`date +%Y.%m.%d`
@@ -149,11 +160,17 @@ fi # Linux
 ### OS X-specific commands ####################################################
 if [[ "$OSTYPE" == "darwin"* ]]; then
 
+# HAAAACK
+export MACOSX_DEPLOYMENT_TARGET=11.3
+
 # Use "local prompt"
 PS1=$PS1_LOCAL
 
 # Ideatron
 alias iii="$HOME/code/ideatron/run.py -d $HOME/docs/ideatron_local"
+
+# No Homebrew telemetry
+export HOMEBREW_NO_ANALYTICS=1
 
 # Helpers
 source $HOME/.helpers.sh

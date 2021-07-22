@@ -18,7 +18,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'godlygeek/Tabular'
 Plug 'junegunn/fzf', { 'do': './install' }
 Plug 'junegunn/fzf.vim'
-Plug 'JuliaEditorSupport/julia-vim'
+Plug 'JuliaEditorSupport/julia-vim' " lags for big files?
 call plug#end()
 
 " YouCompleteMe

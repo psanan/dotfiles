@@ -1,4 +1,7 @@
-# https://github.com/eendroroy/alacritty-theme
+window:
+  dimensions:
+    columns: 120
+    lines: 500
 
 # Colors (Solarized Light)
 colors:
