@@ -1,6 +1,14 @@
-# Python from Homebrew
 if [[ "$OSTYPE" == "darwin"* ]]; then
-export PATH="/usr/local/opt/python/libexec/bin:$PATH"
+
+  # Always reattach to or create a tmux session if not already running and not superuser
+  if [ -z "$TMUX" ] && [ ${UID} != 0 ]
+  then
+    tmux attach || exec tmux && exit;
+  fi
+
+  # Python from Homebrew
+  export PATH="/usr/local/opt/python/libexec/bin:$PATH"
+
 fi
 
 # Homebrew sbin
