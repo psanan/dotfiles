@@ -1,19 +1,21 @@
 if [[ "$OSTYPE" == "darwin"* ]]; then
 
   # Always reattach to or create a tmux session if not already running and not superuser
-  if [ -z "$TMUX" ] && [ ${UID} != 0 ]
+  if command -v tmux &> /dev/null && [ -z "$TMUX" ] && [ ${UID} != 0 ]
   then
-    tmux attach || exec tmux && exit;
+    tmux attach -t base || exec tmux new -s base && exit;
   fi
+else
+  # Just print a hint, since a mistake might leave a remote machine unaccessible
+  printf "Consider\ntmux attach -t base || exec tmux new -s base\n"
+fi
+
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  # Homebrew sbin
+  export PATH="/usr/local/sbin:$PATH"
 
   # Python from Homebrew
   export PATH="/usr/local/opt/python/libexec/bin:$PATH"
-
-fi
-
-# Homebrew sbin
-if [[ "$OSTYPE" == "darwin"* ]]; then
-export PATH="/usr/local/sbin:$PATH"
 fi
 
 # Julia  
