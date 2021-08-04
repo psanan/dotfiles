@@ -19,11 +19,12 @@ for dot_file in \
   "vimrc" \
   ; \
 do
-  mkdir -p $(dirname $dot_file)
-  $link "$psanan_rc_root/$dot_file" "$HOME/.$dot_file"
+  dest="$HOME/.$dot_file"
+  mkdir -p $(dirname $dest)
+  $link "$psanan_rc_root/$dot_file" "$dest"
 done
 
-if [[ "$OSTYPE" == "darwin"* ]]; then
+if [ "$OSTYPE" = "darwin"* ]; then
   lazygit_target_dir="$HOME/Library/Application Support/jesseduffield/lazygit"
 else
   lazygit_target_dir="$HOME/.config/jesseduffield/lazygit"
