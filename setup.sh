@@ -12,7 +12,6 @@ for dot_file in \
   "gdbinit" \
   "latexmkrc" \
   "profile" \
-  "screenrc" \
   "tmux.conf" \
   "vim/after/indent/python.vim" \
   "vim/spell/en.utf-8.add" \
