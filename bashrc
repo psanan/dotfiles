@@ -54,6 +54,12 @@ function t {
   vim $note_path
 }
 
+function ssht {
+  port_remote=${2:-8888} # default for Jupyter
+  port_local=$port_remote
+  ssh -L $port_remote:localhost:$port_local $1
+}
+
 ### ccache #####################################################################
 export CCACHE_MAXSIZE=15G
 # f90cache doesn't have this so you'd have to supply e.g -M 15G
