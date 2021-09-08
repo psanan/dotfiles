@@ -4,7 +4,7 @@ case $- in
       *) return;;
 esac
 
-# Note: for some remote machines, we may have another bashrc, which sources this
+# For remote machines, we may have another bashrc which sources this
 
 ### Location for additional scripts ############################################
 PSANAN_RC_ROOT=${PSANAN_RC_ROOT:-$HOME/util/rc}
@@ -19,20 +19,16 @@ alias jn="jupyter notebook"
 alias ll="ls -l"
 alias mj="make -j8"
 alias sb="source $HOME/.bashrc"
-alias vi="echo use vim"
+alias vi="echo use\n  vim"
 alias vimr="vim -R"
 alias cdn="cd $HOME/work/notes/notes"
-alias cds="cd $HOME/Downloads"  # a scratch directory. Override on clusters.
+alias cds="cd $HOME/Downloads"  # Scratch directory. Override on clusters.
 alias cdt="cd $HOME/work/notes/tech"
 alias dus="du -sh * | sort -hr"
 alias news="newsboat"
 alias plab="ipython --no-confirm-exit --matplotlib -i $HOME/code/petsc_python_helpers/ipython_setup.py"
-alias split="tmux split -h"
 
-# Experiment: use these instead of OS X specific link clicking
-# (if useful, change things to have one file per year, probably, and just get the year automatically0
-alias week="vim +$ ~/docs/goals/2021/Q3.md"
-alias year="vim ~/docs/goals/2021/yearly.md"
+alias week="vim +$ ~/docs/goals/$(date +%Y).md"
 alias vokab="vim ~/docs/languages/deutsch/Vokabular.txt"
 alias mzk="vim ~/mzk/tunes/lists/music_to_find.txt"
 function pn {
@@ -57,7 +53,9 @@ function t {
 function ssht {
   port_remote=${2:-8888} # default for Jupyter
   port_local=$port_remote
-  ssh -L $port_remote:localhost:$port_local $1
+  port_remote_2=${3:-8889} # second default for Jupyter
+  port_local_2=$port_remote_2
+  ssh -L $port_remote:localhost:$port_local -L $port_remote_2:localhost:$port_local_2 $1
 }
 
 ### ccache #####################################################################
