@@ -15,6 +15,7 @@ export HISTCONTROL=ignoredups       # include commands starting with a space
 set +o histexpand                   # Turn off history expansion (allows "!"):
 
 ### Aliases and helper functions ###############################################
+alias a="tmux attach -t base || exec tmux new -s base"
 alias jn="jupyter notebook"
 alias ll="ls -l"
 alias mj="make -j8"
