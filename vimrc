@@ -18,7 +18,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'godlygeek/Tabular'
 Plug 'junegunn/fzf', { 'do': './install' }
 Plug 'junegunn/fzf.vim'
-Plug 'JuliaEditorSupport/julia-vim' " lags for big files?
+Plug 'JuliaLang/julia-vim'
 call plug#end()
 
 " YouCompleteMe
@@ -46,8 +46,8 @@ command! -bang -nargs=* FzfGGrep
 " Disable ex mode
 nnoremap Q <nop>
 
-" Turn on mouse scrolling/selecting (works in iTerm2)
-:set mouse=a
+" Turn on mouse scrolling/selecting
+set mouse=a
 
 " Backspace beyond current insert (probably a bad habit)
 set backspace=indent,eol,start
@@ -144,12 +144,6 @@ nnoremap <F8> :TagbarToggle<CR>
 
 " Kill all trailing whitespace (undo to leave highlighted)
 nnoremap <leader>w :%s/\s\+$//<CR>
-
-" Move between windows
-nnoremap <c-h> <c-w>h
-nnoremap <c-j> <c-w>j
-nnoremap <c-k> <c-w>k
-nnoremap <c-l> <c-w>l
 
 " Next/prev tab
 nnoremap <TAB> gt
