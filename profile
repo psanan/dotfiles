@@ -7,7 +7,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
   fi
 else
   # Just print a hint, since a mistake might leave a remote machine unaccessible
-  printf "Consider\ntmux attach -t base || exec tmux new -s base\n"
+  printf "Consider reattaching to tmux! Run\n  a\n"
 fi
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
