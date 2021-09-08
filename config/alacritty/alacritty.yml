@@ -3,6 +3,9 @@ window:
     columns: 120
     lines: 500
 
+font:
+  size: 13
+
 # Colors (Solarized Light)
 colors:
   # Default colors
