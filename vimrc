@@ -185,3 +185,14 @@ nnoremap <Leader>b :tabedit ~/work/bib/pds.bib<CR>
 
 " Set to 4-space indentation
 nnoremap <Leader>f :call SetTab(4)<CR>
+
+" Toggle paste mode
+function! TogglePaste()
+    if(&paste == 0)
+        set paste
+    else
+        set nopaste
+    endif
+endfunction
+
+map <Leader>p :call TogglePaste()<CR>
