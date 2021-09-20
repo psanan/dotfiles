@@ -1,13 +1,13 @@
-if [[ "$OSTYPE" == "darwin"* ]]; then
-
-  # Always reattach to or create a tmux session if not already running and not superuser
-  if command -v tmux &> /dev/null && [ -z "$TMUX" ] && [ ${UID} != 0 ]
+# Reattach to or create a tmux session if not already running and not superuser
+if command -v tmux &> /dev/null && [ -z "$TMUX" ] && [ ${UID} != 0 ]
   then
-    tmux attach -t base || exec tmux new -s base && exit;
-  fi
-else
-  # Just print a hint, since a mistake might leave a remote machine unaccessible
-  printf "Consider reattaching to tmux! Run\n  a\n"
+    # Use being on OS X as a (poor) proxy for being on a local machine
+    if [[ "$OSTYPE" == "darwin"* ]]; then
+      tmux attach -t base || exec tmux new -s base && exit;
+    else
+      # Just print a hint, since a mistake might leave a remote machine unaccessible
+      printf "Consider reattaching to tmux! Run\n  a\n"
+    fi
 fi
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
@@ -18,7 +18,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
   export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 fi
 
-# Julia  
+# Julia
 # Download Julia from the web and symlink, e.g.
 #     ln -sf /Applications/Julia-1.6.app/Contents/Resources/julia $HOME/code/julia
 export JULIA_DIR=$HOME/code/julia
