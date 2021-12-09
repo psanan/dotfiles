@@ -2,5 +2,13 @@ PSANAN_RC_ROOT=$HOME/util/rc
 source $PSANAN_RC_ROOT/bashrc
 ################################################################################
 
+export LC_ALL="en_US.UTF-8"
+
 alias cds="cd $SCRATCH"
 alias q="squeue -u `whoami`"
+
+# https://user.cscs.ch/access/accounting/
+alias quota="accounting"
+
+# shortcut for a typical interactive session
+alias interactive="module load daint-gpu JuliaExtensions && srun -C gpu -n 1 -A c23 --time=02:00:00 --pty bash"
