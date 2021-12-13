@@ -53,15 +53,13 @@ set mouse=a
 set backspace=indent,eol,start
 
 " 2 spaces instead of tabs
-set expandtab
-
 function SetTab(width)
   let &tabstop=a:width
   let &softtabstop=a:width
   let &shiftwidth=a:width
 endfunction
-
 call SetTab(2)
+set expandtab
 
 " Smart case handling for searches
 set ignorecase
@@ -84,7 +82,7 @@ set tags=$PETSC_DIR/CTAGS
 let fortran_fold=1
 let fortran_fold_conditionals=1
 set fdm=syntax
-set foldlevelstart=99 " this seems like a hack
+set foldlevelstart=99
 
 " Disable automatic multiline commenting
 autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
@@ -136,9 +134,6 @@ noremap <leader>y "*y
 " Paste from last deliberate yank (no deleted text)
 noremap <leader>p "0p
 
-" Jump to tag, in new window
-nnoremap <leader>t :vsp<CR><c-w><c-l><c-]>
-
 " Tagbar
 nnoremap <F8> :TagbarToggle<CR>
 
@@ -149,12 +144,19 @@ nnoremap <leader>w :%s/\s\+$//<CR>
 nnoremap <TAB> gt
 nnoremap <S-TAB> gT
 
-" LaTeX
-inoremap <c-\>c \begin{center}<CR>\end{center}<CR>
-inoremap <c-\>f \begin{frame}[fragile]<CR>\frametitle{}<CR>\end{frame}<CR>
-inoremap <c-\>i \begin{itemize}<CR>\item<CR>\end{itemize}<CR>
-inoremap <c-\>g \begin{center}<CR>\includegraphics[width=\textwidth]{images/xxx.png}<CR>\end{center}<CR>
-inoremap <c-\>s \begin{minipage}{0.49\textwidth}<CR>\end{minipage}<CR>\begin{minipage}{0.49\textwidth}<CR>\end{minipage}
+" Set to 4-space indentation
+nnoremap <Leader>f :call SetTab(4)<CR>
+
+" Toggle paste mode
+function! TogglePaste()
+    if(&paste == 0)
+        set paste
+    else
+        set nopaste
+    endif
+endfunction
+
+map <Leader>P :call TogglePaste()<CR>
 
 " PETSc
 inoremap <c-\>ch CHKERRQ(ierr);
@@ -182,17 +184,3 @@ nnoremap <Leader>sv :source $MYVIMRC<CR>
 
 " BibTeX file (PDSHub ID 2)
 nnoremap <Leader>b :tabedit ~/work/bib/pds.bib<CR>
-
-" Set to 4-space indentation
-nnoremap <Leader>f :call SetTab(4)<CR>
-
-" Toggle paste mode
-function! TogglePaste()
-    if(&paste == 0)
-        set paste
-    else
-        set nopaste
-    endif
-endfunction
-
-map <Leader>p :call TogglePaste()<CR>
