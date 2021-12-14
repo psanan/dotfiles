@@ -165,6 +165,14 @@ inoremap <c-\>pe SETERRQ(PETSC_COMM_WORLD,PETSC_ERR_SUP,"Not Implemented!");
 inoremap <c-\>pp ierr = PetscPrintf(PETSC_COMM_WORLD,"xxx\n");CHKERRQ(ierr);
 inoremap <c-\>pf PetscErrorCode XXXX()<CR>{<CR>PetscErrorCode ierr;<CR><CR>PetscFunctionBegin;<CR>PetscFunctionReturn(0);<CR>}<CR>
 
+" LaTeX
+inoremap <c-\>c \begin{center}<CR>\end{center}<CR>
+inoremap <c-\>f \begin{frame}[fragile]<CR>\frametitle{}<CR>\end{frame}<CR>
+inoremap <c-\>i \begin{itemize}<CR>\item<CR>\end{itemize}<CR>
+inoremap <c-\>g \begin{center}<CR>\includegraphics[width=\textwidth]{images/xxx.png}<CR>\end{center}<CR>
+inoremap <c-\>s \begin{minipage}{0.49\textwidth}<CR>\end{minipage}<CR>\begin{minipage}{0.49\textwidth}<CR>\end{minipage}
+
+
 " Notes (PDSHub ID 3)
 " Edit notes file for a given reference under the cursor
 nnoremap <Leader>n :edit ~/work/notes/notes/<cword>.md <CR>
