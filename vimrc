@@ -27,6 +27,7 @@ call plug#end()
 let g:ycm_global_ycm_extra_conf = "~/util/rc/ycm_extra_conf.py"
 let g:ycm_extra_conf_globlist = "~/util/rc/ycm_extra_conf.py"
 let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_key_invoke_completion = '<C-b>'
 
 " Airline
 let g:airline_theme='solarized'
