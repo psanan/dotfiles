@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-psanan_rc_root=$HOME/util/rc
+root=$HOME/util/rc
 link="ln -sf"  # WARNING: will clobber
 
 # Local files, which don't have the initial "."
@@ -14,13 +14,12 @@ for dot_file in \
   "profile" \
   "tmux.conf" \
   "vim/after/indent/python.vim" \
-  "vim/spell/en.utf-8.add" \
   "vimrc" \
   ; \
 do
   dest="$HOME/.$dot_file"
   mkdir -p $(dirname $dest)
-  $link "$psanan_rc_root/$dot_file" "$dest"
+  $link "$root/$dot_file" "$dest"
 done
 
 if [ "$OSTYPE" = "darwin"* ]; then
