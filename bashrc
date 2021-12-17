@@ -20,7 +20,6 @@ alias jn="jupyter notebook"
 alias ll="ls -l"
 alias mj="make -j8"
 alias sb="source $HOME/.bashrc"
-alias vi="echo use\n  vim"
 alias vimr="vim -R"
 alias cdn="cd $HOME/work/notes/notes"
 alias cds="cd $HOME/Downloads"  # Scratch directory. Override on clusters.
@@ -116,17 +115,17 @@ alias cdd='cd $PETSC_DIR/src/dm/impls/stag/tutorials'
 export CLEAN_MPICH=$HOME/code/petsc/arch-mpich-only/bin/mpiexec
 
 function whichp {
-                                echo -n 'PETSC_ARCH = '; echo $PETSC_ARCH
-                                echo -n 'PETSC_DIR  = '; echo $PETSC_DIR
-                                echo -n 'PMPI       = '; echo $PMPI
-  if [ -n "$SLEPC_DIR"  ]; then echo -n 'SLEPC_DIR  = '; echo $SLEPC_DIR;  fi
-  if [ -n "$PTATIN_DIR" ]; then echo -n 'PTATIN_DIR = '; echo $PTATIN_DIR; fi
-  if [ -n "$LAMEM_DIR"  ]; then echo -n 'LAMEM_DIR  = '; echo $LAMEM_DIR;  fi
-  if [ -n "$PETSC_DEB"  ]; then echo -n 'PETSC_DEB  = '; echo $PETSC_DEB;  fi #for LaMEM
-  if [ -n "$PETSC_OPT"  ]; then echo -n 'PETSC_OPT  = '; echo $PETSC_OPT;  fi #for LaMEM
+                                echo -n 'PETSC_ARCH    = '; echo $PETSC_ARCH
+                                echo -n 'PETSC_DIR     = '; echo $PETSC_DIR
+                                echo -n 'PETSC_MPIEXEC = '; echo $PETSC_MPIEXEC
+  if [ -n "$SLEPC_DIR"  ]; then echo -n 'SLEPC_DIR     = '; echo $SLEPC_DIR;  fi
+  if [ -n "$PTATIN_DIR" ]; then echo -n 'PTATIN_DIR    = '; echo $PTATIN_DIR; fi
+  if [ -n "$LAMEM_DIR"  ]; then echo -n 'LAMEM_DIR     = '; echo $LAMEM_DIR;  fi
+  if [ -n "$PETSC_DEB"  ]; then echo -n 'PETSC_DEB     = '; echo $PETSC_DEB;  fi #for LaMEM
+  if [ -n "$PETSC_OPT"  ]; then echo -n 'PETSC_OPT     = '; echo $PETSC_OPT;  fi #for LaMEM
 }
 
-alias unsetp='unset PETSC_ARCH PETSC_DIR PMPI PETSC_DEB PETSC_OPT'
+alias unsetp='unset PETSC_ARCH PETSC_DIR PETSC_MPIEXEC PETSC_DEB PETSC_OPT'
 alias confp='grep CONFIGURE_OPTIONS $PETSC_DIR/$PETSC_ARCH/lib/petsc/conf/petscvariables'
 
 function setphere {
@@ -134,7 +133,7 @@ function setphere {
   # Example: cd /some/petsc/dir && setphere arch-foo-bar
   export PETSC_DIR=$PWD
   export PETSC_ARCH=${1%/} # strip any trailing slash, so you can tab-complete
-  export PMPI=$PETSC_DIR/lib/petsc/bin/petscmpiexec
+  export PETSC_MPIEXEC=$PETSC_DIR/lib/petsc/bin/petscmpiexec
 }
 
 # LaMEM
@@ -144,13 +143,13 @@ function lamemhelper {
   export PETSC_DEB=$HOME/code/petsc-$ARCHMOD/arch-$ARCHMOD-extra-debug-install
   export PETSC_OPT=$HOME/code/petsc-$ARCHMOD/arch-$ARCHMOD-extra-opt-install
   export PETSC_DIR=$PETSC_OPT
-  export PMPI=$PETSC_OPT/bin/mpiexec
+  export PETSC_MPIEXEC=$PETSC_OPT/bin/mpiexec
   unset PETSC_ARCH
   export LAMEM_DIR=$HOME/code/lamem-$ARCHMOD
   whichp
 }
 alias lamemtest='cd $LAMEM_DIR/input_models/BuildInSetups; ../../bin/opt/LaMEM -ParamFile FallingBlock_DirectSolver.dat'
-alias lamemtest2='cd $LAMEM_DIR/input_models/BuildInSetups; $PMPI -np 2 ../../bin/opt/LaMEM -ParamFile FallingBlock_DirectSolver.dat'
+alias lamemtest2='cd $LAMEM_DIR/input_models/BuildInSetups; $PETSC_MPIEXEC -np 2 ../../bin/opt/LaMEM -ParamFile FallingBlock_DirectSolver.dat'
 
 ### Linux-specific commands ####################################################
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
