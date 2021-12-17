@@ -7,7 +7,7 @@ case $- in
 esac
 
 ### Location for additional scripts ############################################
-=${dotfiles_root:-$HOME/util/dotfiles}
+dotfiles_root=$HOME/util/dotfiles
 
 ### Terminal ###################################################################
 export CLICOLOR=1;
