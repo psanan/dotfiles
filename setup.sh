@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-root=$HOME/util/rc
+root=$PWD
 link="ln -sf"  # WARNING: will clobber
 
 # Local files, which don't have the initial "."
