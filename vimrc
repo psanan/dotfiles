@@ -22,7 +22,7 @@ Plug 'JuliaLang/julia-vim'
 call plug#end()
 
 " YouCompleteMe
-" Note: to search header files for completions, type <c-Space>
+" Note: type of g:ycm_key_invoke_completion to see top-level completions
 " Troubleshooting: Delete .vim/plugged/YouCompleteMe, :PlugInstall
 let g:ycm_global_ycm_extra_conf = "~/util/rc/ycm_extra_conf.py"
 let g:ycm_extra_conf_globlist = "~/util/rc/ycm_extra_conf.py"
@@ -36,7 +36,7 @@ let g:airline_solarized_bg='light'
 " Fzf
 let g:fzf_command_prefix = 'Fzf'
 
-" from :help fzf-vim-customization
+" :help fzf-vim-customization
 command! -bang -nargs=* FzfGGrep
   \ call fzf#vim#grep(
   \   'git grep --line-number -- '.shellescape(<q-args>), 0,
@@ -88,9 +88,6 @@ set foldlevelstart=99
 " Disable automatic multiline commenting
 autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
 
-" Allow the cursor to go where there's no char
-set virtualedit=block
-
 """ Appearance """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Line numbers
@@ -108,17 +105,14 @@ hi SpellBad cterm=bold ctermfg=white ctermbg=red
 hi SpellBad gui=bold guifg=white guibg=red
 
 " Color column in active window
-set colorcolumn=81
+set colorcolumn=81,101
 augroup BgHighlight
     autocmd!
-    autocmd WinEnter * set colorcolumn=81
+    autocmd WinEnter * set colorcolumn=81,101
     autocmd WinLeave * set colorcolumn=0
 augroup END
 
 """ Shortcuts """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" Unset the "last search pattern" register
-nnoremap <CR> :noh<CR><CR>
 
 " fzf
 noremap <F1> :FzfFiles<CR>
@@ -126,8 +120,17 @@ noremap <F2> :FzfGGrep<CR>
 noremap <F3> :FzfAg<CR>
 noremap <F4> :FzfLines<CR>
 
+" Git grep for word under cursor
+noremap <Leader>g :FzfGGrep <c-r><c-w> <CR>
+
 " NERDTree
 nnoremap <F5> :NERDTree<CR>
+
+" Tagbar
+nnoremap <F8> :TagbarToggle<CR>
+
+" Unset the "last search pattern" register
+nnoremap <CR> :noh<CR><CR>
 
 " Copy to system clipboard, if supported
 noremap <leader>y "*y
@@ -135,44 +138,12 @@ noremap <leader>y "*y
 " Paste from last deliberate yank (no deleted text)
 noremap <leader>p "0p
 
-" Tagbar
-nnoremap <F8> :TagbarToggle<CR>
-
 " Kill all trailing whitespace (undo to leave highlighted)
 nnoremap <leader>w :%s/\s\+$//<CR>
 
 " Next/prev tab
 nnoremap <TAB> gt
 nnoremap <S-TAB> gT
-
-" Set to 4-space indentation
-nnoremap <Leader>f :call SetTab(4)<CR>
-
-" Toggle paste mode
-function! TogglePaste()
-    if(&paste == 0)
-        set paste
-    else
-        set nopaste
-    endif
-endfunction
-
-map <Leader>P :call TogglePaste()<CR>
-
-" PETSc
-inoremap <c-\>ch CHKERRQ(ierr);
-inoremap <c-\>po PetscObjectComm((PetscObject)dm)
-inoremap <c-\>pe SETERRQ(PETSC_COMM_WORLD,PETSC_ERR_SUP,"Not Implemented!");
-inoremap <c-\>pp ierr = PetscPrintf(PETSC_COMM_WORLD,"xxx\n");CHKERRQ(ierr);
-inoremap <c-\>pf PetscErrorCode XXXX()<CR>{<CR>PetscErrorCode ierr;<CR><CR>PetscFunctionBegin;<CR>PetscFunctionReturn(0);<CR>}<CR>
-
-" LaTeX
-inoremap <c-\>c \begin{center}<CR>\end{center}<CR>
-inoremap <c-\>f \begin{frame}[fragile]<CR>\frametitle{}<CR>\end{frame}<CR>
-inoremap <c-\>i \begin{itemize}<CR>\item<CR>\end{itemize}<CR>
-inoremap <c-\>g \begin{center}<CR>\includegraphics[width=\textwidth]{images/xxx.png}<CR>\end{center}<CR>
-inoremap <c-\>s \begin{minipage}{0.49\textwidth}<CR>\end{minipage}<CR>\begin{minipage}{0.49\textwidth}<CR>\end{minipage}
-
 
 " Notes (PDSHub ID 3)
 " Edit notes file for a given reference under the cursor
@@ -193,3 +164,31 @@ nnoremap <Leader>sv :source $MYVIMRC<CR>
 
 " BibTeX file (PDSHub ID 2)
 nnoremap <Leader>b :tabedit ~/work/bib/pds.bib<CR>
+
+" Set to 4-space indentation
+nnoremap <Leader>f :call SetTab(4)<CR>
+
+" Toggle paste mode
+function! TogglePaste()
+    if(&paste == 0)
+        set paste
+    else
+        set nopaste
+    endif
+endfunction
+
+map <Leader>p :call TogglePaste()<CR>
+
+" LaTeX
+inoremap <c-\>c \begin{center}<CR>\end{center}<CR>
+inoremap <c-\>f \begin{frame}[fragile]<CR>\frametitle{}<CR>\end{frame}<CR>
+inoremap <c-\>i \begin{itemize}<CR>\item<CR>\end{itemize}<CR>
+inoremap <c-\>g \begin{center}<CR>\includegraphics[width=\textwidth]{images/xxx.png}<CR>\end{center}<CR>
+inoremap <c-\>s \begin{minipage}{0.49\textwidth}<CR>\end{minipage}<CR>\begin{minipage}{0.49\textwidth}<CR>\end{minipage}
+
+" PETSc
+inoremap <c-\>ch CHKERRQ(ierr);
+inoremap <c-\>po PetscObjectComm((PetscObject)dm)
+inoremap <c-\>pe SETERRQ(PETSC_COMM_WORLD,PETSC_ERR_SUP,"Not Implemented!");
+inoremap <c-\>pp ierr = PetscPrintf(PETSC_COMM_WORLD,"xxx\n");CHKERRQ(ierr);
+inoremap <c-\>pf PetscErrorCode XXXX()<CR>{<CR>PetscErrorCode ierr;<CR><CR>PetscFunctionBegin;<CR>PetscFunctionReturn(0);<CR>}<CR>
