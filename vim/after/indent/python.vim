@@ -1,5 +1,5 @@
 " Modified from https://github.com/google/styleguide/blob/gh-pages/google_python_style.vim
-" - change "function" to "function!"
+"  - change "function" to "function!"
 "  - change file name
 
 " Copyright 2019 Google LLC
