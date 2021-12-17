@@ -1,18 +1,18 @@
+# For remote machines, we may have another bashrc which sources this
+
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
       *) return;;
 esac
 
-# For remote machines, we may have another bashrc which sources this
-
 ### Location for additional scripts ############################################
-PSANAN_RC_ROOT=${PSANAN_RC_ROOT:-$HOME/util/rc}
+=${dotfiles_root:-$HOME/util/dotfiles}
 
 ### Terminal ###################################################################
-export CLICOLOR=1;                  # colorize the terminal
-export HISTCONTROL=ignoredups       # include commands starting with a space
-set +o histexpand                   # Turn off history expansion (allows "!"):
+export CLICOLOR=1;
+export HISTCONTROL=ignoredups
+set +o histexpand                      # Turn off history expansion (allows "!")
 
 ### Aliases and helper functions ###############################################
 alias a="tmux attach -t base || exec tmux new -s base"
@@ -22,15 +22,13 @@ alias mj="make -j8"
 alias sb="source $HOME/.bashrc"
 alias vimr="vim -R"
 alias cdn="cd $HOME/work/notes/notes"
-alias cds="cd $HOME/Downloads"  # Scratch directory. Override on clusters.
+alias cds="cd $HOME/Downloads"        # Scratch directory. Override on clusters.
 alias cdt="cd $HOME/work/notes/tech"
 alias dus="du -sh * | sort -hr"
 alias news="newsboat"
 alias plab="ipython --no-confirm-exit --matplotlib -i $HOME/code/petsc_python_helpers/ipython_setup.py"
 
 alias week="vim +$ ~/docs/goals/$(date +%Y).md"
-alias vokab="vim ~/docs/languages/deutsch/Vokabular.txt"
-alias mzk="vim ~/mzk/tunes/lists/music_to_find.txt"
 function pn {
   vim ~/work/projects/$1/README.md
 }
@@ -60,7 +58,6 @@ function ssht {
 
 ### ccache #####################################################################
 export CCACHE_MAXSIZE=15G
-# f90cache doesn't have this so you'd have to supply e.g -M 15G
 
 ### Git ########################################################################
 git config --global user.name "Patrick Sanan"
@@ -80,8 +77,8 @@ alias gitf="git commit --amend --no-edit"
 alias gg="git grep -i"
 alias lg="lazygit"
 
-source $PSANAN_RC_ROOT/git-completion.bash
-source $PSANAN_RC_ROOT/git-prompt.sh
+source $dotfiles_root/git-completion.bash
+source $dotfiles_root/git-prompt.sh
 GIT_PS1_SHOWUPSTREAM=true
 GIT_PS1_SHOWDIRTYSTATE=true
 GIT_PS1_SHOWSTASHSTATE=true
@@ -172,9 +169,6 @@ PS1=$PS1_LOCAL
 
 # Ideatron
 alias iii="$HOME/code/ideatron/run.py -d $HOME/docs/ideatron_local"
-
-# No Homebrew telemetry
-export HOMEBREW_NO_ANALYTICS=1
 
 # Helpers
 source $HOME/.helpers.sh
