@@ -31,9 +31,6 @@ export PYTHONPATH=$PYTHONPATH:$HOME/code/sciath
 export PYTHONPATH=$PYTHONPATH:$HOME/code/petsc/lib/petsc/bin
 export PYTHONPATH=$PYTHONPATH:$HOME/code/petsc_python_helpers
 
-# Rift-o-mat DMStag/Python utilities (note that this overrides PetscBinaryIO.py!)
-export PYTHONPATH=$HOME/code/rift-o-mat/utils:$PYTHONPATH
-
 # Paraview
 if [[ "$OSTYPE" == "darwin"* ]]; then
 export PATH="/Applications/ParaView-5.9.0.app/Contents/MacOS:$PATH"
@@ -45,6 +42,3 @@ fi
 
 # Python env helper
 export PATH="$HOME/code/req2env:$PATH"
-
-# cargo
-export PATH="$PATH:$HOME/.cargo/bin"
