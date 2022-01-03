@@ -28,4 +28,4 @@ else
   lazygit_target_dir="$HOME/.config/jesseduffield/lazygit"
 fi
 mkdir -p "$lazygit_target_dir"
-$link "$psanan_rc_root/config/jesseduffield/lazygit/config.yml" "$lazygit_target_dir/config.yml"
+$link "$root/config/jesseduffield/lazygit/config.yml" "$lazygit_target_dir/config.yml"
