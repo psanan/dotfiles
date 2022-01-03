@@ -18,7 +18,7 @@ for dot_file in \
   ; \
 do
   dest="$HOME/.$dot_file"
-  mkdir -p $(dirname $dest)
+  mkdir -p $(dirname "$dest")
   $link "$root/$dot_file" "$dest"
 done
 
