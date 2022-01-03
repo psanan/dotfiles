@@ -21,21 +21,21 @@ alias ll="ls -l"
 alias mj="make -j8"
 alias sb="source $HOME/.bashrc"
 alias vimr="vim -R"
-alias cdn="cd $HOME/work/notes/notes"
+alias cdn="cd $HOME/notes/notes"
 alias cds="cd $HOME/Downloads"        # Scratch directory. Override on clusters.
-alias cdt="cd $HOME/work/notes/tech"
+alias cdt="cd $HOME/notes/tech"
 alias dus="du -sh * | sort -hr"
 alias news="newsboat"
 alias plab="ipython --no-confirm-exit --matplotlib -i $HOME/code/petsc_python_helpers/ipython_setup.py"
+alias week="vim +$ ~/notes/goals/$(date +%Y).md"
 
-alias week="vim +$ ~/docs/goals/$(date +%Y).md"
 function pn {
   vim ~/work/projects/$1/README.md
 }
 
 function t {
   d=`date +%Y.%m.%d`
-  note_path_stem="$HOME/work/notes/tech/$d"
+  note_path_stem="$HOME/notes/tech/$d"
   note_path=$(printf '%s.md' "$note_path_stem")
   i=0
   while [ -f "$note_path" ]
@@ -44,7 +44,7 @@ function t {
     note_path=$(printf '%s_%d.md' "$note_path_stem" $i)
   done
   printf '# Untitled Tech Note\n' >> $note_path
-  printf '{tag1} {tag2}\n'        >> $note_path
+  printf '  #tag1 #tag2\n'        >> $note_path
   vim $note_path
 }
 
@@ -125,9 +125,8 @@ function whichp {
 alias unsetp='unset PETSC_ARCH PETSC_DIR PETSC_MPIEXEC PETSC_DEB PETSC_OPT'
 alias confp='grep CONFIGURE_OPTIONS $PETSC_DIR/$PETSC_ARCH/lib/petsc/conf/petscvariables'
 
-function setphere {
-  # Usage: setphere <petsc-arch>
-  # Example: cd /some/petsc/dir && setphere arch-foo-bar
+function setp {
+  # Example: cd /some/petsc/dir && setp arch-foo
   export PETSC_DIR=$PWD
   export PETSC_ARCH=${1%/} # strip any trailing slash, so you can tab-complete
   export PETSC_MPIEXEC=$PETSC_DIR/lib/petsc/bin/petscmpiexec
