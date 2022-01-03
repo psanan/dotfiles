@@ -22,10 +22,10 @@ Plug 'JuliaLang/julia-vim'
 call plug#end()
 
 " YouCompleteMe
-" Note: type of g:ycm_key_invoke_completion to see top-level completions
+" Note: type g:ycm_key_invoke_completion to see top-level completions
 " Troubleshooting: Delete .vim/plugged/YouCompleteMe, :PlugInstall
-let g:ycm_global_ycm_extra_conf = "~/util/rc/ycm_extra_conf.py"
-let g:ycm_extra_conf_globlist = "~/util/rc/ycm_extra_conf.py"
+let g:ycm_global_ycm_extra_conf = "~/util/dotfiles/ycm_extra_conf.py"
+let g:ycm_extra_conf_globlist = "~/util/dotfiles/ycm_extra_conf.py"
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_key_invoke_completion = '<C-b>'
 
