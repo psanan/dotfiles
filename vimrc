@@ -124,7 +124,7 @@ noremap <F4> :FzfLines<CR>
 noremap <Leader>g :FzfGGrep <c-r><c-w> <CR>
 
 " NERDTree
-nnoremap <F5> :NERDTree<CR>
+nnoremap <F5> :NERDTreeToggle<CR>
 
 " Tagbar
 nnoremap <F8> :TagbarToggle<CR>
