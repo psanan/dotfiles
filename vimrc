@@ -141,6 +141,12 @@ noremap <leader>p "0p
 " Kill all trailing whitespace (undo to leave highlighted)
 nnoremap <leader>w :%s/\s\+$//<CR>
 
+" Move between windows
+nnoremap <c-h> <c-w>h
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-l> <c-w>l
+
 " Next/prev tab
 nnoremap <TAB> gt
 nnoremap <S-TAB> gT
