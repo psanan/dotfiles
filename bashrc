@@ -27,6 +27,7 @@ alias cdt="cd $HOME/notes/tech"
 alias dus="du -sh * | sort -hr"
 alias news="newsboat"
 alias plab="ipython --no-confirm-exit --matplotlib -i $HOME/code/petsc_python_helpers/ipython_setup.py"
+alias tunes="( mpd || (mpid --kill && mpd) ) && ncmpcpp"
 alias week="vim +$ ~/notes/goals/$(date +%Y).md"
 
 function pn {
