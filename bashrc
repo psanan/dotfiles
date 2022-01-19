@@ -56,6 +56,12 @@ function ssht {
   ssh -L $port_remote:localhost:$port_local -L $port_remote_2:localhost:$port_local_2 $1
 }
 
+function last() {
+  # print out last command [matching arg], useful to save to file
+  # e.g "last vim" prints the last command including "vim"
+  fc -ln "$1" "$1"
+}
+
 ### ccache #####################################################################
 export CCACHE_MAXSIZE=15G
 
