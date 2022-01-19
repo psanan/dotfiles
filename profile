@@ -42,3 +42,6 @@ fi
 
 # Python env helper
 export PATH="$HOME/code/req2env:$PATH"
+
+# Cargo (for Alacritty on Linux)
+export PATH="$HOME/.cargo/bin:$PATH"
