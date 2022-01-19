@@ -126,10 +126,14 @@ alias unsetp='unset PETSC_ARCH PETSC_DIR PETSC_MPIEXEC PETSC_DEB PETSC_OPT'
 alias confp='grep CONFIGURE_OPTIONS $PETSC_DIR/$PETSC_ARCH/lib/petsc/conf/petscvariables'
 
 function setp {
-  # Example: cd /some/petsc/dir && setp arch-foo
-  export PETSC_DIR=$PWD
-  export PETSC_ARCH=${1%/} # strip any trailing slash, so you can tab-complete
+  export PETSC_DIR=${1:-$HOME/code/petsc}
+  export PETSC_ARCH=${2:-arch-extra-debug}
   export PETSC_MPIEXEC=$PETSC_DIR/lib/petsc/bin/petscmpiexec
+}
+
+function setphere {
+  # Example: cd /some/petsc/dir && setphere arch-foo
+  setp $PWD ${1%/} # strip any trailing slash, so you can tab-complete
 }
 
 # LaMEM
