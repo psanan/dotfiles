@@ -24,8 +24,11 @@ do
 done
 
 # Lazygit uses a different default configuration directory on OS X
-if [ "$OSTYPE" = "darwin"* ]; then
-  lazygit_config_dir="$HOME/Library/Application Support/lazygit"
-  mkdir -p "$lazygit_config_dir"
-  $link "$root/config/lazygit/config.yml" "$lazygit_config_dir/config.yml"
-fi
+case $OSTYPE in
+  "darwin"*)
+    echo here
+    lazygit_config_dir="$HOME/Library/Application Support/lazygit"
+    mkdir -p "$lazygit_config_dir"
+    $link "$root/config/lazygit/config.yml" "$lazygit_config_dir/config.yml"
+    ;;
+esac
