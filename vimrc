@@ -139,6 +139,7 @@ function! TogglePaste()
     endif
 endfunction
 map <F7> :call TogglePaste()<CR>
+
 " Tagbar
 nnoremap <F8> :TagbarToggle<CR>
 
