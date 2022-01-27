@@ -166,12 +166,12 @@ nnoremap <S-TAB> gT
 
 " Notes (PDSHub ID 3)
 " Edit notes file for a given reference under the cursor
-nnoremap <Leader>n :edit ~/work/notes/notes/<cword>.md <CR>
+nnoremap <Leader>n :edit ~/notes/notes/<cword>.md <CR>
 
 " Open filename under cursor with "open" (OS X), not pausing
 nnoremap <Leader>go :!open <cWORD> <CR> <CR>
 
-" use "open" (OS X) to open a pdf corresponding to the filename,
+" use "open" (OS X) to open a PDF corresponding to the filename,
 " in a particular location. This is for use with my notes system.
 " The second <CR> means that you won't get to read error messages,
 " but also won't have to press enter again to return to the file in vim
