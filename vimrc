@@ -129,6 +129,16 @@ nnoremap <F5> :NERDTreeToggle<CR>
 
 " Yapf
 noremap <F6> :Yapf --style=google<CR>
+
+" Toggle paste mode
+function! TogglePaste()
+    if(&paste == 0)
+        set paste
+    else
+        set nopaste
+    endif
+endfunction
+map <F7> :call TogglePaste()<CR>
 " Tagbar
 nnoremap <F8> :TagbarToggle<CR>
 
@@ -176,17 +186,6 @@ nnoremap <Leader>b :tabedit ~/work/bib/pds.bib<CR>
 
 " Set to 4-space indentation
 nnoremap <Leader>f :call SetTab(4)<CR>
-
-" Toggle paste mode
-function! TogglePaste()
-    if(&paste == 0)
-        set paste
-    else
-        set nopaste
-    endif
-endfunction
-
-map <Leader>p :call TogglePaste()<CR>
 
 " LaTeX
 inoremap <c-\>c \begin{center}<CR>\end{center}<CR>
