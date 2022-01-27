@@ -19,6 +19,7 @@ Plug 'godlygeek/Tabular'
 Plug 'junegunn/fzf', { 'do': './install' }
 Plug 'junegunn/fzf.vim'
 Plug 'JuliaLang/julia-vim'
+Plug 'mindriot101/vim-yapf'
 call plug#end()
 
 " YouCompleteMe
@@ -126,6 +127,8 @@ noremap <Leader>g :FzfGGrep <c-r><c-w> <CR>
 " NERDTree
 nnoremap <F5> :NERDTreeToggle<CR>
 
+" Yapf
+noremap <F6> :Yapf --style=google<CR>
 " Tagbar
 nnoremap <F8> :TagbarToggle<CR>
 
