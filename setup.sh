@@ -8,6 +8,7 @@ for dot_file in \
   "bash_profile" \
   "bashrc" \
   "config/alacritty/alacritty.yml" \
+  "config/lazygit/config.yml" \
   "config/yapf/style" \
   "gdbinit" \
   "latexmkrc" \
@@ -22,10 +23,9 @@ do
   $link "$root/$dot_file" "$dest"
 done
 
+# Lazygit uses a different default configuration directory on OS X
 if [ "$OSTYPE" = "darwin"* ]; then
-  lazygit_target_dir="$HOME/Library/Application Support/jesseduffield/lazygit"
-else
-  lazygit_target_dir="$HOME/.config/jesseduffield/lazygit"
+  lazygit_config_dir="$HOME/Library/Application Support/lazygit"
+  mkdir -p "$lazygit_config_dir"
+  $link "$root/config/lazygit/config.yml" "$lazygit_config_dir/config.yml"
 fi
-mkdir -p "$lazygit_target_dir"
-$link "$root/config/jesseduffield/lazygit/config.yml" "$lazygit_target_dir/config.yml"
