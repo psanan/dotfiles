@@ -29,6 +29,7 @@ alias news="newsboat"
 alias plab="ipython --no-confirm-exit --matplotlib -i $HOME/code/petsc_python_helpers/ipython_setup.py"
 alias tunes="( mpd || (mpid --kill && mpd) ) && ncmpcpp"
 alias week="vim +$ ~/notes/goals/$(date +%Y).md"
+alias tweaks="vim ~/notes/tweaks.md"
 
 function pn {
   vim ~/work/projects/$1/README.md
