@@ -173,7 +173,7 @@ fi # Linux
 if [[ "$OSTYPE" == "darwin"* ]]; then
 
 # HAAAACK
-export MACOSX_DEPLOYMENT_TARGET=11.3
+export MACOSX_DEPLOYMENT_TARGET=12.2
 
 # Use "local prompt"
 PS1=$PS1_LOCAL
