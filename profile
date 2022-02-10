@@ -1,22 +1,21 @@
-# Reattach to or create a tmux session if not already running and not superuser
-if command -v tmux &> /dev/null && [ -z "$TMUX" ] && [ ${UID} != 0 ]
-  then
-    # Use being on OS X as a (poor) proxy for being on a local machine
-    if [[ "$OSTYPE" == "darwin"* ]]; then
-      tmux attach -t base || exec tmux new -s base && exit;
-    else
-      # Just print a hint, since a mistake might leave a remote machine unaccessible
-      printf "Consider reattaching to tmux! Run\n  a\n"
-    fi
+# Encourage to reattach to or create a tmux session if not already running and not superuser
+if command -v tmux &> /dev/null && [ -z "$TMUX" ] && [ ${UID} != 0 ]; then
+  printf "If not ssh-ing elsewhere, consider reattaching to tmux! Run\n  a\n"
 fi
 
-if [[ "$OSTYPE" == "darwin"* ]]; then
-  # Homebrew sbin
-  export PATH="/usr/local/sbin:$PATH"
+# Language (English for more searchable error messages)
+export LC_ALL=en_US.UTF-8
 
-  # Python from Homebrew
-  export PATH="/usr/local/opt/python/libexec/bin:$PATH"
-fi
+# Homebrew
+case $OSTYPE in
+  "darwin"*)
+    # Homebrew sbin
+    export PATH="/usr/local/sbin:$PATH"
+
+    # Python from Homebrew
+    export PATH="/usr/local/opt/python/libexec/bin:$PATH"
+    ;;
+esac
 
 # Julia
 # Download Julia from the web and symlink, e.g.
@@ -32,13 +31,15 @@ export PYTHONPATH=$PYTHONPATH:$HOME/code/petsc/lib/petsc/bin
 export PYTHONPATH=$PYTHONPATH:$HOME/code/petsc_python_helpers
 
 # Paraview
-if [[ "$OSTYPE" == "darwin"* ]]; then
-export PATH="/Applications/ParaView-5.9.0.app/Contents/MacOS:$PATH"
-export PATH="/Applications/ParaView-5.9.0.app/Contents/bin:$PATH"
-fi
-#if [[ "$OSTYPE" == "linux-gnu" ]]; then
-# # add path for Paraview executables here
-#fi
+case $OSTYPE in
+  "darwin"*)
+    export PATH="/Applications/ParaView-5.9.0.app/Contents/MacOS:$PATH"
+    export PATH="/Applications/ParaView-5.9.0.app/Contents/bin:$PATH"
+      ;;
+  "linux-gnu")
+    # add path for Paraview executables here
+    ;;
+esac
 
 # Python env helper
 export PATH="$HOME/code/req2env:$PATH"
