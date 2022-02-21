@@ -20,6 +20,7 @@ Plug 'junegunn/fzf', { 'do': './install' }
 Plug 'junegunn/fzf.vim'
 Plug 'JuliaLang/julia-vim'
 Plug 'mindriot101/vim-yapf'
+Plug 'kdheepak/JuliaFormatter.vim'
 call plug#end()
 
 " YouCompleteMe
@@ -42,6 +43,11 @@ command! -bang -nargs=* FzfGGrep
   \ call fzf#vim#grep(
   \   'git grep --line-number -- '.shellescape(<q-args>), 0,
   \   fzf#vim#with_preview({'dir': systemlist('git rev-parse --show-toplevel')[0]}), <bang>0)
+
+" JuliaFormatter.vim
+let g:JuliaFormatter_options = {
+        \ 'style' : 'blue',
+        \ }
 
 """ Behavior """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
