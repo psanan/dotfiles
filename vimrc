@@ -149,6 +149,9 @@ map <F7> :call TogglePaste()<CR>
 " Tagbar
 nnoremap <F8> :TagbarToggle<CR>
 
+" Julia format
+noremap <F10> :JuliaFormatterFormat<CR>
+
 " Unset the "last search pattern" register
 nnoremap <CR> :noh<CR><CR>
 
