@@ -1,8 +1,4 @@
-PSANAN_RC_ROOT=$HOME/util/rc
-source $PSANAN_RC_ROOT/bashrc
-################################################################################
-
-export LC_ALL="en_US.UTF-8"
+source $HOME/util/dotfiles/bashrc
 
 alias cds="cd $SCRATCH"
 alias q="squeue -u `whoami`"

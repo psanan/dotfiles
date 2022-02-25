@@ -1,6 +1,4 @@
-PSANAN_RC_ROOT=$HOME/util/rc
-source $PSANAN_RC_ROOT/bashrc
-################################################################################
+source $HOME/util/dotfiles/bashrc
 
 # https://scicomp.ethz.ch/wiki/Reopening_of_Euler_and_Leonhard_(May_2020)
 git config --global http.proxy http://proxy.ethz.ch:3128
