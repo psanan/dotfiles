@@ -31,9 +31,12 @@ let g:ycm_extra_conf_globlist = "~/util/dotfiles/ycm_extra_conf.py"
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_key_invoke_completion = '<C-b>'
 
+" NERDTree
+let NERDTreeShowHidden = 1
+
 " Airline
-let g:airline_theme='solarized'
-let g:airline_solarized_bg='light'
+let g:airline_theme = 'solarized'
+let g:airline_solarized_bg = 'light'
 
 " Fzf
 let g:fzf_command_prefix = 'Fzf'
@@ -83,9 +86,6 @@ set hlsearch
 " Change tab completion to be bash-like
 set wildmode=longest,list
 
-" Default tags to PETSc ctags
-set tags=$PETSC_DIR/CTAGS
-
 " Folding
 let fortran_fold=1
 let fortran_fold_conditionals=1
@@ -118,6 +118,7 @@ augroup BgHighlight
     autocmd WinEnter * set colorcolumn=81,101
     autocmd WinLeave * set colorcolumn=0
 augroup END
+
 
 """ Shortcuts """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -163,6 +164,9 @@ noremap <leader>p "0p
 
 " Kill all trailing whitespace (undo to leave highlighted)
 nnoremap <leader>w :%s/\s\+$//<CR>
+
+" Convert all tabs to 2 spaces
+nnoremap <leader>t :%s/\t/  /<CR>
 
 " Move between windows
 nnoremap <c-h> <c-w>h
