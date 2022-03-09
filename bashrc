@@ -51,11 +51,9 @@ function t {
 }
 
 function ssht {
-  port_remote=${2:-8888} # default for Jupyter
+  port_remote=${2:-8888}  # default for Jupyter
   port_local=$port_remote
-  port_remote_2=${3:-8889} # second default for Jupyter
-  port_local_2=$port_remote_2
-  ssh -L $port_remote:localhost:$port_local -L $port_remote_2:localhost:$port_local_2 $1
+  ssh -L $port_remote:localhost:$port_local $1
 }
 
 function last() {
