@@ -6,6 +6,9 @@ fi
 # Language (English for more searchable error messages)
 export LC_ALL=en_US.UTF-8
 
+# A common install location
+export PATH="$PATH:$HOME/.local/bin"
+
 # Homebrew
 case $OSTYPE in
   "darwin"*)
