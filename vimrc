@@ -209,7 +209,7 @@ inoremap <c-\>g \begin{center}<CR>\includegraphics[width=\textwidth]{images/xxx.
 inoremap <c-\>s \begin{minipage}{0.49\textwidth}<CR>\end{minipage}<CR>\begin{minipage}{0.49\textwidth}<CR>\end{minipage}
 
 " PETSc
-inoremap <c-\>ch CHKERRQ(ierr);
+inoremap <c-\>ch PetscCall();<ESC>hi
 inoremap <c-\>po PetscObjectComm((PetscObject)dm)
 inoremap <c-\>pe SETERRQ(PETSC_COMM_WORLD,PETSC_ERR_SUP,"Not Implemented!");
 inoremap <c-\>pp ierr = PetscPrintf(PETSC_COMM_WORLD,"xxx\n");CHKERRQ(ierr);
