@@ -166,7 +166,7 @@ noremap <leader>p "0p
 nnoremap <leader>w :%s/\s\+$//<CR>
 
 " Convert all tabs to 2 spaces
-nnoremap <leader>t :%s/\t/  /<CR>
+nnoremap <leader>t :%s/\t/  /g<CR>
 
 " Move between windows
 nnoremap <c-h> <c-w>h
