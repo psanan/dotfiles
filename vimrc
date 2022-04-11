@@ -214,3 +214,14 @@ inoremap <c-\>po PetscObjectComm((PetscObject)dm)
 inoremap <c-\>pe SETERRQ(PETSC_COMM_WORLD,PETSC_ERR_SUP,"Not Implemented!");
 inoremap <c-\>pp ierr = PetscPrintf(PETSC_COMM_WORLD,"xxx\n");CHKERRQ(ierr);
 inoremap <c-\>pf PetscErrorCode XXXX()<CR>{<CR>PetscErrorCode ierr;<CR><CR>PetscFunctionBegin;<CR>PetscFunctionReturn(0);<CR>}<CR>
+
+" Emoji for Todo lists
+
+" Check mark button = "done"
+inoremap <c-\>dd <c-v>U2705<ESC>
+
+" Cross mark = "wontdo"
+inoremap <c-\>xx <c-v>U274C<ESC>
+
+" Fire = "fire"
+inoremap <c-\>ff <c-v>U1F525<ESC>
