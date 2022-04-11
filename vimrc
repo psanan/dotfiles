@@ -38,6 +38,17 @@ let NERDTreeShowHidden = 1
 let g:airline_theme = 'solarized'
 let g:airline_solarized_bg = 'light'
 
+" Make unsaved marker more prominent
+" source: https://github.com/vim-airline/vim-airline/issues/544
+function! AirlineInit()
+  call airline#parts#define('modified', {
+    \ 'raw': '%m%m%m%m%m%m',
+    \ 'accent': 'red',
+    \ })
+  let g:airline_section_c = airline#section#create(['%<', '%f', 'modified', ' ', 'readonly'])
+endfunction
+autocmd VimEnter * call AirlineInit()
+
 " Fzf
 let g:fzf_command_prefix = 'Fzf'
 
