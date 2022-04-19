@@ -168,7 +168,7 @@ noremap <F10> :JuliaFormatterFormat<CR>
 nnoremap <CR> :noh<CR><CR>
 
 " Copy to system clipboard, if supported
-noremap <leader>y "*y
+noremap <leader>y "+y
 
 " Paste from last deliberate yank (no deleted text)
 noremap <leader>p "0p
