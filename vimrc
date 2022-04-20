@@ -15,12 +15,11 @@ Plug 'tpope/vim-fugitive'
 Plug 'majutsushi/tagbar'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'godlygeek/Tabular'
 Plug 'junegunn/fzf', { 'do': './install' }
 Plug 'junegunn/fzf.vim'
 Plug 'JuliaLang/julia-vim'
-Plug 'mindriot101/vim-yapf'
 Plug 'kdheepak/JuliaFormatter.vim'
+Plug 'mindriot101/vim-yapf'
 call plug#end()
 
 " YouCompleteMe
@@ -211,13 +210,6 @@ nnoremap <Leader>b :tabedit ~/work/bib/pds.bib<CR>
 
 " Set to 4-space indentation
 nnoremap <Leader>f :call SetTab(4)<CR>
-
-" LaTeX
-inoremap <c-\>c \begin{center}<CR>\end{center}<CR>
-inoremap <c-\>f \begin{frame}[fragile]<CR>\frametitle{}<CR>\end{frame}<CR>
-inoremap <c-\>i \begin{itemize}<CR>\item<CR>\end{itemize}<CR>
-inoremap <c-\>g \begin{center}<CR>\includegraphics[width=\textwidth]{images/xxx.png}<CR>\end{center}<CR>
-inoremap <c-\>s \begin{minipage}{0.49\textwidth}<CR>\end{minipage}<CR>\begin{minipage}{0.49\textwidth}<CR>\end{minipage}
 
 " PETSc
 inoremap <c-\>ch PetscCall();<ESC>hi
