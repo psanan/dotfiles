@@ -16,6 +16,7 @@ set +o histexpand                      # Turn off history expansion (allows "!")
 
 ### Aliases and helper functions ###############################################
 alias a="tmux attach -t base || exec tmux new -s base"
+alias iii="$HOME/code/ideatron/run.py -d $HOME/docs/ideatron_local"
 alias jn="jupyter notebook"
 alias ll="ls -l"
 alias mj="make -j8"
@@ -30,6 +31,12 @@ alias plab="ipython --no-confirm-exit --matplotlib -i $HOME/code/petsc_python_he
 alias tunes="mpd --kill; mpd && ncmpcpp"
 alias week="vim +$ ~/notes/goals/$(date +%Y).md"
 alias tweaks="vim ~/notes/tweaks.md"
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+  alias gsed="sed"
+  alias pbcopy="xsel -ib"
+  alias pbpaste="xsel --clipboard"
+  alias matlab="/usr/local/MATLAB/R2019a/bin/matlab"
+fi
 
 function pn {
   vim ~/work/projects/$1/README.md
@@ -105,7 +112,11 @@ PS1_BODY='\[\e[0;95m\]$(addsp "$PETSC_ARCH" "(" ")")\[\e[1;31m\]\W\[\e[0;36m\]$(
 PS1_HOST="\[\e[0;33m\]\H "
 PS1_LOCAL="$PS1_OPEN$PS1_BODY$PS1_CLOSE"
 PS1_REMOTE="$PS1_OPEN$PS1_HOST$PS1_BODY$PS1_CLOSE"
-PS1=$PS1_REMOTE
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  PS1=$PS1_LOCAL
+else
+  PS1=$PS1_REMOTE
+fi
 
 ### fzf ########################################################################
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
@@ -157,29 +168,7 @@ function lamemhelper {
 alias lamemtest='cd $LAMEM_DIR/input_models/BuildInSetups; ../../bin/opt/LaMEM -ParamFile FallingBlock_DirectSolver.dat'
 alias lamemtest2='cd $LAMEM_DIR/input_models/BuildInSetups; $PETSC_MPIEXEC -np 2 ../../bin/opt/LaMEM -ParamFile FallingBlock_DirectSolver.dat'
 
-### Linux-specific commands ####################################################
-if [[ "$OSTYPE" == "linux-gnu" ]]; then
-
-alias gsed="sed"
-
-# MATLAB
-alias matlab="/usr/local/MATLAB/R2019a/bin/matlab"
-
-fi # Linux
-
-### OS X-specific commands ####################################################
+################################################################################
 if [[ "$OSTYPE" == "darwin"* ]]; then
-
-# HAAAACK
-export MACOSX_DEPLOYMENT_TARGET=12.2
-
-# Use "local prompt"
-PS1=$PS1_LOCAL
-
-# Ideatron
-alias iii="$HOME/code/ideatron/run.py -d $HOME/docs/ideatron_local"
-
-# Helpers
-source $HOME/.helpers.sh
-
-fi # OS X
+  source $HOME/.helpers.sh
+fi
