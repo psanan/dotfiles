@@ -38,14 +38,31 @@ case $OSTYPE in
   "darwin"*)
     export PATH="/Applications/ParaView-5.9.0.app/Contents/MacOS:$PATH"
     export PATH="/Applications/ParaView-5.9.0.app/Contents/bin:$PATH"
-      ;;
+    ;;
   "linux-gnu")
-    # add path for Paraview executables here
+    export PATH="$HOME/ParaView-5.10.1-MPI-Linux-Python3.9-x86_64/bin:$PATH"
     ;;
 esac
 
-# Python env helper
+# MATLAB
+case $OSTYPE in
+  "linux-gnu"*)
+  export PATH="/usr/local/MATLAB/R2019a/bin:$PATH"
+  ;;
+esac
+
+# req2env
 export PATH="$HOME/code/req2env:$PATH"
 
 # Cargo (for Alacritty on Linux)
 export PATH="$HOME/.cargo/bin:$PATH"
+
+# Delta (Git diffs, for use with Lazygit)
+export PATH="$HOME/code/delta:$PATH"
+
+# Location for lazygit executable (Ubuntu package deprecated)
+case $OSTYPE in
+  "linux-gnu"*)
+    export PATH="$HOME/code/lazygit:$PATH"
+    ;;
+esac

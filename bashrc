@@ -35,7 +35,6 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
   alias gsed="sed"
   alias pbcopy="xsel -ib"
   alias pbpaste="xsel --clipboard"
-  alias matlab="/usr/local/MATLAB/R2019a/bin/matlab"
 fi
 
 function pn {
@@ -128,18 +127,6 @@ alias cdd='cd $PETSC_DIR/src/dm/impls/stag/tutorials'
 
 export CLEAN_MPICH=$HOME/code/petsc/arch-mpich-only/bin/mpiexec
 
-function whichp {
-                                echo -n 'PETSC_ARCH    = '; echo $PETSC_ARCH
-                                echo -n 'PETSC_DIR     = '; echo $PETSC_DIR
-                                echo -n 'PETSC_MPIEXEC = '; echo $PETSC_MPIEXEC
-  if [ -n "$SLEPC_DIR"  ]; then echo -n 'SLEPC_DIR     = '; echo $SLEPC_DIR;  fi
-  if [ -n "$PTATIN_DIR" ]; then echo -n 'PTATIN_DIR    = '; echo $PTATIN_DIR; fi
-  if [ -n "$LAMEM_DIR"  ]; then echo -n 'LAMEM_DIR     = '; echo $LAMEM_DIR;  fi
-  if [ -n "$PETSC_DEB"  ]; then echo -n 'PETSC_DEB     = '; echo $PETSC_DEB;  fi #for LaMEM
-  if [ -n "$PETSC_OPT"  ]; then echo -n 'PETSC_OPT     = '; echo $PETSC_OPT;  fi #for LaMEM
-}
-
-alias unsetp='unset PETSC_ARCH PETSC_DIR PETSC_MPIEXEC PETSC_DEB PETSC_OPT'
 alias confp='grep CONFIGURE_OPTIONS $PETSC_DIR/$PETSC_ARCH/lib/petsc/conf/petscvariables'
 
 function setp {
@@ -153,20 +140,13 @@ function setphere {
   setp $PWD ${1%/} # strip any trailing slash, so you can tab-complete
 }
 
-# LaMEM
-function lamemhelper {
-  # Usage: lamemhelper <archmod>
-  local ARCHMOD=${1:-maint}
-  export PETSC_DEB=$HOME/code/petsc-$ARCHMOD/arch-$ARCHMOD-extra-debug-install
-  export PETSC_OPT=$HOME/code/petsc-$ARCHMOD/arch-$ARCHMOD-extra-opt-install
-  export PETSC_DIR=$PETSC_OPT
-  export PETSC_MPIEXEC=$PETSC_OPT/bin/mpiexec
-  unset PETSC_ARCH
-  export LAMEM_DIR=$HOME/code/lamem-$ARCHMOD
-  whichp
+alias unsetp='unset PETSC_ARCH PETSC_DIR PETSC_MPIEXEC'
+
+function whichp {
+  printf 'PETSC_ARCH    = %s\n' '$PETSC_ARCH'
+  printf 'PETSC_DIR     = %s\n' '$PETSC_DIR'
+  printf 'PETSC_MPIEXEC = %s\n' '$PETSC_MPIEXEC'
 }
-alias lamemtest='cd $LAMEM_DIR/input_models/BuildInSetups; ../../bin/opt/LaMEM -ParamFile FallingBlock_DirectSolver.dat'
-alias lamemtest2='cd $LAMEM_DIR/input_models/BuildInSetups; $PETSC_MPIEXEC -np 2 ../../bin/opt/LaMEM -ParamFile FallingBlock_DirectSolver.dat'
 
 ################################################################################
 if [[ "$OSTYPE" == "darwin"* ]]; then
