@@ -22,7 +22,7 @@ esac
 
 # Julia
 # Download Julia from the web and symlink, e.g.
-#     ln -sf /Applications/Julia-1.6.app/Contents/Resources/julia $HOME/code/julia
+#     ln -sf /Applications/Julia-1.8.app/Contents/Resources/julia $HOME/code/julia
 export JULIA_DIR=$HOME/code/julia
 export PATH="$JULIA_DIR/bin:$PATH"
 
@@ -44,13 +44,6 @@ case $OSTYPE in
     ;;
 esac
 
-# MATLAB
-case $OSTYPE in
-  "linux-gnu"*)
-  export PATH="/usr/local/MATLAB/R2019a/bin:$PATH"
-  ;;
-esac
-
 # req2env
 export PATH="$HOME/code/req2env:$PATH"
 
@@ -65,4 +58,11 @@ case $OSTYPE in
   "linux-gnu"*)
     export PATH="$HOME/code/lazygit:$PATH"
     ;;
+esac
+
+# Music root
+case $OSTYPE in
+  "darwin"*)
+  export MROOT="/Volumes/Stiva/mzk/tunes/music"
+  ;;
 esac

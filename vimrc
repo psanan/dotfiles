@@ -8,21 +8,22 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 call plug#begin('~/.vim/plugged')
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clangd-completer' }
 Plug 'altercation/vim-colors-solarized'
-Plug 'scrooloose/nerdtree'
-Plug 'tpope/vim-fugitive'
-Plug 'majutsushi/tagbar'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'godlygeek/Tabular'
+Plug 'JuliaLang/julia-vim'
 Plug 'junegunn/fzf', { 'do': './install' }
 Plug 'junegunn/fzf.vim'
-Plug 'JuliaLang/julia-vim'
-Plug 'kdheepak/JuliaFormatter.vim'
+Plug 'majutsushi/tagbar'
 Plug 'mindriot101/vim-yapf'
+Plug 'nvie/vim-flake8'
+Plug 'scrooloose/nerdtree'
+Plug 'tpope/vim-fugitive'
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clangd-completer' }
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 
-" YouCompleteMe
+" Valloric/YouCompleteMe
 " Note: type g:ycm_key_invoke_completion to see top-level completions
 " Troubleshooting: Delete .vim/plugged/YouCompleteMe, :PlugInstall
 let g:ycm_global_ycm_extra_conf = "~/util/dotfiles/ycm_extra_conf.py"
@@ -30,10 +31,10 @@ let g:ycm_extra_conf_globlist = "~/util/dotfiles/ycm_extra_conf.py"
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_key_invoke_completion = '<C-b>'
 
-" NERDTree
+" scrooloose/nerdtree
 let NERDTreeShowHidden = 1
 
-" Airline
+" vim-airline/vim-airline
 let g:airline_theme = 'solarized'
 let g:airline_solarized_bg = 'light'
 
@@ -48,7 +49,7 @@ function! AirlineInit()
 endfunction
 autocmd VimEnter * call AirlineInit()
 
-" Fzf
+" junegunn/fzf.vim
 let g:fzf_command_prefix = 'Fzf'
 
 " :help fzf-vim-customization
@@ -57,10 +58,14 @@ command! -bang -nargs=* FzfGGrep
   \   'git grep --line-number -- '.shellescape(<q-args>), 0,
   \   fzf#vim#with_preview({'dir': systemlist('git rev-parse --show-toplevel')[0]}), <bang>0)
 
-" JuliaFormatter.vim
+" kdheepak/JuliaFormatter.vim
 let g:JuliaFormatter_options = {
         \ 'style' : 'blue',
         \ }
+
+" nvie/vim-flake8
+autocmd FileType python map <buffer> <F11> :call flake8#Flake8()<CR>
+
 
 """ Behavior """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -163,6 +168,8 @@ nnoremap <F8> :TagbarToggle<CR>
 " Julia format
 noremap <F10> :JuliaFormatterFormat<CR>
 
+" <F11> mapped to above by a non-standard approach suggested by nvie/vim-flake8
+
 " Unset the "last search pattern" register
 nnoremap <CR> :noh<CR><CR>
 
@@ -206,7 +213,7 @@ nnoremap <Leader>v :tabedit $MYVIMRC<CR>
 nnoremap <Leader>sv :source $MYVIMRC<CR>
 
 " BibTeX file (PDSHub ID 2)
-nnoremap <Leader>b :tabedit ~/work/bib/pds.bib<CR>
+nnoremap <Leader>b :tabedit ~/academic/bib/pds.bib<CR>
 
 " Set to 4-space indentation
 nnoremap <Leader>f :call SetTab(4)<CR>
@@ -226,5 +233,5 @@ inoremap <c-\>dd <c-v>U2705<ESC>
 " Cross mark = "wontdo"
 inoremap <c-\>xx <c-v>U274C<ESC>
 
-" Fire = "fire"
-inoremap <c-\>ff <c-v>U1F525<ESC>
+" Counterclocwise arrows = "progress but not done"
+inoremap <c-\>pp <c-v>U1F504<ESC>
