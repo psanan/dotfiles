@@ -38,10 +38,6 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
 fi
 alias wn="~/notes/lists/whatnext.py"
 
-function j {
-  vim $($HOME/notes/j_today.py)
-}
-
 function l {
   vim "$HOME/notes/lists/$1.md"
 }
@@ -166,5 +162,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 
 # Use "local prompt"
 PS1=$PS1_LOCAL
+
+source $HOME/.helpers.sh
 
 fi # OS X
