@@ -13,6 +13,7 @@ dotfiles_root=$HOME/util/dotfiles
 export CLICOLOR=1;
 export HISTCONTROL=ignoredups
 set +o histexpand                      # Turn off history expansion (allows "!")
+set -o vi
 
 ### Aliases and helper functions ###############################################
 alias a="tmux attach -t base || exec tmux new -s base"
@@ -22,23 +23,23 @@ alias ll="ls -l"
 alias mj="make -j8"
 alias sb="source $HOME/.bashrc"
 alias vimr="vim -R"
-alias cdn="cd $HOME/notes/notes"
+alias cdn="cd $HOME/notes/"
 alias cds="cd $HOME/Downloads"        # Scratch directory. Override on clusters.
-alias cdt="cd $HOME/notes/tech"
+alias cdw="cd $HOME/mzk/current_projects/prism/installation"
 alias dus="du -sh * | sort -h"
 alias news="newsboat"
 alias plab="ipython --no-confirm-exit --matplotlib -i $HOME/code/petsc_python_helpers/ipython_setup.py"
 alias tunes="mpd --kill; mpd && ncmpcpp"
 alias week="vim +$ ~/notes/goals/$(date +%Y).md"
-alias tweaks="vim ~/notes/tweaks.md"
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
   alias gsed="sed"
   alias pbcopy="xsel -ib"
   alias pbpaste="xsel --clipboard"
 fi
+alias wn="~/notes/lists/whatnext.py"
 
-function pn {
-  vim ~/work/projects/$1/README.md
+function l {
+  vim "$HOME/notes/lists/$1.md"
 }
 
 function t {
@@ -56,10 +57,18 @@ function t {
   vim $note_path
 }
 
-function ssht {
-  port_remote=${2:-8888}  # default for Jupyter
+function sshf {
+  target=${1:-pdsbox}
+  port_remote=${2:-8888}
   port_local=$port_remote
-  ssh -L $port_remote:localhost:$port_local $1
+  ssh -L $port_remote:localhost:$port_local $target
+}
+
+# It might also be convenient to define an ssh alias which
+# automatically starts or reattachs to a default-named tmux session
+function ssht {
+  target=${1:-pdsbox}
+  ssh $target
 }
 
 function last() {
@@ -150,5 +159,8 @@ function whichp {
 
 ################################################################################
 if [[ "$OSTYPE" == "darwin"* ]]; then
-  source $HOME/.helpers.sh
-fi
+
+# Use "local prompt"
+PS1=$PS1_LOCAL
+
+fi # OS X
