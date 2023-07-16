@@ -39,7 +39,7 @@ fi
 alias wn="~/notes/lists/whatnext.py"
 
 function l {
-  vim "$HOME/notes/lists/$1.md"
+  vim "$HOME/notes/lists/${1%.md}.md"
 }
 
 function t {

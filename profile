@@ -63,6 +63,6 @@ esac
 # Music root
 case $OSTYPE in
   "darwin"*)
-  export MROOT="/Volumes/Stiva/mzk/tunes/music"
+  export MROOT="/Volumes/Stiva/media/music"
   ;;
 esac
